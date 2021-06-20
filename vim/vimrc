@@ -1,0 +1,125 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set encoding=utf-8
+let python_highlight_all=1
+syntax on
+set nu
+set backspace=2
+
+
+" Enable mouse support in all modes
+set mouse=a
+
+" w!! will allow calling sudo after a file
+" has been opened to save with root access
+cmap w!! w !sudo tee > /dev/null %
+
+" Disable arrow keys in normal mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Disable arrow keys in insert mode
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+"Vundle Plugins
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+" Plugin 'nvie/vim-flake8'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'tpope/vim-fugitive'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+"
+"Key Mappings
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+
+"Other Settings
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+"Enable PEP8 indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix
+
+"use pydoc instead of man for .py files
+au BufRead,BufNewFile *.py nnoremap K :<C-u>execute "!pydoc " . expand("<cword>")<CR> 
+
+execute "set colorcolumn=" . join(range(81,335), ',')
+
+
+
+"Highlight bad whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+
+"Enable mysql highlighting on .sql files
+au BufRead,BufNewFile *.sql set filetype=mysql
+
+
+"Email editing settings
+au BufRead /tmp/mutt-* set tw=70
+au BufRead /tmp/mutt-* set spell
+
+"Disable tab expansion for makefiles
+au BufRead Makefile set noexpandtab
+
+
+"Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Disabled these two for now. I may put them
+" back later, but I want to verify how to disable
+" my 'no-go' zone highlighting in the list buffer
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_c_checkers = ['gcc', 'splint']
+let g:syntastic_python_checkers = ['python', 'flake8']
