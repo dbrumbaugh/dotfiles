@@ -1,0 +1,55 @@
+#!/usr/bin/ksh93
+
+export EDITOR="nvim"
+export VISUAL=$EDITOR
+export HISTFILE="$HOME/.ksh_history"
+
+#export PWDA="$(if [[ $PWD = $HOME ]] then; print "~"; else; print ${PWD##*/}; fi;)"
+export HOST=`hostname -a`
+
+
+pwda() {
+    if [[ $PWD = $HOME ]] then; 
+        print "~";
+    elif [[ $PWD == "/" ]] then;
+        print "/";
+    else; 
+        print ${PWD##*/}; 
+    fi;
+}
+
+PS1=$'\E[;1;37m$LOGNAME\E[;37m@\E[;1;37m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m\E[;1;31m# '
+
+set -o emacs
+set -o ignoreeof
+set -o markdirs
+set -o nounset
+
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+alias qemu=qemu-system-x86_64
+alias cls=clear
+
