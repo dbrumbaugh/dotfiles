@@ -16,12 +16,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# if running the korn shell
-if [ -n "$KSH_VERSION" ]; then
-    if [-f "$HOME/.config/ksh/kshrc" ]; then
-        export ENV="$HOME/.config/ksh/kshrc"
-    fi
-fi
+export ENV="$HOME/.config/ksh/kshrc"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
