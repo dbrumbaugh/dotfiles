@@ -2,8 +2,6 @@ export EDITOR="nvim"
 export VISUAL=$EDITOR
 export HISTFILE="$HOME/.ksh_history"
 
-export HOST=`hostname -a`
-
 # Man page colors
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
 export LESS_TERMCAP_md=$'\E[1;35m'     # begin bold
