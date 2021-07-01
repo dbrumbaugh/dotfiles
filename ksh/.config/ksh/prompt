@@ -14,4 +14,9 @@ gbranch() {
     fi
 }
 
-PS1=$'\E[1;32m$LOGNAME\E[1;33m@\E[1;32m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m$(gbranch)\E[;1;31]\E[0m$ '
+# Add in a title (seems to need to be between ^[ and ^G)
+PS1=$']0;${LOGNAME}@${HOST}: $(pwda)'
+PS1=${PS1}$'\E[1;32m$LOGNAME\E[1;33m@\E[1;32m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m$(gbranch)\E[;1;31]\E[0m$ '
+
+
+
