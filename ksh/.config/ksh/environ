@@ -7,7 +7,11 @@ else;
 fi
 
 export VISUAL=$EDITOR
-export HISTFILE="$HOME/.ksh_history"
+export FCEDIT=$EDITOR
+
+export TTY=$(tty)
+export HISTFILE="$HOME/.ksh_history_${TTY##*/}"
 
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
+
