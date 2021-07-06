@@ -19,3 +19,15 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 
+" coc-git configuration
+"let g:coc_git_status = 1
+"let b:coc_git_status = 1
+"let b:coc_get_blame = 1
+
+function! s:update_git_status()
+  let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+endfunction
+
+let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+
+autocmd User CocGitStatusChange call s:update_git_status()
