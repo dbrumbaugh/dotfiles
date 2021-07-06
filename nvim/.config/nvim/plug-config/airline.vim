@@ -20,14 +20,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 set noshowmode
 
 " coc-git configuration
-"let g:coc_git_status = 1
-"let b:coc_git_status = 1
-"let b:coc_get_blame = 1
 
 function! s:update_git_status()
-  let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+"  let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+  let g:airline_section_b = "%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}"
 endfunction
 
-let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+let g:airline_section_b = "%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}"
 
 autocmd User CocGitStatusChange call s:update_git_status()
