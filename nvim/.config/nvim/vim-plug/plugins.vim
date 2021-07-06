@@ -17,9 +17,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
 
-    " Onedark (theme example)
-    " Plug 'joshdick/onedark.vim'
-
+    " gruvbox theme
     Plug 'morhetz/gruvbox'
 
     " Stable version of coc
@@ -27,8 +25,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Airline (status line)
     Plug 'vim-airline/vim-airline'
-"    Plug 'vim-airline/vim-airline-themes'
-"
-    Plug 'lervag/vimtex'
 
 call plug#end()
