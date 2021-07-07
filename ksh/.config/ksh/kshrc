@@ -8,6 +8,3 @@ set -o emacs
 set -o ignoreeof
 set -o markdirs
 set -o nounset
-
-
-
