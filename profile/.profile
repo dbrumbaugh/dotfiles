@@ -24,6 +24,12 @@ fi
 if [[ -n "$KSH_VERSION" ]]; then
     export SH_CONF_DIR="$HOME/.config/ksh"
     export ENV="$SH_CONF_DIR/kshrc"
+
+    if [[ $KSH_VERSION == *PD* ]]; then
+        export PDKSH=1
+    else
+        export PDKSH=0
+    fi
 fi
 
 # set PATH so it includes user's private bin if it exists
