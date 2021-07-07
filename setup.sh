@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo apt-get install audacity simplescreenrecorder slack-desktop abiword gnumeric texlive-base nodejs npm neovim ksh kitty devhelp build-essential gdb cppreference-doc-en-html python3 python3-pip python3-doc python3-numpy lua-doc lua5.3 groff pavucontrol guake wget stow
+sudo apt-get install audacity simplescreenrecorder slack-desktop abiword gnumeric texlive-base nodejs npm neovim ksh kitty devhelp build-essential gdb cppreference-doc-en-html python3 python3-pip python3-doc python3-numpy lua-doc lua5.3 groff pavucontrol guake wget stow linux-tools-common linux-tools-generic
 
 flatpak install spotify dejadup boxes
 
