@@ -20,15 +20,17 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 
-export SH_CONF_DIR="$HOME/.config/ksh"
-export ENV="$SH_CONF_DIR/kshrc"
+# if running ksh
+if [[ -n "$KSH_VERSION" ]]; then
+    export SH_CONF_DIR="$HOME/.config/ksh"
+    export ENV="$SH_CONF_DIR/kshrc"
+fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
