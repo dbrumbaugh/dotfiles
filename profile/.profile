@@ -9,27 +9,13 @@
 #umask 022
 
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+export SH_CONF_DIR="$HOME/.config/ksh"
+export ENV="$SH_CONF_DIR/kshrc"
 
-    export SH_CONF_DIR="$HOME/.config/bash"
-fi
-
-
-# if running ksh
-if [[ -n "$KSH_VERSION" ]]; then
-    export SH_CONF_DIR="$HOME/.config/ksh"
-    export ENV="$SH_CONF_DIR/kshrc"
-
-    if [[ $KSH_VERSION == *PD* ]]; then
-        export PDKSH=1
-    else
-        export PDKSH=0
-    fi
+if [[ $KSH_VERSION == *PD* ]]; then
+    export PDKSH=1
+else
+    export PDKSH=0
 fi
 
 # set PATH so it includes user's private bin if it exists
