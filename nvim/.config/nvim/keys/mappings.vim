@@ -49,3 +49,5 @@ inoremap <Right> <Nop>
 " code snippets
 nnoremap ,py :-1read $HOME/.config/nvim/snippet/python<CR>jA
 
+" Toggle relative numbers w/ C-n (say, for doing an ex command easily)
+noremap  <C-N> :set invrelativenumber<CR>
