@@ -1,48 +1,59 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": [
+      "diagnostic.virtualText": true
+    , "diagnostic.virtualTextCurrentLineOnly": false
+    , "diagnostic.errorSign": ""
+    , "diagnostic.infoSign": ""
+    , "diagnostic.warningSign":""
+
+    , "coc.preferences.formatOnSaveFiletypes": [
           "css"
         , "markdown"
         , "javascript"
         , "graphql"
         , "html"
         , "yaml"
-    ],
-    "git.untrackedDecorator":"",
-    "git.addGBlameToBufferVar":true,
-    "git.changedDecorator":"",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "python.jediEnabled": false,
-    "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "~/.config/nvim/utils/snips"
-    ],
-    "explorer.width": 30,
-    "explorer.icon.enableNerdfont": false,
-    "explorer.previewAction.onHover": false,
-    "explorer.keyMappings.global": {
+    ]
+
+    , "git.untrackedDecorator":""
+    , "git.addGBlameToBufferVar":true
+    , "git.changedDecorator":""
+
+    , "python.linting.enabled": true
+    , "python.linting.pylintEnabled": true
+    , "python.jediEnabled": false
+
+    , "snippets.ultisnips.directories": [
+          "UltiSnips"
+        , "~/.config/nvim/utils/snips"
+    ]
+
+    , "explorer.width": 30
+    , "explorer.icon.enableNerdfont": false
+    , "explorer.previewAction.onHover": false
+    , "explorer.keyMappings.global": {
         "<cr>": [
-            "expandable?",
-            "expand",
-            "open"
+              "expandable?"
+            , "expand"
+            , "open"
         ],
         "v": "open:vsplit"
-    },
-    "languageserver": {
+    }
+
+    , "languageserver": {
         "ccls": {
             "command": "ccls",
             "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
+                  "c"
+                , "cpp"
+                , "objc"
+                , "objcpp"
             ],
             "rootPatterns": [
-                ".ccls",
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
+                  ".ccls"
+                , "compile_commands.json"
+                , ".vim/"
+                , ".git/"
+                , ".hg/"
             ],
             "initializationOptions": {
                 "cache": {
