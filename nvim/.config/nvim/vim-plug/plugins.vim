@@ -26,4 +26,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Airline (status line)
     Plug 'vim-airline/vim-airline'
 
-call plug#end()
+    " whitespace highlighting/removal
+    Plug 'ntpeters/vim-better-whitespace'
+    call plug#end()
