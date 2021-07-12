@@ -24,7 +24,7 @@ gbranch() {
 }
 
 # Add in a title (seems to need to be between ^[ and ^G)
-PS1=']0;${LOGNAME}@${HOST}: ${PWD##*/}'
+PS1=']0;${LOGNAME}@${HOST} [${TTY}]'
 
 
 # If logged in as root, then the prompt is in red and has a #,
