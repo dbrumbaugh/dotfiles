@@ -10,6 +10,7 @@
 
 
 export SH_CONF_DIR="$HOME/.config/ksh"
+export FPATH="$SH_CONF_DIR/funcs"
 export ENV="$SH_CONF_DIR/kshrc"
 
 if [[ $KSH_VERSION == *PD* ]]; then
@@ -28,5 +29,3 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export HOST=`hostname -s`
-
-

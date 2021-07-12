@@ -1,0 +1,18 @@
+function savehist {
+    if [[ $# > 1 ]]; then
+        HFIL="$1"
+    else
+        HFIL="$HISTFILE"
+    fi
+
+    if [[ $# > 2 ]]; then
+        HMAST="$2"
+    else
+        HMAST="$HISTMASTER"
+    fi
+
+    cat $HFIL >> $HMAST
+
+    cat "$HMAST" | tr -cd '\11\12\15\40-\176' | sort | uniq > "$HMAST.new"
+    mv "$HMAST.new" "$HMAST"
+}

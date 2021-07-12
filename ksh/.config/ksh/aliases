@@ -16,3 +16,5 @@ elif !command -v vim > 2/dev/null >&1; then
 fi
 
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+alias quit="savehist; rm $HISTFILE; exit"

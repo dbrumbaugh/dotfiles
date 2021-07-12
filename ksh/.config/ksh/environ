@@ -11,7 +11,7 @@ export FCEDIT=$EDITOR
 
 export TTY=$(tty)
 export HISTFILE="$HOME/.ksh_history_${TTY##*/}"
+export HISTMASTER="$HOME/.ksh_history"
 
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
-
