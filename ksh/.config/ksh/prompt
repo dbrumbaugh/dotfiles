@@ -4,16 +4,16 @@ pwda() {
     elif [[ $PWD == "/" ]]; then
         print "/";
     else
-        print ${PWD##*/}; 
+        print ${PWD##*/};
     fi;
 }
 
 
 stat() {
     if [[ $? == 0 ]]; then
-        print "\E[;1;92m[${?}] "
+        print "\E[;1;92m[!] "
     else
-        print "\E[;1;91m[${?}] "
+        print "\E[;1;91m[!] "
     fi
 }
 
