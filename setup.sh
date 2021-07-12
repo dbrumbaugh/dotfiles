@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo apt-get install audacity simplescreenrecorder slack-desktop abiword gnumeric texlive-base nodejs npm neovim ksh kitty devhelp build-essential gdb cppreference-doc-en-html python3 python3-pip python3-doc python3-numpy lua-doc lua5.3 groff pavucontrol guake wget stow linux-tools-common linux-tools-generic
+sudo apt-get install audacity simplescreenrecorder slack-desktop abiword gnumeric texlive-base nodejs npm neovim ksh kitty devhelp build-essential gdb cppreference-doc-en-html python3 python3-pip python3-doc python3-numpy lua-doc lua5.3 groff pavucontrol guake wget stow linux-tools-common linux-tools-generic ripgrep fzf
 
 flatpak install spotify dejadup boxes
 
@@ -39,7 +39,3 @@ wget https://github.com/Avi-D-coder/FiraCode-italic/raw/master/FiraCode-RegularI
 sudo update-alternatives --config x-terminal-emulator
 cat /etc/shells
 chsh
-
-
-
-
