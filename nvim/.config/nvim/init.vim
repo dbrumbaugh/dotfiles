@@ -7,3 +7,4 @@ source $HOME/.config/nvim/plug-config/betterws.vim
 source $HOME/.config/nvim/themes/gruvbox.vim
 
 source $HOME/.config/nvim/plug-config/airline.vim
+source $HOME/.config/nvim/plug-config/fzf.vim

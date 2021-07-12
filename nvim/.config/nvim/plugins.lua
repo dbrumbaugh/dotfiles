@@ -23,4 +23,12 @@ return require('packer').startup(function(use)
 
     -- whitespace highlighting/removal
     use 'ntpeters/vim-better-whitespace'
+
+    -- fzf
+    use 'junegunn/fzf'
+    use 'junegunn/fzf.vim'
+
+    -- ensure that vim's wd is the project root
+    use 'airblade/vim-rooter'
+
 end)
