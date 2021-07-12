@@ -18,3 +18,4 @@ fi
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 alias quit="savehist; rm $HISTFILE; exit"
+alias ls="colorls"
