@@ -1,45 +1,45 @@
 # Main Colors
-unrecognized_file: gold
-recognized_file:   yellow
-executable_file:   lime
-dir:               dodgerblue
+unrecognized_file: "#EEEEEC"
+recognized_file:   "#EEEEEC"
+executable_file:   "#4E9A06"
+dir:               "#3465A4"
 
 # Link
-dead_link: red
-link:      cyan
+dead_link: "#CC0000"
+link:      "#06989A"
 
 # special files
-socket:    green
-blockdev:  green
-chardev:   green
+socket:    "#4E9A06"
+blockdev:  "#4E9A06"
+chardev:   "#4E9A06"
 
 # Access Modes
-write:     darkkhaki
-read:      limegreen
-exec:      red
-no_access: indianred
+write:     "#4E9A06"
+read:      "#C4A000"
+exec:      "#F15D22"
+no_access: "#CC0000"
 
 # Age
-day_old:     mediumspringgreen
-hour_old:    lime
-no_modifier: seagreen
+day_old:     "#73C48F"
+hour_old:    "#73C48F"
+no_modifier: "#73C48F"
 
 # File Size
-file_large:  orange
-file_medium: gold
-file_small:  peachpuff
+file_large:  "#F15D22"
+file_medium: "#C4A000"
+file_small:  "#FFCE51"
 
 # Random
-report: white
-user:   moccasin
-tree:   cyan
-empty:  yellow
-error:  red
-normal: darkkhaki
+report: "#EEEEEC"
+user:   "#D3D7CF"
+tree:   "#06989A"
+empty:  "#34E2E2"
+error:  "#CC0000"
+normal: "#D3D7CF"
 
 # Git
-addition:     chartreuse
-modification: darkkhaki
-deletion:     darkred
-untracked:    darkorange
-unchanged:    forestgreen
+addition:     "#06989A"
+modification: "#FFCE51"
+deletion:     "#CC0000"
+untracked:    "#F15D22"
+unchanged:    "#4E9A06"
