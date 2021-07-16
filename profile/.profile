@@ -4,7 +4,7 @@
 
 export SH_CONF_DIR="$HOME/.config/ksh"
 export FPATH="$SH_CONF_DIR/funcs"
-export ENV="$SH_CONF_DIR/kshrc"
+export ENV="$SH_CONF_DIR/kshrc.ksh"
 
 if [[ $KSH_VERSION == *PD* ]]; then
     export PDKSH=1
