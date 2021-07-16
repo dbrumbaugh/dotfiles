@@ -19,7 +19,11 @@ stat() {
 
 gbranch() {
     if git rev-parse > /dev/null 2>&1; then
-        print " ( $(git branch 2> /dev/null | grep '^*' | colrm 1 2))"
+        branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
+        if [[ ! $branch ]]; then
+            branch="<empty>"
+        fi
+        print " ( $branch)"
     fi
 }
 
