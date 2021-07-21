@@ -22,3 +22,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export HOST=`hostname -s`
+. "$HOME/.cargo/env"

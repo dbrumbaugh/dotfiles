@@ -124,3 +124,4 @@ fi
 alias qemu=qemu-system-x86_64
 alias cls=clear
 
+. "$HOME/.cargo/env"
