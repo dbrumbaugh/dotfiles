@@ -10,8 +10,9 @@ export VISUAL=$EDITOR
 export FCEDIT=$EDITOR
 
 export TTY=$(tty)
-export HISTFILE="$HOME/.ksh_history_${TTY##*/}"
-export HISTMASTER="$HOME/.ksh_history"
+export HISTDIR="$HOME/.ksh_history"
+export HISTFILE="$HISTDIR/.history_${TTY##*/}"
+export HISTMASTER="$HISTDIR/.history"
 
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
