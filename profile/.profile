@@ -12,14 +12,24 @@ else
     export PDKSH=0
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+# include user bin folder on PATH
+if [[ -d "$HOME/bin" ]] && ![[ ":$PATH:" != *":$HOME/bin"* ]]; then
+    PATH="$PATH:$HOME/bin"
 fi
 
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    PATH="$PATH:$HOME/.local/bin"
 fi
 
+# include user's go bin folder on PATH
+if [[ -d "$HOME/go/bin" ]] && [[ ":$PATH:" != *":$HOME/go/bin:"* ]]; then
+    PATH="$PATH:$HOME/go/bin"
+fi
+
+# if rustup/cargo is installed, source the env file
+if [[ -r "$HOME/.cargo/env" ]];  then
+    . "$HOME/.cargo/env"
+fi
+
+#export PATH
 export HOST=`hostname -s`
-. "$HOME/.cargo/env"
