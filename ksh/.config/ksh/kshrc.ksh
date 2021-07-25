@@ -8,3 +8,5 @@ set -o emacs
 set -o ignoreeof
 set -o markdirs
 set -o nounset
+
+trap 'pc=${.sh.command}' DEBUG
