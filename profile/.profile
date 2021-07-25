@@ -6,20 +6,32 @@ export SH_CONF_DIR="$HOME/.config/ksh"
 export FPATH="$SH_CONF_DIR/funcs"
 export ENV="$SH_CONF_DIR/kshrc.ksh"
 
+# Determine if the login shell is PDKSH or KSH93. This is used for
+# configuring the prompt, among other things. Mostly here so I can use
+# the same config on my computers and my OpenBSD servers.
 if [[ $KSH_VERSION == *PD* ]]; then
     export PDKSH=1
 else
     export PDKSH=0
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+# include user bin folder on PATH
+if [[ -d "$HOME/bin" ]] && ![[ ":$PATH:" != *":$HOME/bin"* ]]; then
+    PATH="$PATH:$HOME/bin"
 fi
 
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    PATH="$PATH:$HOME/.local/bin"
+fi
+
+# include user's go bin folder on PATH
+if [[ -d "$HOME/go/bin" ]] && [[ ":$PATH:" != *":$HOME/go/bin:"* ]]; then
+    PATH="$PATH:$HOME/go/bin"
+fi
+
+# if rustup/cargo is installed, source the env file
+if [[ -r "$HOME/.cargo/env" ]];  then
+    . "$HOME/.cargo/env"
 fi
 
 export HOST=`hostname -s`
-. "$HOME/.cargo/env"
