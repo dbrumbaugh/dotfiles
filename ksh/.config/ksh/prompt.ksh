@@ -9,9 +9,20 @@ pwda() {
 }
 
 
+search_repo() {
+    cmd=$(fc -l -N 1 -n | tail -1 | awk '{print $1}')
+    print "$(/usr/lib/command-not-found $cmd)"
+}
+
+
 stat() {
-    if [[ $? == 0 ]]; then
+    cc=$?
+
+    if [[ $cc == 0 ]]; then
         print "\E[;1;92m[!] "
+    elif [[ $cc == 127 ]]; then
+        print $(search_repo)
+        print "\E[;1;91m[!] "
     else
         print "\E[;1;91m[!] "
     fi
