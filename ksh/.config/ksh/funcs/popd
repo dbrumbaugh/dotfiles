@@ -1,0 +1,13 @@
+# ksh implementation of popd, taken from
+# https://stackoverflow.com/a/57021646/7622609
+
+function popd
+{
+   sd=${#dir_stack[*]}
+   if [ $sd -gt 0 ] ; then
+      cd ${dir_stack[sd]}
+      unset dir_stack[sd]
+   else
+      cd ~
+   fi
+}

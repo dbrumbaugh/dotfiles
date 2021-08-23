@@ -1,0 +1,15 @@
+# ksh implementation of dirs, taken from
+# https://stackoverflow.com/a/57021646/7622609
+
+function dirs
+{
+   echo "0: $PWD"
+   sd=${#dir_stack[*]}
+   (( ind = 1 ))
+   while [ $sd -gt 0 ]
+   do
+      echo "$ind: ${dir_stack[sd]}"
+      (( sd = sd - 1 ))
+      (( ind = ind + 1 ))
+   done
+}

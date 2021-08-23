@@ -16,3 +16,8 @@ export HISTMASTER="$HISTDIR/.history"
 
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
+
+
+# Used for the pushd/popd/dirs functions
+unset dir_stack
+export dir_stack
