@@ -20,3 +20,6 @@ alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias quit="savehist; rm $HISTFILE; exit"
 alias exa="exa --icons --git"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+# for easier debugging
+alias gdb="CK_FORK=no gdb"
