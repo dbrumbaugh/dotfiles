@@ -32,6 +32,14 @@ gbranch() {
     fi
 }
 
+conda_env() {
+    if [[ -z ${CONDA_DEFAULT_ENV+x} ]]; then
+        : #pass
+    else
+        print "( $CONDA_DEFAULT_ENV) "
+    fi
+}
+
 # Add in a title (seems to need to be between ^[ and ^G)
 PS1=']0;${LOGNAME}@${HOST} [${TTY}]'
 
@@ -46,7 +54,7 @@ if [[ $LOGNAME == "root" ]]; then
     fi
 else
     if [[ $PDKSH == 0 ]]; then
-       PS1=${PS1}$'$(stat)\E[1;32m$LOGNAME\E[1;33m@\E[1;32m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m$(gbranch)\E[;1;31]\E[0m$ '
+        PS1=${PS1}$'$(stat)\E[1;36m$(conda_env)\E[1;32m$LOGNAME\E[1;33m@\E[1;32m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m$(gbranch)\E[;1;31]\E[0m$ '
     else
         PS1=${PS1}'\033[1;32m$LOGNAME\033[1;33m@\033[1;32m${HOST}\033[0m:\033[;1;34m$(pwda)\033[;1;35m$(gbranch)\033[;1;31]\033[0m$ '
     fi

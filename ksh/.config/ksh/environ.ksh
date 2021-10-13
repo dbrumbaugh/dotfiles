@@ -21,3 +21,7 @@ export MANPAGER='less -s -M +Gg'
 # Used for the pushd/popd/dirs functions
 unset dir_stack
 export dir_stack
+
+# Anaconda configuration variables
+export CONDA_AUTO_ACTIVATE_BASE="false"
+export CONDA_CHANGEPS1="false"
