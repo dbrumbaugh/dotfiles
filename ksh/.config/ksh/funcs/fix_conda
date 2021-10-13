@@ -1,0 +1,26 @@
+# The conda.sh script is not KSH Compliant, and so it requires a few
+# modifications before Anaconda can work. As these modifications break with
+# each update, this function will reapply them to the new version of the script
+function fix_conda
+{
+    if [[ ! -z "${CONDA_DIR+x}" && -d "$CONDA_DIR" ]]; then
+       sed -i 's/local /typeset /;
+       /pass/a elif [ -n "${KSH_VERSION:+x}" ]; then\n : #pass' \
+       $CONDA_DIR/etc/profile.d/conda.sh
+
+       for dir in $CONDA_DIR/lib/python*/site-packages/conda/shell/etc/profile.d; do
+          cp $CONDA_DIR/etc/profile.d/conda.sh $dir
+       done
+
+       for dir in $CONDA_DIR/pkgs/conda*/etc/profile.d; do
+          cp $CONDA_DIR/etc/profile.d/conda.sh $dir
+       done
+
+       for dir in $CONDA_DIR/pkgs/conda*/lib/python*/site-packages/conda/shell/etc/profile.d; do
+          cp $CONDA_DIR/etc/profile.d/conda.sh $dir
+       done
+
+    else
+        print "Anaconda not installed, or CONDA_DIR variable set incorrectly."
+    fi
+}
