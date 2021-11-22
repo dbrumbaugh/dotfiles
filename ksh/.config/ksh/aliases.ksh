@@ -23,3 +23,5 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {
 
 # for easier debugging
 alias gdb="CK_FORK=no gdb"
+
+alias startx="startx $XINITRC"
