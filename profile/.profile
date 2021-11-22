@@ -34,4 +34,4 @@ if [[ -r "$HOME/.cargo/env" ]];  then
     . "$HOME/.cargo/env"
 fi
 
-export HOST=`hostname -s`
+export HOST=$(cat /etc/hostname)
