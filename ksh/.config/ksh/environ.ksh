@@ -17,6 +17,9 @@ export HISTMASTER="$HISTDIR/history"
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
 
+# XDG Stuff
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 # Used for the pushd/popd/dirs functions
 unset dir_stack

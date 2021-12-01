@@ -1,0 +1,10 @@
+set folder = "~/.mail/university"
+set mbox_type = Maildir
+set spoolfile = +Inbox
+set record = +Sent
+set postponed = +Drafts
+set from = "drumbaugh@psu.edu"
+set my_smtp_pass = `pass show email/psu`
+set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
+
+set signature = "~/.config/mutt/sigs/psu.signature"
