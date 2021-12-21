@@ -1,0 +1,29 @@
+
+
+set header_cache = ~/cache/mutt
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+set date_format = "%y/%m/%d %I:%M%p"
+set mailcap_path = "~/.config/mutt/mailcap"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+set editor = "nvim +':set textwidth=0'"
+
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor <Tab> complete-query
+
+bind index N search-opposite
+
+set realname = "Douglas B. Rumbaugh"
+set use_from = yes
+
+macro index <f2> '<change-folder>~/.mail/personal/Inbox<enter>'
+macro index <f3> '<change-folder>~/.mail/university/Inbox<enter>'
+
+folder-hook '~/.mail/personal/Inbox' 'source ~/.config/mutt/personal'
+folder-hook '~/.mail/university/Inbox' 'source ~/.config/mutt/psu'
+source '~/.config/mutt/personal'

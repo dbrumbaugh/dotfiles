@@ -1,0 +1,10 @@
+set folder = "~/.mail/personal"
+set mbox_type = Maildir
+set spoolfile = +Inbox
+set record = +Sent
+set postponed = +Drafts
+set from = "doug@douglasrumbaugh.com"
+set my_smtp_pass = `pass show email/personal`
+set smtp_url = "smtps://doug@douglasrumbaugh.com:$my_smtp_pass@smtp.fastmail.com:465"
+
+set signature = "~/.config/mutt/sigs/personal.signature"

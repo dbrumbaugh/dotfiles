@@ -25,3 +25,7 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {
 alias gdb="CK_FORK=no gdb"
 
 alias startx="startx $XINITRC"
+
+# for email access (using custom configuration files)
+alias mbsync="mbsync -c \"$XDG_CONFIG_HOME/isync/mbsyncrc\""
+alias davmail="davmail \"$XDG_CONFIG_HOME/davmail/davmail.properties\""

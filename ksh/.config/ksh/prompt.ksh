@@ -18,7 +18,7 @@ stat() {
         print "$(cnf ${pc%% *})"
         print "\E[;1;91m[!] "
     else
-        print "\E[;1;91m[!] "
+        print "\E[;1;91m$cc->[!] "
     fi
 }
 
