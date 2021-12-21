@@ -48,11 +48,11 @@ fi
 # Set up NVM (node version manager) if applicable
 if [[ -d $USER_LOCAL/src/nvm ]]; then
     export NVM_DIR="$USER_LOCAL/src/nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    test -s "$NVM_DIR/nvm.sh" && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
 # Set up CARGO if applicable
-if [[ -d $USER_LOCAL/cargo ]];
+if [[ -d $USER_LOCAL/cargo ]]; then
     export CARGO_HOME="$USER_LOCAL/cargo"
     . "$CARGO_HOME/env"
 fi
