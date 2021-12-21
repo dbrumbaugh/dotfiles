@@ -15,7 +15,7 @@ stat() {
     if [[ $cc == 0 ]]; then
         print "\E[;1;92m[!] "
     elif [[ $cc == 127 ]]; then
-        print "$(/usr/lib/command-not-found ${pc%% *})"
+        print "$(cnf ${pc%% *})"
         print "\E[;1;91m[!] "
     else
         print "\E[;1;91m[!] "
