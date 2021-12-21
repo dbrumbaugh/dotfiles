@@ -1,0 +1,8 @@
+gh_initial_commit() {
+    if [[ -d .git ]]; then
+        touch README.md
+        git add README.md
+        git commit -m "repository initialization"
+        git push -u origin master
+    fi
+}
