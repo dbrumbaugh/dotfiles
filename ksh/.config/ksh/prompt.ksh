@@ -66,7 +66,14 @@ gbranch() {
         if [[ ! $branch ]]; then
             branch="<empty>"
         fi
-        print " ( $branch"
+
+        if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
+            sym="\E[;0;1;33m\E[;0;0;35m"
+        else
+            sym=""
+        fi
+
+        print " ($sym $branch"
     fi
 }
 
