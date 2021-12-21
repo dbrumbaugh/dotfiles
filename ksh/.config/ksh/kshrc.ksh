@@ -13,3 +13,7 @@ trap 'pc=${.sh.command}' DEBUG
 
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+
+# Prevent the previous command's exit status from starting all new shell
+# sessions with a failed command indicator
+true
