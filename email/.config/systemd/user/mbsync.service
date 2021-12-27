@@ -1,0 +1,6 @@
+[Unit]
+Description=Mailbox Synchronization Service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -V -c %h/.config/isync/mbsyncrc university
