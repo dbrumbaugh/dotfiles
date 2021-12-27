@@ -3,7 +3,7 @@
 # exists.
 
 # Shell configuration information for KSH93/PDKSH
-export SH_CONF_DIR="/etc/ksh" # Usually $HOME/.config, but is different on PSU machines
+export SH_CONF_DIR="$HOME/.config/ksh" # Usually $HOME/.config, but is different on PSU machines
 export FPATH="$SH_CONF_DIR/funcs"
 export ENV="$SH_CONF_DIR/kshrc.ksh"
 
