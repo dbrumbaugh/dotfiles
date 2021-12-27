@@ -14,36 +14,34 @@ export FCEDIT=$EDITOR
 export TERMINAL="st"
 export BROWSER="surf"
 
+# XDG/User-level configuration setup
+if [[ -d "/export/home/$USER" ]]; then
+    export USER_LOCAL="/export/home/$USER/.local"
+    export XDG_CACHE_HOME="/export/home/$USER/.cache"
+    export XDG_CONFIG_HOME="/export/home/$USER/.config"
+else
+    export USER_LOCAL="$HOME/.local"
+    export XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+export XDG_DATA_HOME="$USER_LOCAL/share"
+export XDG_STATE_HOME="$USER_LOCAL/state"
+
+# X11 configuration variables
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+
+# Local bin folder, if applicable
+if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
+    PATH="$PATH:$USER_LOCAL/bin"
+    PATH="$PATH:$USER_LOCAL/bin/statusbar"
+fi
 
 # Shell Configuration
 export TTY=$(tty)
-export HISTDIR="$HOME/.ksh_history"
+export HISTDIR="$XDG_DATA_HOME/.ksh_history"
 export HISTFILE="$HISTDIR/history_${TTY##*/}"
 export HISTMASTER="$HISTDIR/history"
-
-
-# XDG Directory Setup
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
-# Percentage in man pager
-export MANPAGER='less -s -M +Gg'
-
-# XDG/User-level configuration setup
-if [[ -d /export/home/$USER ]]; then
-    export XDG_CONFIG_DIR="/export/home/$USER/.config"
-    export XDG_CACHE_DIR="/export/home/$USER/.cache"
-    export XDG_DATA_DIR="/export/home/$USER/.local/share"
-    export XDG_STATE_DIR="/export/home/$USER/.local/state"
-    export USER_LOCAL="/usr/local"
-else
-    export XDG_CONFIG_DIR="$HOME/.config"
-    export XDG_CACHE_DIR="$HOME/.cache"
-    export XDG_DATA_DIR="$HOME/.local/share"
-    export XDG_STATE_DIR="$HOME/.local/state"
-    export USER_LOCAL="$HOME/.local"
-fi
 
 # Set up NVM (node version manager) if applicable
 if [[ -d $USER_LOCAL/src/nvm ]]; then
@@ -61,10 +59,6 @@ fi
 if [[ -d $USER_LOCAL/rustup ]]; then
     export RUSTUP_HOME="$USER_LOCAL/rustup"
 fi
-
-# Used for the pushd/popd/dirs functions
-unset dir_stack
-export dir_stack
 
 # Anaconda/Miniconda Setup, if applicable
 if [[ -d $USER_LOCAL/anaconda3 ]]; then
@@ -96,13 +90,9 @@ if [[ -d "$USER_LOCAL/go/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/go/bin:"* ]];
     PATH="$PATH:$USER_LOCAL/go/bin"
 fi
 
-# Local bin folder, if applicable
-if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
-    PATH="$PATH:$USER_LOCAL/bin"
-    PATH="$PATH:$USER_LOCAL/bin/statusbar"
-fi
+# Used for the pushd/popd/dirs functions
+unset dir_stack
+export dir_stack
 
-unset __conda_setup
-# <<< conda initialize <<<
-
-export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+# Percentage in man pager
+export MANPAGER='less -s -M +Gg'
