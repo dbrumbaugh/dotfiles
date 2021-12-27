@@ -31,6 +31,9 @@ export XDG_STATE_HOME="$USER_LOCAL/state"
 # X11 configuration variables
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/passwords"
+
 # Local bin folder, if applicable
 if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
     PATH="$PATH:$USER_LOCAL/bin"
