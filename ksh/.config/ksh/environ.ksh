@@ -99,7 +99,9 @@ fi
 # Local bin folder, if applicable
 if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
     PATH="$PATH:$USER_LOCAL/bin"
+    PATH="$PATH:$USER_LOCAL/bin/statusbar"
 fi
+
 unset __conda_setup
 # <<< conda initialize <<<
 
