@@ -1,0 +1,3 @@
+#!/usr/local/bin/ksh
+
+printf " %s\n" "$( date "+%b %d, %Y (%a)" )"

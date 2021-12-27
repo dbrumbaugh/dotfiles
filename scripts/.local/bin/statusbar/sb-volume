@@ -1,0 +1,14 @@
+#!/usr/local/bin/ksh
+volume=$(pamixer --get-volume)
+
+if [ $(pamixer --get-mute) = "true" ]; then
+    symbol="^C1^ﱝ"
+elif [ "$volume" -ge "70" ]; then
+    symbol="^C10^墳"
+elif [ "$volume" -gt "0" ]; then
+    symbol="^C10^奔"
+else
+    symbol="^C3^婢"
+fi
+
+printf "%s %3d\n" $symbol $volume

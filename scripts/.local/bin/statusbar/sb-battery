@@ -1,0 +1,44 @@
+#!/usr/local/bin/ksh
+
+b_charging=""
+b_alert=""
+b_100=""
+b_90=""
+b_80=""
+b_70=""
+b_60=""
+b_50=""
+b_40=""
+b_30=""
+b_20=""
+b_10=""
+
+battery="/sys/class/power_supply/BAT0"
+status="$(cat "$battery/status" 2>&1)"
+capacity="$(cat "$battery/capacity" 2>&1)"
+
+case "$status" in
+    "Full") statsym="$b_100" ;;
+    "Charging") statsym="$b_charging" ;;
+    "Discharging") 
+        if (( $capacity < 10 )); then
+            statsym="b_alert"
+        else
+            case "$capacity" in
+                100) statsym="^C2^$b_100";;
+                9*)  statsym="^C2^$b_90" ;;
+                8*)  statsym="^C2^$b_80" ;;
+                7*)  statsym="^C2^$b_70" ;;
+                6*)  statsym="^C3^$b_60" ;;
+                5*)  statsym="^C3^$b_50" ;;
+                4*)  statsym="^C3^$b_40" ;;
+                3*)  statsym="^C1^$b_30" ;;
+                2*)  statsym="^C1^$b_20" ;;
+                1*)  statsym="^C1^$b_10" ;;
+                *) statsym="Unknown. Fix your lazy code." ;;
+            esac
+        fi
+
+esac
+
+printf "%s%3d%%" $statsym $capacity

@@ -1,0 +1,12 @@
+#!/usr/local/bin/ksh
+
+if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
+	wifiicon="$(awk '/^\s*w/ { print "^C6^直", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
+    ip=$(ip -c=never addr show dev wlan0 | awk '/inet / {print $2}')
+    ip=${ip%%/*}
+elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
+    grep -xq '0x1003' /sys/class/net/w*/flags && wifiicon="^C3^睊" || wifiicon="^C1^睊"
+    ip="none"
+fi
+
+printf "%s (%s )\n" "$wifiicon" "$ip"
