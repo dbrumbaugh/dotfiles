@@ -1,0 +1,43 @@
+#!/usr/local/bin/ksh
+
+help() {
+    printf "Usage\n"
+    printf "add-current <project|class> <directory>\n"
+    exit 0
+}
+
+error() {
+    printf "ERROR: Could not create link\n" > /dev/stderr
+    exit 1
+}
+
+[[ "$#" != 2 ]] && help
+
+case "$1" in
+    project)
+        DIR="$HOME/current-projects"
+        ;;
+    class)
+        DIR="$HOME/current-classes"
+        ;;
+    *)
+        help
+        ;;
+esac
+
+# Ensure that the directory exists
+[[ -d "$DIR" ]] || mkdir -p "$DIR"
+
+# Ensure that $2 refers to an absolute path I'm sure that there is a far
+# more "clever" way of doing this using some shell builtin or other
+if [[ "${2:0:1}" == "/" ]]; then
+    ITEM="$2"
+elif [[ "${2:0:2}" == "./" ]]; then
+    ITEM="$PWD/${2:2}"
+elif [[ "${2:0:1}" == "." ]]; then
+    ITEM="$PWD/${2:1}"
+else
+    ITEM="$PWD/$2"
+fi
+
+ln -s "$ITEM" "$DIR" || error

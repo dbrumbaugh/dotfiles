@@ -34,6 +34,8 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/passwords"
 
+export CDPATH=":$HOME:$HOME/current-classes:$HOME/current-projects"
+
 # Local bin folder, if applicable
 if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
     PATH="$PATH:$USER_LOCAL/bin"

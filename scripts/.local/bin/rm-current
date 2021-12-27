@@ -1,0 +1,42 @@
+#!/usr/local/bin/ksh
+
+help() {
+    printf "Usage\n"
+    printf "rm-current <project|class> <directory>\n"
+    exit 0
+}
+
+error() {
+    printf "ERROR: Could not remove link\n" > /dev/stderr
+    exit 1
+}
+
+error_dne() {
+    printf "ERROR: Specified link [%s/%s] does not exist\n" $DIR $ITEM
+    exit 1
+}
+
+[[ "$#" != 2 ]] && help
+
+case "$1" in
+    project)
+        DIR="$HOME/current-projects"
+        ;;
+    class)
+        DIR="$HOME/current-classes"
+        ;;
+    *)
+        help
+        ;;
+esac
+
+ITEM=$2
+
+[[ -h "$DIR/$ITEM" ]] || error_dne
+
+rm "$DIR/$ITEM" || error
+
+
+
+
+
