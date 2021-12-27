@@ -1,20 +1,21 @@
 color hdrdefault cyan default
 color attachment yellow default
-color header brightyellow default "From: "
-color header brightyellow default "Subject: "
-color header brightyellow default "Date: "
+color header bold color11 default "From: "
+color header bold color11 default "Subject: "
+color header bold color11 default "Date: "
+color header bold color10 default "To: "
 color quoted green default
 color quoted1 cyan default
 color quoted2 green default
 color quoted3 cyan default
 color error     red             default         # error messages
 color message   white           default         # message  informational messages
-color indicator brightwhite           default             # indicator for the "current message"
-color status    brightwhite           default            # status lines in the folder index sed for the mini-help line
+color indicator bold color15           default             # indicator for the "current message"
+color status    bold color15           default            # status lines in the folder index sed for the mini-help line
 color tree      red             default         # the "tree" display of threads within the folder index
 color search    yellow           default            # search matches found with search within the internal pager
 color markers   red             default         # The markers indicate a wrapped line hen showing messages with looong lines
-color index     brightblue default  '~O'
-color index     brightblue default  '~N'
-color index     brightred       default '~F'    # Flagged Messages are important!
+color index     bold color12 default  '~O'
+color index     bold color12 default  '~N'
+color index     bold color9       default '~F'    # Flagged Messages are important!
 color index     black default    '~D'            # Deleted Mails - use dark color as these are already "dealt with"
