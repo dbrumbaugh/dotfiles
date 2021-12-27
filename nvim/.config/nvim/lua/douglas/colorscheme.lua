@@ -1,6 +1,6 @@
 local colorscheme = "gruvbox"
 
-local status, _ = pcall(vim.cmd, "colorscheme " .. colorscheme) 
+local status, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status then
     vim.notify("Colorscheme " .. colorscheme .. " not found.")
     return
@@ -21,9 +21,6 @@ if colorscheme == "gruvbox" then
     vim.cmd("hi GruvboxPurpleSign guibg=NONE")
     vim.cmd("hi GruvboxYellowSign guibg=NONE")
     vim.cmd("hi GruvboxRedSign guibg=NONE")
-
-    vim.cmd("hi clear SpellBad")
-    vim.cmd("hi SpellBad guifg=red gui=italic")
 
     vim.opt.pumblend = 15
     vim.opt.winblend = 15
