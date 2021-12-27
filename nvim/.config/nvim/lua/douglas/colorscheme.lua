@@ -22,6 +22,9 @@ if colorscheme == "gruvbox" then
     vim.cmd("hi GruvboxYellowSign guibg=NONE")
     vim.cmd("hi GruvboxRedSign guibg=NONE")
 
+    vim.cmd("hi clear SpellBad")
+    vim.cmd("hi SpellBad guifg=red gui=italic")
+
     vim.opt.pumblend = 15
     vim.opt.winblend = 15
 end
