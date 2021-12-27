@@ -53,7 +53,7 @@ gstatus() {
         fi
 
         if [[ -z $ahead_sym ]] && [[ -z $behind_sym ]] && [[ -z $local_sym ]] && [[ -z $untracked_sym ]]; then
-            printf ")"
+            printf "\E[;1;35m)"
         else
             printf " \E[;0;32m%s\E[;0m\E[;0;31m%s\E[;0m\E[;0;33m%s\E[;0m\E[;1;31m%s\E[;0m\E[;1;35m)" $ahead_sym $behind_sym $local_sym $untracked_sym
         fi
