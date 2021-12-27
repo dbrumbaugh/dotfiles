@@ -7,7 +7,13 @@
 # You could set up a shell alias to view the full file in a pager in the
 # terminal if desired. This function will only be run once a day when needed.
 weatherreport="${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
-getforecast() { curl -sf "wttr.in/$LOCATION" > "$weatherreport" || exit 1 ;}
+getforecast() { 
+    if [ $# -eq "0" ]; then
+        curl -sf "wttr.in" > "$weatherreport" || exit 1
+    else
+        curl =sf "wttr.in/$1" > "$weatherreport" || exit 1
+    fi
+}
 
 # Some very particular and terse stream manipulation. We get the maximum
 # precipitation chance and the daily high and low from the downloaded file and
@@ -16,8 +22,6 @@ showweather() { printf "%s" "$(sed '16q;d' "$weatherreport" |
 	grep -wo "[0-9]*%" | sort -rn | sed "s/^/\^C4\^/g;1q" | tr -d '\n')"
 sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | 
     awk '{print " ^C12^" $1 "" " ^C9^" $2 ""}' ;}
-
-#kk" 🥶" $1 "°""🌞" $2 "°"}' ;}
 
 [ "$(stat -c %y "$weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||
 	getforecast
