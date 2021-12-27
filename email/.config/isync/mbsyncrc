@@ -15,8 +15,8 @@ Path ~/.mail/university/
 Inbox ~/.mail/university/Inbox
 
 Channel university
-Master :university-remote:
-Slave :university-local:
+Far :university-remote:
+Near :university-local:
 Patterns *
 Create Both
 SyncState *
@@ -39,8 +39,8 @@ Path ~/.mail/personal/
 Inbox ~/.mail/personal/Inbox
 
 Channel personal
-Master :personal-remote:
-Slave :personal-local:
+Far :personal-remote:
+Near :personal-local:
 Patterns *
 Create Both
 SyncState *
