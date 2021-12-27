@@ -1,6 +1,8 @@
+#color normal white default
 
+source ~/.config/mutt/mutt_colors
 
-set header_cache = ~/cache/mutt
+set header_cache = ~/.cache/mutt/header_cache
 
 set sort = threads
 set sort_aux = reverse-last-date-received
