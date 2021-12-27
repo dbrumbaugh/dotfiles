@@ -4,6 +4,7 @@
 
 # Shell configuration information for KSH93/PDKSH
 export SH_CONF_DIR="$HOME/.config/ksh" # Usually $HOME/.config, but is different on PSU machines
+
 export FPATH="$SH_CONF_DIR/funcs"
 export ENV="$SH_CONF_DIR/kshrc.ksh"
 
@@ -16,18 +17,8 @@ else
     export PDKSH=0
 fi
 
-# include user bin folder on PATH
-if [[ -d "$HOME/bin" ]] && ![[ ":$PATH:" != *":$HOME/bin"* ]]; then
-    PATH="$PATH:$HOME/bin"
+if [ whence -q hostname ]; then
+    export HOST=$(hostname -s)
+else
+    export HOST=$(cat /etc/hostname)
 fi
-
-if [[ -d "$HOME/.local/bin" ]] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
-    PATH="$PATH:$HOME/.local/bin"
-fi
-
-# include user's go bin folder on PATH
-if [[ -d "$HOME/go/bin" ]] && [[ ":$PATH:" != *":$HOME/go/bin:"* ]]; then
-    PATH="$PATH:$HOME/go/bin"
-fi
-
-export HOST=$(cat /etc/hostname)
