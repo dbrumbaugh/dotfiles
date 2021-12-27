@@ -1,0 +1,7 @@
+xrdb $XDG_CONFIG_HOME/x11/xresources
+picom -b
+~/.fehbg
+redshift -l 40:-77 &
+xss-lock --transfer-sleep-lock sleep_lock &
+dwmblocks &
+exec dwm
