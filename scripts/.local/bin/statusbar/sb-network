@@ -9,4 +9,4 @@ elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
     ip="none"
 fi
 
-printf "%s (%s )\n" "$wifiicon" "$ip"
+printf "%s (%s)\n" "$wifiicon" "$ip"
