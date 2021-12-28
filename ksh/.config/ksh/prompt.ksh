@@ -1,84 +1,111 @@
 pwda() {
     if [[ $PWD = $HOME ]]; then
-        print "~";
+        print "${blu_b}~"
     elif [[ $PWD == "/" ]]; then
-        print "/";
+        print "${blu_b}/"
     else
-        print ${PWD##*/};
-    fi;
+        print "${blu_b}${PWD##*/}"
+    fi
 }
-
 
 stat() {
-    cc=$?
+        cc=$?
 
-    if [[ $cc == 0 ]]; then
-        print "\E[;1;92m[!] "
-    elif [[ $cc == 127 ]]; then
-        print "$(cnf ${pc%% *})"
-        print "\E[;1;91m[!] "
-    else
-        print "\E[;1;91m$cc->[!] "
-    fi
-}
-
-gstatus() {
-    if git rev-parse > /dev/null 2>&1; then
-        remote_stat=$(git status --porcelain=v2 --branch | grep "branch.ab")
-        ahead=$(echo "$remote_stat" | cut -d " " -f 3 | tr -d "+")
-        behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
-
-        if [[ $ahead != "0" ]]; then
-            ahead_sym="\E[0;32m "
+        if [[ $cc == 0 ]]; then
+            print "$cyn2_b[!] "
+        elif [[ $cc == 127 && "$PDKSH" == "0" ]]; then
+            print "$(cnf ${pc%% *})"
+            print "$red_b[!] "
         else
-            ahead_sym=""
+            print "$red_b$cc->[!] "
         fi
-
-        if [[ $behind != "0" ]]; then
-            behind_sym="\E[0;31m "
-        else
-            behind_sym=""
-        fi
-
-        local_stat=$(git status --porcelain)
-
-        if echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1; then
-            local_sym="\E[0;33m "
-        else
-            local_sym=""
-        fi
-
-        if echo "$local_stat" | grep "?" > /dev/null 2>&1; then
-            untracked_sym="\E[0;31m "
-        else
-            untracked_sym=""
-        fi
-
-        pstr="$ahead_sym$behind_sym$local_sym$untracked_sym"
-        if [[ -z $pstr ]]; then
-            : pass
-        else
-            print -n " $pstr"
-        fi
-
-        print "\E[;1;35m)"
-    fi
 }
 
 gbranch() {
+    if [[ "$1" == "0" ]]; then
+        clr=${red2_b}
+    else
+        clr=${mag_b}
+    fi
+
+    branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
+    [[ -z $branch ]] && branch="<empty>"
+
+    if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
+        sym="${ylw_b}${clr}"
+    else
+        sym=""
+    fi
+
+    print -n " ${clr}($sym $branch"
+}
+
+gremotestat() {
+    remote_stat=$(git status --porcelain=v2 --branch | grep "branch.ab")
+    ahead=$(echo "$remote_stat" | cut -d " " -f 3 | tr -d "+")
+    behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
+
+    if [[ $ahead != "0" && ! -z $ahead ]]; then
+        ahead_sym="${grn} "
+    else
+        ahead_sym=""
+    fi
+
+    if [[ $behind != "0" && ! -z $behind ]]; then
+        behind_sym="${red} "
+    else
+        behind_sym=""
+    fi
+
+    print -n " ${ahead_sym}${behind_sym}"
+}
+
+glocalstat() {
+    if [[ "$1" == "0" ]]; then
+        clr=${red2_b}
+    else
+        clr=${mag_b}
+    fi
+
+    local_stat=$(git status --porcelain)
+
+    if echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1; then
+        local_sym="${ylw} "
+    else
+        local_sym=""
+    fi
+
+    if echo "$local_stat" | grep "?" > /dev/null 2>&1; then
+        untracked_sym="${red} "
+    else
+        untracked_sym=""
+    fi
+
+    pstr="$local_sym$untracked_sym"
+    if [[ -z $pstr ]]; then
+        : pass
+    elif [[ "$1" == "0" ]]; then
+        print -n " $pstr"
+    else
+        print -n "$pstr"
+    fi
+
+    print "${clr})"
+}
+
+
+gprompt() {
+    # check if we are in a git repository
     if git rev-parse > /dev/null 2>&1; then
-        branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
-        if [[ ! $branch ]]; then
-            branch="<empty>"
-        fi
-
-        if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
-            sym="\E[;0;1;33m\E[;0;0;35m"
+        # check if the repository has a remote
+        if [ -z $(git remote) ]; then
+            gbranch 0
+            glocalstat 0
         else
-            sym=""
+            gbranch 1
+            gremotestat 1
+            glocalstat 1
         fi
-
-        print " ($sym $branch"
     fi
 }
 
@@ -86,26 +113,30 @@ conda_env() {
     if [[ -z ${CONDA_DEFAULT_ENV+x} ]]; then
         : #pass
     else
-        print "( $CONDA_DEFAULT_ENV) "
+        print "${blu2_b}( $CONDA_DEFAULT_ENV) "
     fi
 }
 
+prompt_char() {
+    if [[ $LOGNAME == "root" ]]; then
+        print "${red_b}# ${rst}${red}"
+    else
+        print "${wht_b}\$ ${rst}"
+    fi
+}
+
+user_host() {
+    if [[ "$LOGNAME" == "root" ]]; then
+        clr1=$red_b
+        clr2=$mag_b
+    else
+        clr1=$grn_b
+        clr2=$ylw_b
+    fi
+    print "${clr1}$LOGNAME${clr2}@${clr1}$HOST"
+}
+
 # Add in a title (seems to need to be between ^[ and ^G)
-PS1=']0;${LOGNAME}@${HOST} [${TTY}]'
+TITLE=']0;${LOGNAME}@${HOST} [${TTY}]'
 
-
-# If logged in as root, then the prompt is in red and has a #,
-# otherwise, use the normal prompt with a $
-if [[ $LOGNAME == "root" ]]; then
-    if [[ $PDKSH == 0 ]]; then
-        PS1=${PS1}$'\E[;1;37m$LOGNAME\E[;37m@\E[;1;37m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m\E[;1;31m# '
-    else
-        PS1=${PS1}'\033[;1;37m$LOGNAME\033[;37m@\033[;1;37m${HOST}\033[0m:\033[;1;34m$(pwda)\033[;1;35m\033[;1;31m# '
-    fi
-else
-    if [[ $PDKSH == 0 ]]; then
-        PS1=${PS1}$'$(stat)\E[1;36m$(conda_env)\E[1;32m$LOGNAME\E[1;33m@\E[1;32m${HOST}\E[0m:\E[;1;34m$(pwda)\E[;1;35m$(gbranch)\E[;1;31m$(gstatus)\E[0m$ '
-    else
-        PS1=${PS1}'\033[1;32m$LOGNAME\033[1;33m@\033[1;32m${HOST}\033[0m:\033[;1;34m$(pwda)\033[;1;35m$(gbranch)\033[;1;31]\033[0m$ '
-    fi
-fi
+PS1=${TITLE}'$(stat)$(conda_env)$(user_host):$(pwda)$(gprompt)$(prompt_char)'
