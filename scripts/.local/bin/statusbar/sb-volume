@@ -11,4 +11,5 @@ else
     symbol="^C3^婢"
 fi
 
-printf "%s %3d\n" $symbol $volume
+#TODO: Add an extra space when the volume number is 3 digits *only*
+printf "%s%4d\n" $symbol $volume
