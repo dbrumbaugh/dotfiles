@@ -11,5 +11,8 @@ else
     symbol="^C3^婢"
 fi
 
-#TODO: Add an extra space when the volume number is 3 digits *only*
-printf "%s%4d\n" $symbol $volume
+if (( volume >= 100 )); then
+    printf "%s%4d\n" $symbol $volume
+else
+    printf "%s%3d\n" $symbol $volume
+fi
