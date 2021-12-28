@@ -29,34 +29,39 @@ gstatus() {
         behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
 
         if [[ $ahead != "0" ]]; then
-            ahead_sym=""
+            ahead_sym="\E[0;32m "
         else
             ahead_sym=""
         fi
 
         if [[ $behind != "0" ]]; then
-            behind_sym=""
+            behind_sym="\E[0;31m "
         else
             behind_sym=""
         fi
 
-        if git status --porcelain | grep "[MADRCU]" > /dev/null 2>&1; then
-            local_sym=""
+        local_stat=$(git status --porcelain)
+
+        if echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1; then
+            local_sym="\E[0;33m "
         else
             local_sym=""
         fi
 
-        if git status --porcelain | grep "?" > /dev/null 2>&1; then
-            untracked_sym=""
+        if echo "$local_stat" | grep "?" > /dev/null 2>&1; then
+            untracked_sym="\E[0;31m "
         else
             untracked_sym=""
         fi
 
-        if [[ -z $ahead_sym ]] && [[ -z $behind_sym ]] && [[ -z $local_sym ]] && [[ -z $untracked_sym ]]; then
-            printf "\E[;1;35m)"
+        pstr="$ahead_sym$behind_sym$local_sym$untracked_sym"
+        if [[ -z $pstr ]]; then
+            : pass
         else
-            printf " \E[;0;32m%s\E[;0m\E[;0;31m%s\E[;0m\E[;0;33m%s\E[;0m\E[;1;31m%s\E[;0m\E[;1;35m)" $ahead_sym $behind_sym $local_sym $untracked_sym
+            print -n " $pstr"
         fi
+
+        print "\E[;1;35m)"
     fi
 }
 
