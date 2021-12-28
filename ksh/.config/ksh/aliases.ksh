@@ -7,6 +7,7 @@ alias qemu=qemu-system-x86_64
 alias cls=clear
 alias stowh="stow -t $HOME"
 alias systemctlu="systemctl --user"
+alias su="su -l -c \"cd `pwd`; ksh\""
 
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
