@@ -1,3 +1,12 @@
+# Determine if the login shell is PDKSH or KSH93. This is used for
+# configuring the prompt, among other things. Mostly here so I can use
+# the same config on my computers and my OpenBSD servers.
+if [[ $KSH_VERSION == *PD* ]]; then
+    export PDKSH=1
+else
+    export PDKSH=0
+fi
+
 # Default text editor
 if command -v nvim > /dev/null 2>&1; then
     export EDITOR=nvim
