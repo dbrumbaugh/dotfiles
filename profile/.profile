@@ -8,16 +8,7 @@ export SH_CONF_DIR="$HOME/.config/ksh" # Usually $HOME/.config, but is different
 export FPATH="$SH_CONF_DIR/funcs"
 export ENV="$SH_CONF_DIR/kshrc.ksh"
 
-# Determine if the login shell is PDKSH or KSH93. This is used for
-# configuring the prompt, among other things. Mostly here so I can use
-# the same config on my computers and my OpenBSD servers.
-if [[ $KSH_VERSION == *PD* ]]; then
-    export PDKSH=1
-else
-    export PDKSH=0
-fi
-
-if [ whence -q hostname ]; then
+if whence -q hostname; then
     export HOST=$(hostname -s)
 else
     export HOST=$(cat /etc/hostname)
