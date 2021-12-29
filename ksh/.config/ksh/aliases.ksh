@@ -6,7 +6,9 @@ alias alert='notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal ||
 alias qemu=qemu-system-x86_64
 alias cls=clear
 alias stowh="stow -t $HOME"
-alias systemctlu="systemctl --user"
+alias sysu="systemctl --user"
+alias sys="systemctl"
+alias jrlr="journalctl --user"
 alias su="su -l -c \"cd `pwd`; ksh\""
 
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -22,3 +24,4 @@ alias gdb="CK_FORK=no gdb"
 alias startx="startx $XINITRC"
 alias mbsync="mbsync -c \"$XDG_CONFIG_HOME/isync/mbsyncrc\""
 alias davmail="davmail \"$XDG_CONFIG_HOME/davmail/davmail.properties\""
+alias newsboat="newsboat -u $XDG_DATA_HOME/feeds -c $XDG_CACHE_HOME/newsboat/cache -C $XDG_CONFIG_HOME/newsboat/config"
