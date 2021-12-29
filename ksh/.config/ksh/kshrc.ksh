@@ -9,8 +9,10 @@ set -o ignoreeof
 set -o markdirs
 set -o nounset
 
-[[ "$PDKSH" == "0" ]] && trap 'pc=${.sh.command}' DEBUG
-
+if [[ "$PDKSH" == "0" ]]; then
+    set -o multiline
+    trap 'pc=${.sh.command}' DEBUG
+fi
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 

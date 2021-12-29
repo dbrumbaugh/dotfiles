@@ -54,8 +54,15 @@ fi
 # Shell Configuration
 export TTY=$(tty)
 export HISTDIR="$XDG_DATA_HOME/ksh_history"
-export HISTFILE="$HISTDIR/history_${TTY##*/}"
-export HISTMASTER="$HISTDIR/history"
+
+# Separate ksh93 and PDKSH history files
+if [[ "$PDKSH" == 0 ]]; then
+    export HISTFILE="$HISTDIR/history_${TTY##*/}"
+    export HISTMASTER="$HISTDIR/history"
+else
+    export HISTFILE="$HISTDIR/pdksh_history_${TTY##*/}"
+    export HISTMASTER="$HISTDIR/pdksh_history"
+fi
 
 # Set up NVM (node version manager) if applicable
 if [[ -d $USER_LOCAL/src/nvm ]]; then
