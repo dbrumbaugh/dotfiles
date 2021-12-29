@@ -57,7 +57,12 @@ gremotestat() {
         behind_sym=""
     fi
 
-    print -n " ${ahead_sym}${behind_sym}"
+    pstr="$ahead_sym$behind_sym"
+    if [[ -z $pstr ]]; then
+        : pass
+    else
+        print -n " $pstr"
+    fi
 }
 
 glocalstat() {
