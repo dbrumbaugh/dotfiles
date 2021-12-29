@@ -5,4 +5,6 @@ Description=Mailbox Synchronization Service
 Type=oneshot
 Environment="PASSWORD_STORE_DIR=%h/.local/share/passwords"
 Environment="GNUPGHOME=%h/.local/share/gnupg"
+Environment="PATH=%h/.local/bin:/usr/bin"
+Environment="DISPLAY=:0"
 ExecStart=/usr/bin/mbsync -Va -c %h/.config/isync/mbsyncrc

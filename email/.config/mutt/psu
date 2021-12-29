@@ -1,10 +1,19 @@
+unmailboxes *
+
 set folder = "~/.mail/university"
 set mbox_type = Maildir
 set spoolfile = +Inbox
 set record = +Sent
 set postponed = +Drafts
-set from = "drumbaugh@psu.edu"
-set my_smtp_pass = `pass show email/psu`
-set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
+set trash = +Trash
+
+mailboxes +Inbox 
+mailboxes +Inbox/HR "+Inbox/Timely Warning" "+Inbox/It Support Tickets"
+mailboxes +Inbox/Courses +Sent +Drafts +Trash
+
+set from = `get-pass email/psu email`
+set my_smtp_pass = `get-pass email/psu`
+set smtp_url = "smtp://$from:$my_smtp_pass@127.0.0.1:1025"
+set ssl_force_tls="no"
 
 set signature = "~/.config/mutt/sigs/psu.signature"

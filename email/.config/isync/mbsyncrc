@@ -1,8 +1,8 @@
 IMAPAccount university
 Host 127.0.0.1
 Port 1143
-User dbr4@psu.edu
-PassCmd "pass email/psu"
+UserCmd "get-pass email/psu email"
+PassCmd "get-pass email/psu"
 SSLType None
 AuthMechs LOGIN
 
@@ -25,8 +25,8 @@ SyncState *
 IMAPAccount personal
 Host imap.fastmail.com
 Port 993
-User doug@douglasrumbaugh.com
-PassCmd "pass email/personal"
+UserCmd "get-pass email/personal email"
+PassCmd "get-pass email/personal"
 SSLType IMAPS
 AuthMechs LOGIN
 

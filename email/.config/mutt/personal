@@ -1,10 +1,20 @@
-set folder = "~/.mail/personal"
+unmailboxes *
+
 set mbox_type = Maildir
-set spoolfile = +Inbox
-set record = +Sent
-set postponed = +Drafts
-set from = "doug@douglasrumbaugh.com"
-set my_smtp_pass = `pass show email/personal`
-set smtp_url = "smtps://doug@douglasrumbaugh.com:$my_smtp_pass@smtp.fastmail.com:465"
+set folder = "~/.mail/personal"
+
+set spoolfile = "+Inbox"
+set record = "+Sent"
+set postponed = "+Drafts"
+
+mailboxes "+Inbox" "+Inbox/amazon" "+Inbox/finances" "+Inbox/health"
+mailboxes "+Inbox/other" "+Inbox/webcontact" "+Inbox/webservices" 
+mailboxes "+Inbox/webmaster" "+Sent" "+Drafts" "+Trash"
+
+
+set from = `get-pass email/personal email`
+set my_smtp_pass = `get-pass email/personal`
+set smtp_url = "smtps://$from:$my_smtp_pass@smtp.fastmail.com:465"
+set ssl_force_tls="yes"
 
 set signature = "~/.config/mutt/sigs/personal.signature"

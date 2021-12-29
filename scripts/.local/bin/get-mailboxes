@@ -1,0 +1,6 @@
+#!/usr/local/bin/ksh
+
+maildir=$1
+inbox="${maildir}/Inbox"
+
+find "$inbox" -type d | sed '1d;/[tmp,cur,new]$/d;'"s/.*\(${inbox##*/}\)/\1/" | awk 'BEGIN {ORS=" "} {print "\"+"$0"\""}'

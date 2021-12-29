@@ -1,24 +1,11 @@
 #color normal white default
-
+source ~/.config/mutt/options
 source ~/.config/mutt/mutt_colors
-
-set header_cache = ~/.cache/mutt/header_cache
-
-set sort = threads
-set sort_aux = reverse-last-date-received
-set date_format = "%y/%m/%d %I:%M%p"
-set mailcap_path = "~/.config/mutt/mailcap"
+source ~/.config/mutt/bindings
+source ~/.config/mutt/sidebar
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
-
-set editor = "nvim +':set textwidth=0'"
-
-set query_command= "abook --mutt-query '%s'"
-macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
-bind editor <Tab> complete-query
-
-bind index N search-opposite
 
 set realname = "Douglas B. Rumbaugh"
 set use_from = yes

@@ -1,0 +1,36 @@
+bind index,pager i noop
+bind index,pager g noop
+bind index,pager \Cf noop
+bind index,pager M noop
+bind index,pager C noop
+bind index s noop
+
+bind index,pager,browser gg first-entry
+bind index,pager,browser G last-entry
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+
+bind index N search-opposite
+
+bind index j next-entry
+bind index k previous-entry
+
+bind index D delete-message
+bind index U undelete-message
+bind index L limit
+bind index h noop
+bind index l display-message
+bind index,pager R group-reply
+#bind index,pager H view-raw-message
+
+bind index,query space tag-entry
+
+macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
+bind browser l select-entry
+
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+
+#bind editor <space> noop
+bind editor <Tab> complete-query
+
