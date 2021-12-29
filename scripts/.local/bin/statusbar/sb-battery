@@ -13,13 +13,16 @@ b_30=""
 b_20=""
 b_10=""
 
+b_unk=""
+
 battery="/sys/class/power_supply/BAT0"
 status="$(cat "$battery/status" 2>&1)"
 capacity="$(cat "$battery/capacity" 2>&1)"
 
 case "$status" in
     "Full") statsym="^C2^$b_100" ;;
-    "Charging") statsym="$b_charging" ;;
+    "Charging") statsym="^C11^$b_charging" ;;
+    "Unknown") statsym="^C13^$b_unk" ;;
     "Discharging") 
         if (( $capacity < 10 )); then
             statsym="^C1^$b_alert"
@@ -38,7 +41,6 @@ case "$status" in
                 *) statsym="Unknown. Fix your lazy code." ;;
             esac
         fi
-
 esac
 
 printf "%s%3d%%" $statsym $capacity
