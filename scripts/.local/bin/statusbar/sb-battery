@@ -18,11 +18,11 @@ status="$(cat "$battery/status" 2>&1)"
 capacity="$(cat "$battery/capacity" 2>&1)"
 
 case "$status" in
-    "Full") statsym="$b_100" ;;
+    "Full") statsym="^C2^$b_100" ;;
     "Charging") statsym="$b_charging" ;;
     "Discharging") 
         if (( $capacity < 10 )); then
-            statsym="b_alert"
+            statsym="^C1^$b_alert"
         else
             case "$capacity" in
                 100) statsym="^C2^$b_100";;
