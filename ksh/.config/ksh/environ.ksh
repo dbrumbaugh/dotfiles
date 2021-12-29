@@ -53,7 +53,7 @@ fi
 
 # Shell Configuration
 export TTY=$(tty)
-export HISTDIR="$XDG_DATA_HOME/.ksh_history"
+export HISTDIR="$XDG_DATA_HOME/ksh_history"
 export HISTFILE="$HISTDIR/history_${TTY##*/}"
 export HISTMASTER="$HISTDIR/history"
 
