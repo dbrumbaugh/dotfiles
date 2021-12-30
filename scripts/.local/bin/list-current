@@ -1,0 +1,32 @@
+#!/usr/local/bin/ksh
+
+help() {
+    printf "Usage\n"
+    printf "list-current <project|class>\n"
+    exit 0
+}
+
+error() {
+    printf "ERROR: Could not create link\n" > /dev/stderr
+    exit 1
+}
+
+[[ "$#" != 1 ]] && help
+
+case "$1" in
+    project)
+        DIR="$HOME/current-projects"
+        ;;
+    class)
+        DIR="$HOME/current-classes"
+        ;;
+    *)
+        help
+        ;;
+esac
+
+# Ensure that the directory exists
+[[ -d "$DIR" ]] || mkdir -p "$DIR"
+
+ls "$DIR"
+
