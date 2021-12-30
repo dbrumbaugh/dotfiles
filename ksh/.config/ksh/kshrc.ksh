@@ -16,3 +16,6 @@ if [ "$0" != "sh" ]; then
         trap 'pc=${.sh.command}' DEBUG
     fi
 fi
+
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+true
