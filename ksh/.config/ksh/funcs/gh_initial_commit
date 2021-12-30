@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 gh_initial_commit() {
     if [[ -d .git ]]; then
         touch README.md

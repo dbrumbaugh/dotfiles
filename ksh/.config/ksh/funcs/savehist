@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 function savehist {
     if [[ $# > 1 ]]; then
         HFIL="$1"

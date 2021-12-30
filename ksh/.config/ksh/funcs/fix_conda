@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 # The conda.sh script is not KSH Compliant, and so it requires a few
 # modifications before Anaconda can work. As these modifications break with
 # each update, this function will reapply them to the new version of the script

@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 function cnf  {
   cmd=$1
   FUNCNEST=10

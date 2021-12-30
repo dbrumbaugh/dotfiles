@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 gh_init() {
     if [[ $# == 1 ]]; then
         repo_name=$1

@@ -1,3 +1,4 @@
+#!/usr/local/bin/ksh
 # ksh implementation of popd, taken from
 # https://stackoverflow.com/a/57021646/7622609
 
