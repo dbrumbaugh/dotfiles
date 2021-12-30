@@ -1,0 +1,5 @@
+#!/usr/local/bin/ksh
+
+function econf {
+    nvim "$XDG_CONFIG_HOME/$1"
+}

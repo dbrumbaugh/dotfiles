@@ -1,0 +1,8 @@
+#!/usr/local/bin/ksh
+function lconf {
+        if [[ $# == 0 ]]; then
+            ls "$XDG_CONFIG_HOME"
+        else
+            ls "$XDG_CONFIG_HOME/$1"
+        fi
+}
