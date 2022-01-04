@@ -5,6 +5,7 @@ if [ "$0" != "sh" ]; then
     . $SH_CONF_DIR/aliases.ksh
     . $SH_CONF_DIR/colors.ksh
     . $SH_CONF_DIR/prompt.ksh
+    . $SH_CONF_DIR/plan9.ksh
 
     set -o emacs
     set -o ignoreeof
