@@ -15,8 +15,92 @@ settings:
         L: tab-prev
         h: back
         l: forward
+  colors.completion.category.bg:
+    global: '#928374'
+  colors.completion.category.border.bottom:
+    global: '#d79921'
+  colors.completion.category.border.top:
+    global: '#d79921'
+  colors.completion.category.fg:
+    global: '#282828'
+  colors.completion.even.bg:
+    global: '#282828'
+  colors.completion.fg:
+    global: '#ebdbb2'
+  colors.completion.item.selected.bg:
+    global: '#458588'
+  colors.completion.item.selected.border.bottom:
+    global: '#d79921'
+  colors.completion.item.selected.border.top:
+    global: '#d79921'
+  colors.completion.item.selected.fg:
+    global: '#ebdbb2'
+  colors.completion.item.selected.match.fg:
+    global: '#cc241d'
+  colors.completion.odd.bg:
+    global: '#282828'
+  colors.completion.scrollbar.bg:
+    global: '#282828'
+  colors.completion.scrollbar.fg:
+    global: '#928374'
+  colors.contextmenu.selected.fg:
+    global: '#cc241d'
+  colors.downloads.bar.bg:
+    global: '#282828'
+  colors.downloads.error.bg:
+    global: '#cc241d'
+  colors.downloads.error.fg:
+    global: '#ebdbb2'
+  colors.statusbar.command.bg:
+    global: '#282828'
+  colors.statusbar.command.fg:
+    global: '#ebdbb2'
+  colors.statusbar.normal.bg:
+    global: '#282828'
+  colors.statusbar.normal.fg:
+    global: '#ebdbb2'
+  colors.statusbar.url.error.fg:
+    global: '#fb4934'
+  colors.statusbar.url.fg:
+    global: '#ebdbb2'
+  colors.statusbar.url.hover.fg:
+    global: '#8ec07c'
+  colors.statusbar.url.success.http.fg:
+    global: '#689d6a'
+  colors.statusbar.url.success.https.fg:
+    global: '#b8bb26'
+  colors.tabs.bar.bg:
+    global: '#282828'
+  colors.tabs.even.bg:
+    global: '#282828'
+  colors.tabs.even.fg:
+    global: '#a89984'
+  colors.tabs.indicator.stop:
+    global: '#00aa00'
+  colors.tabs.odd.bg:
+    global: '#282828'
+  colors.tabs.odd.fg:
+    global: '#a89984'
+  colors.tabs.pinned.even.bg:
+    global: darkseagreen
+  colors.tabs.pinned.odd.bg:
+    global: seagreen
+  colors.tabs.selected.even.bg:
+    global: '#458588'
+  colors.tabs.selected.even.fg:
+    global: '#ebdbb2'
+  colors.tabs.selected.odd.bg:
+    global: '#458588'
+  colors.tabs.selected.odd.fg:
+    global: '#ebdbb2'
+  colors.webpage.preferred_color_scheme:
+    global: dark
   content.blocking.method:
     global: both
+  content.user_stylesheets:
+    global: null
+  downloads.location.directory:
+    global: ~/downloads
   editor.command:
     global:
     - kitty
