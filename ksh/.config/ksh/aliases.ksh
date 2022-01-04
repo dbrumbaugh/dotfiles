@@ -6,12 +6,14 @@ alias alert='notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal ||
 alias qemu=qemu-system-x86_64
 alias cls=clear
 alias stowh="stow -t $HOME"
-alias sysu="systemctl --user"
-alias sys="systemctl"
-alias jrlr="journalctl --user"
+alias sctlu="systemctl --user"
+alias sctl="systemctl"
+alias jctlu="journalctl --user"
+alias jctl="journalctl"
 alias su="su -l -c \"cd `pwd`; ksh\""
 alias dl-audio="yt-dlp -x -f bestaudio/best"
 alias mkdir="mkdir -p"
+alias t="todo.sh"
 
 alias public-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
