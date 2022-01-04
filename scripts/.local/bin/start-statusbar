@@ -1,0 +1,5 @@
+#!/usr/local/bin/ksh
+
+dwmblocks &
+sleep 1
+kill -44 $(pidof dwmblocks)
