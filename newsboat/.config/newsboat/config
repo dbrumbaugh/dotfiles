@@ -20,11 +20,11 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-color listnormal cyan default
-color listfocus black yellow standout bold
+color listnormal default default
+color listfocus default default bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
-color info red black bold
+color info default default bold
 color article white default bold
 
 browser openlink
