@@ -1,1 +1,1 @@
-text/html; lynx -dump; copiousoutput;
+text/html; lynx -dump %s; copiousoutput;
