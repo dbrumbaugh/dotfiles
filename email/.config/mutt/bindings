@@ -18,10 +18,15 @@ bind index k previous-entry
 bind index D delete-message
 bind index U undelete-message
 bind index L limit
-bind index h noop
 bind index l display-message
 bind index,pager R group-reply
-#bind index,pager H view-raw-message
+bind index,pager H view-raw-message
+bind index,pager h exit
+
+bind pager j next-line
+bind pager k previous-line
+bind pager gg top
+bind pager G bottom
 
 bind index,query space tag-entry
 

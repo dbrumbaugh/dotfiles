@@ -7,7 +7,11 @@ set sidebar_format = '%D%* %?N?%N?'
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
+bind index,pager \Cl sidebar-open
 bind index,pager \Cp sidebar-prev-new
 bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
+
+color sidebar_highlight bold default default
+color sidebar_indicator bold yellow default 
 
