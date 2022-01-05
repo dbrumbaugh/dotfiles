@@ -10,6 +10,8 @@ settings:
     global:
       normal:
         +: zoom
+        <Ctrl+Shift+v>: hint links spawn --verbose --detach mpv {hint-url} --input-ipc-server=/tmp/mpvsocket
+        <Escape>: clear-messages
         '=': zoom-in
         H: tab-prev
         L: tab-prev
