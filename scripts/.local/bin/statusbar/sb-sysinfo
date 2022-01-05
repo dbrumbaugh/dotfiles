@@ -19,4 +19,26 @@ fi
 used_gb=$(( used / 1024 ))
 avail_gb=$(( total / 1024 ))
 
-printf "%s %.1f%%\n" $color $perc
+
+temp=$(sensors | awk '/Package id 0:/ { print $4 }' | tr -d "+")
+if (( temp <= 50 )); then
+    tcolor="^C2^ "
+elif (( temp <= 80 )); then
+    tcolor="^C3^ "
+elif (( temp <= 90 )); then
+    tcolor="^C3^ "
+else
+    tcolor="^C1^ "
+fi
+
+cpu="$(sar 1 1 | awk '/Average:/ {print 100-$8}')"
+
+if (( cpu <= 40 )); then
+    cpu_icon="^C2^ "
+elif (( cpu <= 80 )); then
+    cpu_icon="^C3^ "
+else
+    cpu_icon="^C1^ "
+fi
+
+printf "%s %.1f %s %.1f%% %s %d\n" $cpu_icon $cpu $color $perc $tcolor $temp
