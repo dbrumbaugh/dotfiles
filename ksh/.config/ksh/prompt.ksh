@@ -22,22 +22,15 @@ stat() {
 }
 
 gbranch() {
-    if [[ "$1" == "0" ]]; then
-        clr=${red2_b}
+    if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
+        print -n "${ylw_b}${clr}"
     else
-        clr=${mag_b}
+        print -n ""
     fi
 
     branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
     [[ -z $branch ]] && branch="<empty>"
-
-    if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
-        sym="${ylw_b}${clr}"
-    else
-        sym=""
-    fi
-
-    print -n " ${clr}($sym $branch"
+    print -n " $branch"
 }
 
 gremotestat() {
@@ -45,57 +38,14 @@ gremotestat() {
     ahead=$(echo "$remote_stat" | cut -d " " -f 3 | tr -d "+")
     behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
 
-    if [[ $ahead != "0" && ! -z $ahead ]]; then
-        ahead_sym="${grn} "
-    else
-        ahead_sym=""
-    fi
-
-    if [[ $behind != "0" && ! -z $behind ]]; then
-        behind_sym="${red} "
-    else
-        behind_sym=""
-    fi
-
-    pstr="$ahead_sym$behind_sym"
-    if [[ -z $pstr ]]; then
-        : pass
-    else
-        print -n " $pstr"
-    fi
+    [[ $ahead != "0" && ! -z $ahead ]] && print -n "${grn} "
+    [[ $behind != "0" && ! -z $behind ]] && print -n "${red} "
 }
 
 glocalstat() {
-    if [[ "$1" == "0" ]]; then
-        clr=${red2_b}
-    else
-        clr=${mag_b}
-    fi
-
     local_stat=$(git status --porcelain)
-
-    if echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1; then
-        local_sym="${ylw} "
-    else
-        local_sym=""
-    fi
-
-    if echo "$local_stat" | grep "?" > /dev/null 2>&1; then
-        untracked_sym="${red} "
-    else
-        untracked_sym=""
-    fi
-
-    pstr="$local_sym$untracked_sym"
-    if [[ -z $pstr ]]; then
-        : pass
-    elif [[ "$1" == "0" ]]; then
-        print -n " $pstr"
-    else
-        print -n "$pstr"
-    fi
-
-    print "${clr})"
+    echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1 && print -n "${ylw} "
+    echo "$local_stat" | grep "?" > /dev/null 2>&1 && print -n "${red} "
 }
 
 
@@ -103,13 +53,21 @@ gprompt() {
     # check if we are in a git repository
     if git rev-parse > /dev/null 2>&1; then
         # check if the repository has a remote
-        if [ -z $(git remote) ]; then
-            gbranch 0
-            glocalstat 0
+        if [[ -z $(git remote) ]]; then
+            clr="$red2_b"
         else
-            gbranch 1
-            gremotestat 1
-            glocalstat 1
+            clr="$mag_b"
+        fi
+
+        branch="$(gbranch)"
+        rem="$(gremotestat)"
+        loc="$(glocalstat)"
+
+        syms="$rem$loc"
+        if [[ -z "$syms" ]]; then
+            printf "$clr(%s)" "$branch"
+        else
+            printf "$clr(%s %s$clr)" "$branch" "$syms"
         fi
     fi
 }
