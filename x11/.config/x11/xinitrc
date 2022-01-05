@@ -3,5 +3,6 @@ picom -b --vsync --backend glx
 ~/.fehbg
 redshift -l 40:-77 &
 xss-lock --transfer-sleep-lock autolock &
+mpd
 start-statusbar &
 exec dwm
