@@ -41,4 +41,4 @@ else
     cpu_icon="^C1^ "
 fi
 
-printf "%s %.1f %s %.1f%% %s %d\n" $cpu_icon $cpu $color $perc $tcolor $temp
+printf "%s %.1f %s %.1f %s %d\n" $cpu_icon $cpu $color $perc $tcolor $temp

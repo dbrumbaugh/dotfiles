@@ -7,7 +7,7 @@ if [[ "$hour" -ge "22" || "$hour" -le "7" ]]; then
 elif [[ "$hour" -ge "20" ]]; then
     clr="^C3^"
 else
-    clr=""
+    clr="^C7^"
 fi
 
 printf "%s %s\n" $clr "$(date "+%H:%M")"
