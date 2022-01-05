@@ -1,5 +1,6 @@
 show-read-feeds yes
 auto-reload yes
+reload-threads 4
 
 bind-key j down
 bind-key k up
