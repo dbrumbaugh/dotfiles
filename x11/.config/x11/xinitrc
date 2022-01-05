@@ -5,4 +5,5 @@ redshift -l 40:-77 &
 xss-lock --transfer-sleep-lock autolock &
 mpd
 start-statusbar &
+dunst &
 exec dwm
