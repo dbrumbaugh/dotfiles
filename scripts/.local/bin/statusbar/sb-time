@@ -1,3 +1,13 @@
 #!/usr/local/bin/ksh
 
-printf " %s\n" "$(date "+%H:%M")"
+hour="$(date +%H)"
+
+if [[ "$hour" -ge "22" || "$hour" -le "7" ]]; then
+    clr="^C1^"
+elif [[ "$hour" -ge "20" ]]; then
+    clr="^C3^"
+else
+    clr=""
+fi
+
+printf "%s %s\n" $clr "$(date "+%H:%M")"
