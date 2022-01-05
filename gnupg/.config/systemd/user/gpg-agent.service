@@ -1,8 +1,14 @@
 [Unit]
-Description=GnuPG cryptographic agent and passphrase cache
-Documentation=man:gpg-agent(1)
-Requires=gpg-agent.socket
+Description=GnuPG private key agent
+Wants=environment.target
+Before=environment.target
+IgnoreOnIsolate=true
 
 [Service]
-ExecStart=/usr/bin/gpg-agent --supervised
-ExecReload=/usr/bin/gpgconf --reload gpg-agent
+Type=forking
+Environment="GNUPGHOME=~/.local/share/gnupg"
+ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support 
+Restart=on-abort
+
+[Install]
+WantedBy=default.target
