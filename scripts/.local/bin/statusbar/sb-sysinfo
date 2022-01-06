@@ -20,7 +20,7 @@ used_gb=$(( used / 1024 ))
 avail_gb=$(( total / 1024 ))
 
 
-temp=$(sensors | awk '/Package id 0:/ { print $4 }' | tr -d "+")
+temp=$(sensors | awk '/Package id 0:/ { print $4 }' | tr -d "+°CF")
 if (( temp <= 50 )); then
     tcolor="^C2^ "
 elif (( temp <= 80 )); then
