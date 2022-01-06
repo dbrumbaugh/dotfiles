@@ -8,3 +8,4 @@ gnupg/.local/share/gnupg/pubring.kbx~
 gnupg/.local/share/gnupg/trustdb.gpg
 qutebrowser/.config/qutebrowser/bookmarks/
 qutebrowser/.config/qutebrowser/quickmarks
+music/.config/ncmpcpp/error.log
