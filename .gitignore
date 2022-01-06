@@ -2,3 +2,9 @@
 session.json
 nvim/.config/nvim/autoload/*
 nvim/.config/nvim/plugin/*
+gnupg/.local/share/gnupg/crls.d/
+gnupg/.local/share/gnupg/pubring.kbx
+gnupg/.local/share/gnupg/pubring.kbx~
+gnupg/.local/share/gnupg/trustdb.gpg
+qutebrowser/.config/qutebrowser/bookmarks/
+qutebrowser/.config/qutebrowser/quickmarks
