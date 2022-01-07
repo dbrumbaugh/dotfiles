@@ -5,7 +5,7 @@ browser=${BROWSER-surf}
 [[ -z "${1-""}" ]] && exit 1
 
 case "$1" in
-    *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*)
+    *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*)
         mpv -quiet $1 ;;
     *) "$BROWSER" "$1"
 esac
