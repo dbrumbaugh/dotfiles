@@ -1,6 +1,6 @@
 #!/usr/local/bin/ksh
 
-if [[ -f "/sys/class/power_supply/BAT0" ]]; then
+if [[ -d "/sys/class/power_supply/BAT0" ]]; then
     b_charging=""
     b_alert=""
     b_100=""
