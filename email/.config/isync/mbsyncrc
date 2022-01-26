@@ -11,8 +11,8 @@ Account university
 
 MaildirStore university-local
 Subfolders Verbatim
-Path ~/.mail/university/
-Inbox ~/.mail/university/Inbox
+Path ~/.local/share/mail/university/
+Inbox ~/.local/share/mail/university/Inbox
 
 Channel university
 Far :university-remote:
@@ -35,8 +35,8 @@ Account personal
 
 MaildirStore personal-local
 Subfolders Verbatim
-Path ~/.mail/personal/
-Inbox ~/.mail/personal/Inbox
+Path ~/.local/share/mail/personal/
+Inbox ~/.local/share/mail/personal/Inbox
 
 Channel personal
 Far :personal-remote:

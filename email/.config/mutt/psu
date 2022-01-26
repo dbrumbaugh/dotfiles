@@ -1,6 +1,6 @@
 unmailboxes *
 
-set folder = "~/.mail/university"
+set folder = "~/.local/share/mail/university"
 set mbox_type = Maildir
 set spoolfile = +Inbox
 set record = +Sent
