@@ -56,3 +56,5 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 -- w!! force saves using sudo
 -- TODO: look into askpass helpers to allow sudo password entry
 keymap('c', 'w!!', 'w !sudo tee %', opts)
+
+keymap('n', '<leader>r', ':LspRestart<cr>', opts)

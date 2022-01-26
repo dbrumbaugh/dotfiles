@@ -9,5 +9,6 @@ require "douglas.treesitter"
 require "douglas.lualine"
 require "douglas.gitsigns"
 require "douglas.autopairs"
+require"douglas.pandoc"
 
 
