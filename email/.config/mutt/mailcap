@@ -1,1 +1,3 @@
-text/html; lynx -dump %s; copiousoutput;
+text/html; surf %s; nametemplate=%s.html; test=test -n "$DISPLAY"; needsterminal;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+application/pdf; zathura %s;
