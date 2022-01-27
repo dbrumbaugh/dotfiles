@@ -88,6 +88,8 @@ return packer.startup(function(use)
 
     use "scalameta/nvim-metals"
 
+    use "chrisbra/Colorizer"
+
 
 --    use "vimwiki/vimwiki"
 
