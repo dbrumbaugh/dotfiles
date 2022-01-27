@@ -10,7 +10,7 @@ if colorscheme == "gruvbox" then
     vim.cmd("hi clear CursorLine")
     vim.cmd("hi CursorLine gui=underline cterm=underline")
 
-    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+    vim.cmd("hi Normal guibg=NONE")
     vim.cmd("hi SignColumn guibg=NONE")
     vim.cmd("hi CursorLineNr guibg=NONE")
 
@@ -22,6 +22,13 @@ if colorscheme == "gruvbox" then
     vim.cmd("hi GruvboxYellowSign guibg=NONE")
     vim.cmd("hi GruvboxRedSign guibg=NONE")
 
+    vim.cmd("hi GitSignsAdd guibg=NONE")
+    vim.cmd("hi GitSignsChange guibg=NONE")
+    vim.cmd("hi GitSignsDelete guibg=NONE")
+    vim.cmd("hi DiagnosticSignError guibg=NONE")
+    vim.cmd("hi DiagnosticSignHint guibg=NONE")
+    vim.cmd("hi DiagnosticSignInfo guibg=NONE")
+    vim.cmd("hi DiagnosticSignWarn guibg=NONE")
     vim.opt.pumblend = 15
     vim.opt.winblend = 15
 end
