@@ -108,7 +108,12 @@ fi
 
 # Go setup, if applicable
 if [[ -d "$USER_LOCAL/go/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/go/bin:"* ]]; then
-    PATH="$PATH:$USER_LOCAL/go/bin"
+    export PATH="$PATH:$USER_LOCAL/go/bin"
+fi
+
+
+if [[ -d "$XDG_DATA_HOME/coursier/bin" ]] && [[ ":$PATH:" != *":$XDG_DATA_HOME/coursier/bin:"* ]]; then
+    export PATH="$PATH:$XDG_DATA_HOME/coursier/bin"
 fi
 
 # Used for the pushd/popd/dirs functions
