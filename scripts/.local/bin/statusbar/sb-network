@@ -1,5 +1,9 @@
 #!/usr/local/bin/ksh
 
+#TODO: A better approach to identifying the active network device could be
+#      useful. This is a bit better than just hardcoding, but not by a ton.
+net_device="$(ip -c=never addr | grep "state UP" | awk '{ print $2 }' | tr -d ":")"
+
 if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
 	icon="$(awk '/^\s*w/ { print "^C6^直", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
     ip=$(ip -c=never addr show dev wlan0 | awk '/inet / {print $2}')
@@ -9,7 +13,7 @@ elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
     ip="none"
 elif grep -xq 'up' /sys/class/net/e*/operstate 2>/dev/null ; then
     icon="^C2^ "
-    ip=$(ip -c=never addr show dev enp3s0 | awk '/inet / {print $2}')
+    ip=$(ip -c=never addr show dev $net_device | awk '/inet / {print $2}')
     ip=${ip%%/*}
 else
     icon="^C1^ "
