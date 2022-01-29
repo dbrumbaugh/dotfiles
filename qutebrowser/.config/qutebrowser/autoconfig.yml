@@ -95,13 +95,18 @@ settings:
     global: '#458588'
   colors.tabs.selected.odd.fg:
     global: '#ebdbb2'
-  colors.webpage.preferred_color_scheme:
-    global: dark
+  completion.web_history.max_items:
+    global: 0
   content.blocking.method:
     global: both
-  content.notifications.enabled:
-    https://filmora.wondershare.com: false
-    https://www.youtube.com: false
+  content.geolocation:
+    https://www.google.com: false
+    https://www.mapquest.com: false
+  content.notifications:
+    https://www.facebook.com: false
+  content.register_protocol_handler:
+    https://outlook.office.com?mailtouri=%25s: false
+    https://outlook.office365.com?mailtouri=%25s: false
   content.user_stylesheets:
     global: null
   downloads.location.directory:
