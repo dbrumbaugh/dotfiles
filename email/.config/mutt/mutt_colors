@@ -19,3 +19,4 @@ color index     bold color12 default  '~O'
 color index     bold color12 default  '~N'
 color index     bold color9       default '~F'    # Flagged Messages are important!
 color index     black default    '~D'            # Deleted Mails - use dark color as these are already "dealt with"
+color normal    white default

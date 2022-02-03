@@ -13,3 +13,7 @@ if command -v hostname > /dev/null 2>&1; then
 else
     export HOST=$(cat /etc/hostname)
 fi
+. "/export/home/dbr4/.local/share/cargo/env"
+
+export NVM_DIR="/export/home/dbr4/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

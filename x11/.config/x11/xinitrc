@@ -6,5 +6,5 @@ xss-lock --transfer-sleep-lock autolock &
 mpd
 start-statusbar &
 dunst &
-setxkbmap -option caps:escape
+#setxkbmap -option caps:escape
 exec dwm

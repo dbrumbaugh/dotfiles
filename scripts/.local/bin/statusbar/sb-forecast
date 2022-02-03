@@ -24,6 +24,6 @@ sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | s
     awk '{print " ^C12^ " $1 "" " ^C9^ " $2 ""}' ;}
 
 [ "$(stat -c %y "$weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||
-	getforecast
+	getforecast state+college?u
 
 showweather

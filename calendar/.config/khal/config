@@ -1,7 +1,7 @@
 [calendars]
 
 [[personal]]
-path = ~/.local/share/vdirsyncer/calendars/e83156d4-5d5b-4c61-bf21-00598818ffbd/
+path = /export/home/dbr4/.local/share/vdirsyncer/calendars/e83156d4-5d5b-4c61-bf21-00598818ffbd/
 type = calendar
 
 

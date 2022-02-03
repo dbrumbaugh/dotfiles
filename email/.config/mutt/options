@@ -1,9 +1,9 @@
-set header_cache = ~/.cache/mutt/header_cache
+set header_cache = /export/home/dbr4/.cache/mutt/header_cache
 
 set sort = threads
 set sort_aux = reverse-last-date-received
 set date_format = "%m/%d/%y %I:%M%p"
-set mailcap_path = "~/.config/mutt/mailcap"
+set mailcap_path = "/export/home/dbr4/.config/mutt/mailcap"
 
 set sleep_time = 0
 set markers = no 

@@ -1,5 +1,5 @@
 [general]
-status_path = "~/.local/share/vdirsyncer/status"
+status_path = "/export/home/dbr4/.local/share/vdirsyncer/status"
 
 [pair fastmail_calendar]
 a = "fastmail_calendar_far"
@@ -9,7 +9,7 @@ metadata = ["displayname"]
 
 [storage fastmail_calendar_near]
 type = "filesystem"
-path = "~/.local/share/vdirsyncer/calendars/"
+path = "/export/home/dbr4/.local/share/vdirsyncer/calendars/"
 fileext = ".ics"
 
 [storage fastmail_calendar_far]
@@ -28,7 +28,7 @@ metadata = ["displayname"]
 
 [storage fastmail_contacts_near]
 type = "filesystem"
-path = "~/.local/share/vdirsyncer/contacts/"
+path = "/export/home/dbr4/.local/share/vdirsyncer/contacts/"
 fileext = ".vcf"
 
 
