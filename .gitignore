@@ -8,6 +8,8 @@ gnupg/.local/share/gnupg/pubring.kbx~
 gnupg/.local/share/gnupg/trustdb.gpg
 gnupg/.local/share/gnupg/.*
 gnupg/.local/share/gnupg/private-keys-v1.d/
+gnupg/.local/share/gnupg/openpgp-revocs.d/
+gnupg/.local/share/gnupg/random_seed
 qutebrowser/.config/qutebrowser/bookmarks/
 qutebrowser/.config/qutebrowser/quickmarks
 qutebrowser/.config/qutebrowser/qsettings
