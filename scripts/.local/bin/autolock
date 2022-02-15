@@ -7,7 +7,7 @@
 ## CONFIGURATION ##############################################################
 
 # Command to start the locker (should not fork)
-locker="slock"
+locker="lock"
 
 # Delay in seconds. Note that by default systemd-logind allows a maximum sleep
 # delay of 5 seconds.
