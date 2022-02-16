@@ -1,6 +1,6 @@
 unmailboxes *
 
-set folder = "/export/home/dbr4/.local/share/mail/university"
+set folder = "~/.local/share/mail/university"
 set mbox_type = Maildir
 set spoolfile = "+Inbox"
 set record = "+Sent
@@ -15,4 +15,4 @@ set my_smtp_pass = `get-pass email/psu`
 set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
 set ssl_force_tls="no"
 
-set signature = "/export/home/dbr4/.config/mutt/sigs/psu.signature"
+set signature = "~/.config/mutt/sigs/psu.signature"
