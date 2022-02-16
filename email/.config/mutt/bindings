@@ -30,6 +30,8 @@ bind pager G bottom
 
 bind index,query space tag-entry
 
+macro index,pager R "<shell-escape> systemctl --user start mbsync.service >/dev/null 2>&1 &<enter><enter>"
+
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind browser l select-entry
 
