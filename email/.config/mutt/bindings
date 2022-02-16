@@ -28,7 +28,12 @@ bind pager k previous-line
 bind pager gg top
 bind pager G bottom
 
+bind pager <up> previous-line
+bind pager <down> next-line
+
 bind index,query space tag-entry
+
+macro index,pager R "<shell-escape> systemctl --user start mbsync.service >/dev/null 2>&1 &<enter><enter>"
 
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind browser l select-entry
