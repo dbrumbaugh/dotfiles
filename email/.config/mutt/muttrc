@@ -1,8 +1,8 @@
 #color normal white default
-source /export/home/dbr4/.config/mutt/options
-source /export/home/dbr4/.config/mutt/mutt_colors
-source /export/home/dbr4/.config/mutt/bindings
-source /export/home/dbr4/.config/mutt/sidebar
+source ~/.config/mutt/options
+source ~/.config/mutt/mutt_colors
+source ~/.config/mutt/bindings
+source ~/.config/mutt/sidebar
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -10,4 +10,9 @@ alternative_order text/plain text/enriched text/html
 set realname = "Douglas B. Rumbaugh"
 set use_from = yes
 
-source '/export/home/dbr4/.config/mutt/psu'
+macro index <f2> '<change-folder>~/.local/share/mail/personal/Inbox<enter>'
+macro index <f3> '<change-folder>~/.local/share/mail/university/Inbox<enter>'
+
+folder-hook '~/.local/share/mail/personal/Inbox' 'source ~/.config/mutt/personal'
+folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu'
+source '~/.config/mutt/personal'

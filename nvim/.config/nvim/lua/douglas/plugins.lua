@@ -46,6 +46,7 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use "windwp/nvim-autopairs"
+    use "numToStr/Comment.nvim" -- Easily comment stuff
 
     -- completions
     use "hrsh7th/nvim-cmp" -- The completion plugin

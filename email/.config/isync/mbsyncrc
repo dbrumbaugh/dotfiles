@@ -1,8 +1,7 @@
 IMAPAccount university
 Host 127.0.0.1
 Port 1143
-#UserCmd "get-pass email/psu email"
-User "dbr4@psu.edu"
+UserCmd "get-pass email/psu email"
 PassCmd "get-pass email/psu"
 SSLType None
 AuthMechs LOGIN
@@ -12,14 +11,40 @@ Account university
 
 MaildirStore university-local
 Subfolders Verbatim
-Path /export/home/dbr4/.local/share/mail/university/
-Inbox /export/home/dbr4/.local/share/mail/university/Inbox
+Path ~/.local/share/mail/university/
+Inbox ~/.local/share/mail/university/Inbox
 
 Channel university
-Master :university-remote:
-Slave :university-local:
+Far :university-remote:
+Near :university-local:
+SyncState *
+Patterns *
+Create Both
+Sync All
+Expunge Near
+
+
+IMAPAccount personal
+Host imap.fastmail.com
+Port 993
+UserCmd "get-pass email/personal email"
+PassCmd "get-pass email/personal"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Subfolders Verbatim
+Path ~/.local/share/mail/personal/
+Inbox ~/.local/share/mail/personal/Inbox
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
 Patterns *
 Create Both
 SyncState *
 Sync All
-Expunge Slave
+Expunge Near
