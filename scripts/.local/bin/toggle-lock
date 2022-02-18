@@ -1,0 +1,9 @@
+#! /bin/sh
+
+if pidof xss-lock > /dev/null 2>&1; then
+    kill $(pidof xss-lock) > /dev/null 2>&1
+else
+    nohup xss-lock --transfer-sleep-lock autolock > /dev/null 2>&1 &
+fi
+
+kill -45 $(pidof dwmblocks)
