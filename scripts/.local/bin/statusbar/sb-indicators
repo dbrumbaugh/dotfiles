@@ -13,4 +13,10 @@ else
     line="$line ^C1^ "
 fi
 
+if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
+    line="$line ^C1^壘"
+else
+    line="$line ^C7^壘"
+fi
+
 printf "%s " $line

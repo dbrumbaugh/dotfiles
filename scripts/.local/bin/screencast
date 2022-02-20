@@ -1,0 +1,32 @@
+#!/usr/local/bin/ksh
+if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
+    read PID < "$XDG_STATE_HOME/screencasting"
+    if [[ -d "/proc/${PID:=x}" ]]; then
+        # There is already a screencast in process--so we want to end it.
+
+        # The recording stops a little before the command is sent, so
+        # we'll sleep for a second in case somebody forgot to leave
+        # a few seconds of silence at the end of the recording and they
+        # get cut off.
+        sleep 1
+        kill $PID
+    fi
+
+    # Otherwise, the state got out of sync somehow (perhaps the ffmpeg command)
+    # was manually killed, rather than ended with stop-recording?
+    rm "$XDG_STATE_HOME/screencasting"
+    kill -45 $(pidof dwmblocks)
+    exit
+fi
+
+# Start a new recording
+FNAME="$HOME/videos/new_recordings/screencast_$(date '+%y%m%d-%H%M-%S').mkv"
+DISPLAY_INFO=$(xrandr | grep " connected" | cut -f1 -d"("| dmenu -p "Select a Monitor to Record:" -l 5 -c -bw 3 | awk '{print $NF}')
+
+RESOLUTION="${DISPLAY_INFO%%+*}"
+OFFSET="+${DISPLAY_INFO#*+}"
+
+nohup ffmpeg -f x11grab -r 30 -s "$RESOLUTION" -i "$DISPLAY".0"$OFFSET" -f pulse -r 30 -i default "$FNAME" > /dev/null 2>&1 &
+
+echo $! > "$XDG_STATE_HOME"/screencasting
+kill -45 $(pidof dwmblocks)

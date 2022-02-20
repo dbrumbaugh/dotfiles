@@ -1,3 +1,0 @@
-#!/usr/local/bin/ksh
-
-pkill ffmpeg

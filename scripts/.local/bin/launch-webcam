@@ -1,0 +1,4 @@
+#!/usr/local/bin/ksh
+CAMERA="$(ls /dev/video* | dmenu -p "Select a Video Device:" -l 5 -c -bw 3)"
+
+mpv --profile=low-latency --untimed --hwdec=auto "$CAMERA"
