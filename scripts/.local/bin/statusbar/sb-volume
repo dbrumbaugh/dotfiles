@@ -11,8 +11,16 @@ else
     symbol="^C3^婢"
 fi
 
-if (( volume >= 100 )); then
-    printf "%s%4d\n" $symbol $volume
+
+microphone="$(pamixer --default-source --get-volume)"
+if [[ $(pamixer --default-source --get-mute) = "true" ]]; then
+    msymbol="^C1^ "
 else
-    printf "%s%3d\n" $symbol $volume
+    msymbol="^C10^"
+fi
+
+if (( volume >= 100 )); then
+    printf "%s%4d %s%3d\n" $symbol $volume $msymbol $microphone
+else
+    printf "%s%3d %s%3d\n" $symbol $volume $msymbol $microphone
 fi
