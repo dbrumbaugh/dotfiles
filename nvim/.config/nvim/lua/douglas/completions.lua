@@ -44,6 +44,7 @@ local kind_icons = {
   TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+--
 
 cmp.setup {
   snippet = {
@@ -120,9 +121,9 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  window = {
+        documentation = cmp.config.window.bordered()
+    },
   experimental = {
     ghost_text = true,
     native_menu = false,
