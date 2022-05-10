@@ -23,6 +23,10 @@ fi
 FNAME="$HOME/videos/new_recordings/screencast_$(date '+%y%m%d-%H%M-%S').mkv"
 DISPLAY_INFO=$(xrandr | grep " connected" | cut -f1 -d"("| dmenu -p "Select a Monitor to Record:" -l 5 -c -bw 3 | awk '{print $NF}')
 
+if [[ -z "$DISPLAY_INFO" ]]; then
+    exit
+fi
+
 RESOLUTION="${DISPLAY_INFO%%+*}"
 OFFSET="+${DISPLAY_INFO#*+}"
 
