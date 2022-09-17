@@ -60,3 +60,5 @@ keymap('c', 'w!!', 'w !sudo tee %', opts)
 keymap('n', '<leader>r', ':LspRestart<cr>', opts)
 
 keymap("n", "<leader>c", ":ColorToggle<cr>", opts)
+
+keymap("n", "<m-k>", ":Man<cr>", opts)
