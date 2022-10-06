@@ -1,8 +1,8 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 typeset -E used total perc
 
-line=$(free -m | sed -n '2{p;q}')
+line=$(free -m | gsed -n '2{p;q}')
 used=$(echo $line | awk '{print $3}')
 total=$(echo $line | awk '{print $2}')
 
@@ -20,7 +20,7 @@ used_gb=$(( used / 1024 ))
 avail_gb=$(( total / 1024 ))
 
 
-temp=$(sensors | awk '/Package id 0:/ { print $4 }' | tr -d "+°CF")
+temp=$(sysctl hw.sensors.cpu0.temp0 | cut -f 1 -d " " | cut -f 2 -d "=")
 if (( temp <= 50 )); then
     tcolor="^C2^ "
 elif (( temp <= 80 )); then
@@ -31,7 +31,9 @@ else
     tcolor="^C1^ "
 fi
 
-cpu="$(sar 1 1 | awk '/Average:/ {print 100-$8}')"
+#cpu="$(sar 1 1 | awk '/Average:/ {print 100-$8}')"
+cpu_usage="$(iostat -C | tail -1 | awk '{print $6}')"
+cpu=$((100-cpu_usage))
 
 if (( cpu <= 40 )); then
     cpu_icon="^C2^ "

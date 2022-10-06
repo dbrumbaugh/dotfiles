@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 line=""
 if pidof xss-lock > /dev/null 2>&1; then

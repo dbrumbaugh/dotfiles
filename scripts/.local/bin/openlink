@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 browser=${BROWSER-surf}
 

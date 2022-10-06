@@ -1,8 +1,8 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 typeset -E used total perc
 
-line=$(free -m | sed -n '2{p;q}')
+line=$(free -m | gsed -n '2{p;q}')
 used=$(echo $line | awk '{print $3}')
 total=$(echo $line | awk '{print $2}')
 

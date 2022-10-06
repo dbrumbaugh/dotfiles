@@ -1,7 +1,8 @@
-#!/usr/local/bin/ksh
-volume=$(pamixer --get-volume)
+#!/usr/local/bin/ksh93
+volume=$(sndioctl -n output.level)
+volume=$((volume*100))
 
-if [ $(pamixer --get-mute) = "true" ]; then
+if [ $(sndioctl -n output.mute) = "1" ]; then
     symbol="^C1^ﱝ"
 elif [ "$volume" -ge "70" ]; then
     symbol="^C10^墳"
@@ -12,8 +13,9 @@ else
 fi
 
 
-microphone="$(pamixer --default-source --get-volume)"
-if [[ $(pamixer --default-source --get-mute) = "true" ]]; then
+microphone="$(sndioctl -n input.level)"
+microphone=$((microphone*100))
+if [[ $(sndioctl -n input.mute) = "1" ]]; then
     msymbol="^C1^ "
 else
     msymbol="^C10^"

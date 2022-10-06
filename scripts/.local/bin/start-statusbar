@@ -1,5 +1,3 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 dwmblocks &
-sleep 1
-kill -44 $(pidof dwmblocks)
