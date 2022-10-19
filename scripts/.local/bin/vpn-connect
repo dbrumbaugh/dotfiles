@@ -1,0 +1,2 @@
+#!/usr/local/bin/ksh93
+openconnect --protocol=gp --server secure-connect.psu.edu --user=dbr4 --authgroup=Faculty
