@@ -1,9 +1,7 @@
 #! /bin/sh
 
-if pidof picom > /dev/null 2>&1; then
-    kill $(pidof picom) > /dev/null 2>&1
+if pgrep picom > /dev/null 2>&1; then
+    pkill picom > /dev/null 2>&1
 else
     nohup picom > /dev/null 2>&1 &
 fi
-
-kill -45 $(pidof dwmblocks)

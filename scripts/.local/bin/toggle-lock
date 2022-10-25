@@ -1,7 +1,7 @@
 #! /bin/sh
 
-if pidof xss-lock > /dev/null 2>&1; then
-    kill $(pidof xss-lock) > /dev/null 2>&1
+if pgrep xss-lock > /dev/null 2>&1; then
+    pkill xss-lock > /dev/null 2>&1
     xset -dpms
     xset s off
     xset s noblank
@@ -11,5 +11,3 @@ else
     xset s on
     xset s noblank
 fi
-
-kill -45 $(pidof dwmblocks)

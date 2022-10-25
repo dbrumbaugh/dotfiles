@@ -1,13 +1,13 @@
 #!/usr/local/bin/ksh93
 
 line=""
-if pidof xss-lock > /dev/null 2>&1; then
+if pgrep xss-lock > /dev/null 2>&1; then
     line="^C2^ "
 else
     line="^C3^ "
 fi
 
-if pidof picom > /dev/null 2>&1; then
+if pgrep picom > /dev/null 2>&1; then
     line="$line ^C2^ "
 else
     line="$line ^C1^ "
