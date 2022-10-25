@@ -1,6 +1,12 @@
+run-on-startup set-tag "aggregated"
+
+article-sort-order date-asc
+feed-sort-order lastupdated
+prepopulate-query-feeds yes
+
 show-read-feeds yes
 auto-reload yes
-reload-threads 4
+reload-threads 10
 
 bind-key j down
 bind-key k up
@@ -26,7 +32,7 @@ color listfocus default default bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
 color info default default bold
-color article white default bold
+color article default default 
 
 browser openlink
 
