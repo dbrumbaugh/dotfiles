@@ -20,4 +20,10 @@ else
     ip="none"
 fi
 
-printf "%s(%s)\n" "$icon" "$ip"
+if ifconfig tun0 > /dev/null; then
+    vpnicon="^C6^歷"
+else
+    vpnicon="^C3^轢"
+fi
+
+printf "%s (%s) %s \n" "$icon" "$ip" "$vpnicon"
