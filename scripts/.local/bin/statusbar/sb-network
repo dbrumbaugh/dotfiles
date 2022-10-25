@@ -13,10 +13,16 @@ fi
 
 ether_status="$(ifconfig em0 | awk '/status:/ {print $2}')"
 
-if [ "$ether_status" -eq "active" ]; then
-    eicon="^C6^"
+if [[ $ether_status == "active" ]]; then
+    eicon="^C6^ "
 else
-    eicon="^C3^" 
+    eicon="^C3^ " 
 fi
 
-printf "%s %s\n" "$wicon" "$eicon"
+if ifconfig tun0 > /dev/null; then
+    vpnicon="^C6^歷"
+else
+    vpnicon="^C3^轢"
+fi
+
+printf "%s %s %s \n" "$wicon" "$eicon" "$vpnicon"
