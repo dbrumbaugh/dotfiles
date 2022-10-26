@@ -1,0 +1,27 @@
+#!/usr/local/bin/ksh
+
+if [[ $# < 1 ]]; then
+    echo "Usage: check-test <testname>" 1>&2
+    exit 1
+fi
+
+root=$(git rev-parse --show-toplevel 2> /dev/null)
+
+if [[ ! $root ]]; then
+    echo "ERROR: This command must be run within a git repository" 1>&2
+    exit 1
+fi
+
+testnm=$1
+
+if [[ ! $testnm =~ ^.*\.(c|cpp)$ ]]; then
+    testnm="${testnm}_tests.cpp"
+fi
+
+
+if [[ ! -d $root/tests ]]; then
+    mkdir -p $root/tests
+fi
+
+cp $XDG_DATA_HOME/snippets/unit-tests.c "$root/tests/$testnm"
+
