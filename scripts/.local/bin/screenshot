@@ -1,0 +1,14 @@
+#!/usr/local/bin/ksh93
+
+if [[ ! -d ./img ]]; then
+    mkdir ./img
+fi
+
+fname=$(ls ./img | dmenu -p "Screenshot Filename: " -l 5 -c -bw 3)
+
+if [[ ! $fname =~ ^.*\.png$ ]]; then
+    fname="${fname}.png"
+fi
+
+maim -sl -c .27,.5214,.5333,.8 "./img/$fname"
+echo "./img/$fname" | xclip
