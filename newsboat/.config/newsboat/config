@@ -8,6 +8,8 @@ show-read-feeds yes
 auto-reload yes
 reload-threads 10
 
+goto-next-feed no
+
 bind-key j down
 bind-key k up
 bind-key j next articlelist
