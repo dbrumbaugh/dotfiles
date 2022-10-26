@@ -62,3 +62,5 @@ keymap('n', '<leader>r', ':LspRestart<cr>', opts)
 keymap("n", "<leader>c", ":ColorToggle<cr>", opts)
 
 keymap("n", "<m-k>", ":Man<cr>", opts)
+
+keymap("n", "<leader>b", ":!rebuild<cr>", opts)

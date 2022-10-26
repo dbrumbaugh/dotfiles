@@ -1,0 +1,22 @@
+#!/usr/local/bin/ksh
+
+root=$(git rev-parse --show-toplevel 2> /dev/null)
+
+if [[ ! $root ]]; then
+    echo "ERROR: This command must be run within a git repository" 1>&2
+    exit 1
+fi
+
+if [[ -f $root/CMakeLists.txt ]]; then # CMake project
+    test -d "$root/build" || mkdir -p "$root/build"
+    cd "$root/build"
+    cmake ..
+    make
+    cd -
+    exit 0
+elif [[ -f $root/Makefile ]]; then # Regular makefile
+    exit 0
+else
+    echo "ERROR: I don't know how to build this project" 1>&2
+    exit 1
+fi
