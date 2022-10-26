@@ -15,8 +15,8 @@ fileext = ".ics"
 [storage fastmail_calendar_far]
 type = "caldav"
 url = "https://caldav.fastmail.com"
-username.fetch = ["command", "get-pass", "email/personal", "email"]
-password.fetch = ["command", "get-pass", "email/personal"]
+username.fetch = ["command", "get-pass", "-c", "email/personal", "email"]
+password.fetch = ["command", "get-pass", "-c", "email/personal"]
 
 
 [pair fastmail_contacts]
@@ -35,5 +35,5 @@ fileext = ".vcf"
 [storage fastmail_contacts_far]
 type = "carddav"
 url = "https://carddav.fastmail.com"
-username.fetch = ["command", "get-pass", "email/personal", "email"]
-password.fetch = ["command", "get-pass", "email/personal"]
+username.fetch = ["command", "get-pass", "-c", "email/personal", "email"]
+password.fetch = ["command", "get-pass", "-c", "email/personal"]

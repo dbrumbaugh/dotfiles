@@ -1,7 +1,22 @@
 #!/usr/local/bin/ksh93
+cron=0
 
-if [[ "$#" == "1" ]]; then
-    pass $1 | head -1
-else
-    pass "$1" | awk -F ":" "/$2/"'{print $2}'
+if [[ $# > 1 && $1 == "-c" ]]; then
+    cron=1
+    shift
 fi
+
+if [[ $cron == 1 ]]; then
+    if [[ $# == 1 ]]; then
+        cat "$HOME/.local/share/cron-passwords/$1" | head -1
+    else
+        cat "$HOME/.local/share/cron-passwords/$1" | awk -F ":" "/$2/"'{print $2}'
+    fi
+else 
+    if [[ $# == 1 ]]; then
+        pass $1 | head -1
+    elif [[ $# == 2 ]]; then
+        pass "$1" | awk -F ":" "/$2/"'{print $2}'
+    fi
+fi
+
