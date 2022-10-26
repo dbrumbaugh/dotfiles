@@ -4,6 +4,12 @@ source ~/.config/mutt/mutt_colors
 source ~/.config/mutt/bindings
 source ~/.config/mutt/sidebar
 
+ignore *
+unignore from date subject to cc
+unignore x-mailer
+unignore x-spam-status
+unignore x-spam-report
+
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
@@ -11,8 +17,8 @@ set realname = "Douglas B. Rumbaugh"
 set use_from = yes
 
 macro index <f2> '<change-folder>~/.local/share/mail/personal/Inbox<enter>'
-macro index <f3> '<change-folder>~/.local/share/mail/university/Inbox<enter>'
+#macro index <f3> '<change-folder>~/.local/share/mail/university/Inbox<enter>'
 
 folder-hook '~/.local/share/mail/personal/Inbox' 'source ~/.config/mutt/personal'
-folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu'
+#folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu'
 source '~/.config/mutt/personal'
