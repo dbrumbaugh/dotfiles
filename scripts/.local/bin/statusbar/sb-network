@@ -5,7 +5,7 @@
 
 wifi_status="$(ifconfig iwn0 | awk '/status:/ {print $2}')"
 
-if [ "$wifi_status" -eq "active" ]; then
+if [[ $wifi_status == "active" ]]; then
     wicon="^C6^直 "
 else
     wicon="^C3^睊 " 

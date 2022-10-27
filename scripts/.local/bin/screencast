@@ -29,6 +29,6 @@ fi
 RESOLUTION="${DISPLAY_INFO%%+*}"
 OFFSET="+${DISPLAY_INFO#*+}"
 
-nohup ffmpeg -f x11grab -r 30 -s "$RESOLUTION" -i "$DISPLAY".0"$OFFSET" -f pulse -r 30 -i default "$FNAME" > /dev/null 2>&1 &
+ffmpeg -f x11grab -r 30 -s "$RESOLUTION" -i "$DISPLAY".0"$OFFSET" -f sndio -r 30 -i default "$FNAME"
 
 echo $! > "$XDG_STATE_HOME"/screencasting
