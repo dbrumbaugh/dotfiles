@@ -1,13 +1,7 @@
 #! /bin/sh
 
-if pgrep xss-lock > /dev/null 2>&1; then
-    pkill xss-lock > /dev/null 2>&1
-    xset -dpms
-    xset s off
-    xset s noblank
+if pgrep xidle > /dev/null 2>&1; then
+    pkill xidle > /dev/null 2>&1
 else
-    nohup xss-lock --transfer-sleep-lock autolock > /dev/null 2>&1 &
-    xset +dpms
-    xset s on
-    xset s noblank
+    nohup xidle -program $HOME/.local/bin/lock -timeout 600 &
 fi

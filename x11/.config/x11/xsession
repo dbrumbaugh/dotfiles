@@ -3,7 +3,7 @@ xrdb $HOME/.config/x11/xresources
 nohup picom -b &
 #~/.fehbg
 #redshift -l 40:-77 &
-#xss-lock --transfer-sleep-lock autolock &
+xidle -program $HOME/.local/bin/lock -timeout 600 &
 mpd &
 $HOME/.local/bin/start-statusbar
 dunst &
