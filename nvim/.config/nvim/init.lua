@@ -11,5 +11,6 @@ require "douglas.gitsigns"
 require "douglas.autopairs"
 require "douglas.pandoc"
 require "douglas.comment"
+require "douglas.latex"
 
 

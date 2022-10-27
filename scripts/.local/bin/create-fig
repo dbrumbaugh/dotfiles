@@ -1,0 +1,16 @@
+#!/usr/local/bin/ksh93
+
+if [[ $# < 1 ]]; then
+    exit 1
+fi
+
+fname="$1"
+
+xclip <<< "
+\begin{figure}
+    \label{f-figurename}
+    \caption{My default caption}
+    \includegraphics[width=.8\textwidth]{$fname}
+\end{figure}
+"
+
