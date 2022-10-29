@@ -6,7 +6,6 @@ source ~/.config/mutt/sidebar
 
 ignore *
 unignore from date subject to cc
-unignore x-mailer
 unignore x-spam-status
 unignore x-spam-report
 
