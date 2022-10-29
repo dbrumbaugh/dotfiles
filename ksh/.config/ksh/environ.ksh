@@ -20,8 +20,8 @@ export VISUAL=$EDITOR
 export FCEDIT=$EDITOR
 
 # Other default applications
-export TERMINAL="st"
-export BROWSER="surf"
+export TERMINAL="kitty"
+export BROWSER="qutebrowser"
 
 # XDG/User-level configuration setup
 if [[ -d "/export/home/$USER" ]]; then
