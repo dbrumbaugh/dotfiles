@@ -4,6 +4,11 @@ source ~/.config/mutt/mutt_colors
 source ~/.config/mutt/bindings
 source ~/.config/mutt/sidebar
 
+ignore *
+unignore from date subject to cc
+unignore x-spam-status
+unignore x-spam-report
+
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 

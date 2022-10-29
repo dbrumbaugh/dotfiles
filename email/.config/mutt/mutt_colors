@@ -8,19 +8,35 @@ color quoted green default
 color quoted1 cyan default
 color quoted2 green default
 color quoted3 cyan default
-color error     red             default         # error messages
-color message   white           default         # message  informational messages
-color indicator bold color15           default             # indicator for the "current message"
-color status    bold color15           default            # status lines in the folder index sed for the mini-help line
-color tree      red             default         # the "tree" display of threads within the folder index
-color search    yellow           default            # search matches found with search within the internal pager
-color markers   red             default         # The markers indicate a wrapped line hen showing messages with looong lines
-color index     bold color12 default  '~O'
-color index     bold color12 default  '~N'
-color index     bold color9       default '~F'    # Flagged Messages are important!
-color index     black default    '~D'            # Deleted Mails - use dark color as these are already "dealt with"
-color normal    white default
-color body      color15 default .*
+color error     red         default
+color message   white       default
+color indicator bold bold   default blue
+color status    bold white  default 
+color tree      red         default
+color search    yellow      default
+color markers   red         default
+color normal    default     default
+color body      default     default .*
 
 color signature cyan default
 color tilde default default
+
+# index colors
+color index default default '.*'
+color index_author yellow default '.*'
+color index_number blue default
+color index_subject green default '.*'
+color index_date magenta default
+
+# Index color overrides based on message status
+color index     bold default default  '~O'
+color index     bold default default  '~N'
+
+color index     bold red       default '~F'    # Flagged Messages are important!
+color index_subject bold red default '~F'
+color index_author bold red default '~F'
+
+color index     white default    '~D'
+color index_author white default '~D'
+color index_subject white default '~D'
+
