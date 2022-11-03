@@ -2,3 +2,5 @@ text/html; qutebrowser %s; nametemplate=%s.html; test=test -n "$DISPLAY"; needst
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/plain; less %s; copiousoutput;
 application/pdf; zathura %s;
+image/png; feh %s;
+image/jpeg; feh %s

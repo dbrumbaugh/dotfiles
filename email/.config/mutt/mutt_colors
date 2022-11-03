@@ -11,7 +11,7 @@ color quoted3 cyan default
 color error     red         default
 color message   white       default
 color indicator bold bold   default blue
-color status    bold white  default 
+color status    bold default  default 
 color tree      red         default
 color search    yellow      default
 color markers   red         default
@@ -27,16 +27,18 @@ color index_author yellow default '.*'
 color index_number blue default
 color index_subject green default '.*'
 color index_date magenta default
+color index_flags red default '.*'
 
 # Index color overrides based on message status
-color index     bold default default  '~O'
 color index     bold default default  '~N'
 
 color index     bold red       default '~F'    # Flagged Messages are important!
 color index_subject bold red default '~F'
 color index_author bold red default '~F'
+color index_flags bold red default '~F'
 
 color index     white default    '~D'
 color index_author white default '~D'
 color index_subject white default '~D'
+color index_flags white default '~D'
 

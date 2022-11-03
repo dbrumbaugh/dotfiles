@@ -15,9 +15,9 @@ alternative_order text/plain text/enriched text/html
 set realname = "Douglas B. Rumbaugh"
 set use_from = yes
 
-macro index <f2> '<change-folder>~/.local/share/mail/personal/Inbox<enter>'
-#macro index <f3> '<change-folder>~/.local/share/mail/university/Inbox<enter>'
+macro index <f1> '<change-folder>~/.local/share/mail/personal/Inbox<enter><redraw-screen>'
+macro index <f2> '<change-folder>~/.local/share/mail/university/Inbox<enter><redraw-screen>'
 
 folder-hook '~/.local/share/mail/personal/Inbox' 'source ~/.config/mutt/personal'
-#folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu'
+folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu'
 source '~/.config/mutt/personal'
