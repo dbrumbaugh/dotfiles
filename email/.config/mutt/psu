@@ -7,11 +7,10 @@ set record = "+Sent
 set postponed = "+Drafts"
 set trash = "+Trash"
 
-mailboxes "+Inbox"
-#mailboxes "+Inbox/HR" "+Inbox/Timely Warning" "+Inbox/It Support Tickets"
-mailboxes "+Sent" "+Drafts" "+Trash"
+mailboxes "+Inbox" "+Sent" "+Drafts" "+Trash"
 
 set my_smtp_pass = `get-pass email/psu`
+set from = `get-pass email/psu email`
 set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
 set ssl_force_tls="no"
 

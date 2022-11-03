@@ -39,6 +39,3 @@ bind browser l select-entry
 
 bind attach <return> view-mailcap
 bind attach l view-mailcap
-
-#bind editor <space> noop
-bind editor <Tab> complete-query
