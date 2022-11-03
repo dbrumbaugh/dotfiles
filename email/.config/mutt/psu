@@ -11,8 +11,8 @@ mailboxes "+Inbox"
 #mailboxes "+Inbox/HR" "+Inbox/Timely Warning" "+Inbox/It Support Tickets"
 mailboxes "+Sent" "+Drafts" "+Trash"
 
-set my_smtp_pass = `get-pass email/psu`
-set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
-set ssl_force_tls="no"
+set from = `get-pass -c email/psu email`
+set sendmail = "msmtp -a university"
 
 set signature = "~/.config/mutt/sigs/psu.signature"
+macro index <tab> '<shell-escape> ~/.local/bin/email-sync university <enter>'

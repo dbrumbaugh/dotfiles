@@ -13,8 +13,9 @@ mailboxes "+Inbox/webmaster" "+Sent" "+Drafts" "+Trash"
 
 
 set from = `get-pass -c email/personal email`
-set my_smtp_pass = `get-pass -c email/personal`
-set smtp_url = "smtps://$from:$my_smtp_pass@smtp.fastmail.com:465"
-set ssl_force_tls="yes"
+set use_from=yes
+set sendmail = "msmtp -a personal"
 
 set signature = "~/.config/mutt/sigs/personal.signature"
+
+macro index <tab> '<shell-escape> ~/.local/bin/email-sync personal <enter>'

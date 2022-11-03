@@ -1,0 +1,21 @@
+account personal
+host smtp.fastmail.com
+port 587
+protocol smtp
+auth on
+user doug@douglasrumbaugh.com 
+from doug@douglasrumbaugh.com
+
+passwordeval "get-pass -c email/personal"
+tls on
+tls_starttls on
+
+account university
+host 127.0.0.1
+port 1025
+protocol smtp
+auth plain
+tls off
+user dbr4@psu.edu
+from dbr4@psu.edu
+passwordeval "get-pass -c email/psu"
