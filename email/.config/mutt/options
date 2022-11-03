@@ -22,3 +22,7 @@ set editor = "nvim +':set textwidth=0'"
 
 set index_format = "%Z %D %-15.15F %s"
 set query_command= "khard email --parsable --search-in-source-files '%s'"
+
+unset sig_dashes
+unset mark_old
+unset help
