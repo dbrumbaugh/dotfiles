@@ -1,0 +1,29 @@
+#!/usr/local/bin/ksh93
+
+confirm() {
+    conf=$(dmenu -p "Are you sure you want to shut down? " -l 5 -c -bw 3 <<-EOF
+yes
+no
+EOF
+           )
+
+    if [[ $conf != yes ]]; then
+        echo abort
+        exit 
+    fi
+}
+
+option=$(dmenu -p "Screenshot Filename: " -l 5 -c -bw 3 <<-EOF
+shutdown
+reboot
+abort
+EOF
+        )
+
+if [[ $option == "shutdown" ]]; then
+    confirm
+    shutdown -hp now
+elif [[ $option == "reboot" ]]; then
+    confirm
+    shutdown -r now
+fi
