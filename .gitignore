@@ -10,6 +10,7 @@ gnupg/.local/share/gnupg/.*
 gnupg/.local/share/gnupg/private-keys-v1.d/
 gnupg/.local/share/gnupg/openpgp-revocs.d/
 gnupg/.local/share/gnupg/random_seed
+gnupg/.local/share/gnupg/sshcontrol
 qutebrowser/.config/qutebrowser/bookmarks/
 qutebrowser/.config/qutebrowser/quickmarks
 qutebrowser/.config/qutebrowser/qsettings
