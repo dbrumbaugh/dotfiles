@@ -116,6 +116,10 @@ if [[ -d "$XDG_DATA_HOME/coursier/bin" ]] && [[ ":$PATH:" != *":$XDG_DATA_HOME/c
     export PATH="$PATH:$XDG_DATA_HOME/coursier/bin"
 fi
 
+if [[ -d "/usr/local/jdk-17/bin" ]] && [[ ":$PATH" != *":/usr/local/jdk-17/bin:"* ]]; then
+    export PATH="$PATH:/usr/local/jdk-17/bin"
+fi
+
 # Used for the pushd/popd/dirs functions
 unset dir_stack
 export dir_stack
