@@ -6,7 +6,7 @@ net_device="$(ip -c=never addr | grep "state UP" | awk '{ print $2 }' | tr -d ":
 
 if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
 	icon="$(awk '/^\s*w/ { print "^C6^直", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
-    ip=$(ip -c=never addr show dev wlan0 | awk '/inet / {print $2}')
+    ip=$(ip -c=never addr show dev wlx984827db4b3c | awk '/inet / {print $2}')
     ip=${ip%%/*}
 elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
     grep -xq '0x1003' /sys/class/net/w*/flags && icon="^C3^睊" || icon="^C1^睊"
@@ -20,10 +20,10 @@ else
     ip="none"
 fi
 
-if ifconfig tun0 > /dev/null; then
-    vpnicon="^C6^歷"
+if [[ -d /sys/class/net/tun0 ]]; then
+    vpnicon="^C6^歷 "
 else
-    vpnicon="^C3^轢"
+    vpnicon="^C3^轢 "
 fi
 
-printf "%s (%s) %s \n" "$icon" "$ip" "$vpnicon"
+printf "%s (%s) %2s \n" "$icon" "$ip" "$vpnicon"
