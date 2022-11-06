@@ -1,0 +1,3 @@
+#/usr/local/bin/ksh93
+
+doas simple-mtpfs -o allow_other /home/douglas/phone/  
