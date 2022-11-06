@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/ksh
 
 confirm() {
     conf=$(dmenu -p "Are you sure you want to shut down? " -l 5 -c -bw 3 <<-EOF
@@ -22,7 +22,7 @@ EOF
 
 if [[ $option == "shutdown" ]]; then
     confirm
-    shutdown -hp now
+    shutdown -h now
 elif [[ $option == "reboot" ]]; then
     confirm
     shutdown -r now
