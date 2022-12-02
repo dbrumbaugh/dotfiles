@@ -1,0 +1,22 @@
+#!/bin/bash
+
+history_file=${XDG_DATA_HOME}/search_history
+if [[ ! -f $history_file ]]; then
+    touch $history_file 
+fi
+
+if [[ $# > 0 ]]; then
+    text=$(xclip -o)
+else
+    text=$(cat $history_file | dmenu -l 10 -c -p 'Search text:')
+    if [[ $? != 0 ]]; then
+        exit 1
+    fi
+fi
+
+echo $text >> $history_file
+sort $history_file | uniq > $history_file.tmp
+mv $history_file.tmp $history_file
+rm $history_file.tmp
+
+${BROWSER} "https://duckduckgo.com/?q=$text" > /dev/null
