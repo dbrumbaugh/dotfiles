@@ -4,7 +4,7 @@
 
 case "$1" in
     *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*)
-        nohup mpv -quiet $1 ;;
-    *) $BROWSER "$1"
+        nohup mpv -quiet $1 2>&1 > /dev/null ;;
+    *) qutebrowser "$1"
 esac
 
