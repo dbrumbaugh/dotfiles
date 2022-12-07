@@ -13,7 +13,7 @@ echo "Enter the publication year:"; read -r year
 inputaudio="$1"
 
 # Get a safe file name from the book.
-escbook="$(echo "$booktitle" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
+escbook="$(echo "$booktitle" | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
 
 ! mkdir -p "$escbook" && echo "Do you have write access in this directory?" && exit 1
 
@@ -35,7 +35,7 @@ do
    	ffmpeg -nostdin -y -loglevel -8 -i "$inputaudio" -ss "$start" -to "$end" -vn -c copy "$file" &&
 	echo "Tagging \"$title\"..." && tag -a "$author" -A "$booktitle" -t "$title" -n "$track" -N "$total" -d "$year" "$file"
 	title="$(echo "$x" | cut -d' ' -f 2-)"
-	esctitle="$(echo "$title" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
+	esctitle="$(echo "$title" | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
 	track="$((track+1))"
 	start="$end"
 done < "$2"
@@ -44,3 +44,4 @@ echo "From $start to the end: $title"
 file="$escbook/$(printf "%.2d" "$track")-$esctitle.$ext"
 echo "Splitting \"$title\"..." && ffmpeg -nostdin -y -loglevel -8 -i "$inputaudio" -ss "$start" -vn -c copy "$file" &&
 		echo "Tagging \"$title\"..." && tag -a "$author" -A "$booktitle" -t "$title" -n "$track" -N "$total" -d "$year" "$file"
+
