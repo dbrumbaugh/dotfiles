@@ -71,9 +71,8 @@ if [[ -d $USER_LOCAL/src/nvm ]]; then
 fi
 
 # Set up CARGO if applicable
-if [[ -d $USER_LOCAL/cargo ]]; then
-    export CARGO_HOME="$USER_LOCAL/cargo"
-    . "$CARGO_HOME/env"
+if [[ -d $HOME/.cargo ]]; then
+    export PATH=$PATH:$HOME/.cargo/bin
 fi
 
 # Set up RUSTUP if applicable
