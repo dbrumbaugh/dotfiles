@@ -29,12 +29,18 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
+bind-key tab reload-all
+
 color listnormal default default
-color listfocus default default bold
-color listnormal_unread blue default
-color listfocus_unread yellow default bold
+color listfocus default blue bold
+color listnormal_unread yellow default
+color listfocus_unread yellow blue bold
 color info default default bold
 color article default default 
+
+color title magenta default bold 
+color info yellow default bold
+color hint-description yellow default
 
 browser openlink
 
