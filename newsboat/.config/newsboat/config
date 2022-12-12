@@ -30,6 +30,10 @@ bind-key U show-urls
 bind-key x pb-delete
 
 bind-key tab reload-all
+unbind-key R
+unbind-key Q
+bind-key q hard-quit
+unbind-key h feedlist
 
 color listnormal default default
 color listfocus default blue bold
@@ -38,9 +42,9 @@ color listfocus_unread yellow blue bold
 color info default default bold
 color article default default 
 
-color title magenta default bold 
-color info yellow default bold
-color hint-description yellow default
+#color title magenta default bold 
+#color info yellow default bold
+#color hint-description yellow default
 
 browser openlink
 
