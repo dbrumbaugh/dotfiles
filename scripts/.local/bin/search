@@ -19,4 +19,4 @@ sort $history_file | uniq > $history_file.tmp
 mv $history_file.tmp $history_file
 rm $history_file.tmp
 
-${BROWSER} "https://duckduckgo.com/?q=$text" > /dev/null
+qutebrowser "https://duckduckgo.com/?q=$text" > /dev/null
