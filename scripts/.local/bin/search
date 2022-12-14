@@ -5,6 +5,12 @@ if [[ ! -f $history_file ]]; then
     touch $history_file 
 fi
 
+yt=1
+if [[ "$1" == '-y' ]]; then
+    yt=0
+    shift
+fi
+
 if [[ $# > 0 ]]; then
     text=$(xclip -o)
 else
@@ -19,4 +25,8 @@ sort $history_file | uniq > $history_file.tmp
 mv $history_file.tmp $history_file
 rm $history_file.tmp
 
-qutebrowser "https://duckduckgo.com/?q=$text" > /dev/null
+if [[ $yt == 0 ]]; then
+    ytfzf "$text"
+else
+    qutebrowser "https://duckduckgo.com/?q=$text" > /dev/null
+fi
