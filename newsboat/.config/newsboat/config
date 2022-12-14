@@ -29,7 +29,11 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
+unbind-key R
+unbind-key ENTER
 bind-key TAB reload-all
+unbind-key h feedlist
+bind-key q hard-quit
 
 color listnormal default default
 color listfocus default blue bold
