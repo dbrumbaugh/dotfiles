@@ -5,7 +5,7 @@ daemon_execdir="/home/douglas/.local/src/davmail-binary/"
 
 . /etc/rc.d/rc.subr
 
-pexp="java"
+pexp="java.*davmail.*"
 rc_bg="YES"
 
 rc_cmd $1
