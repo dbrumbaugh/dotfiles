@@ -1,0 +1,11 @@
+#!/bin/ksh
+
+daemon="/home/douglas/.local/src/davmail-binary/davmail"
+daemon_execdir="/home/douglas/.local/src/davmail-binary/"
+
+. /etc/rc.d/rc.subr
+
+pexp="java"
+rc_bg="YES"
+
+rc_cmd $1
