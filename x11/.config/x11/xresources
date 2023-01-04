@@ -12,7 +12,7 @@
 *.selforeground: #ebdbb2
 
 
-*.font: Fira Code:style=regular:antialias=true:pixelsize=18
+*.font: FiraCode Nerd Font:style=medium:antialias=true:pixelsize=16
 ! hard contrast: *background: #1d2021
 ! soft contrast: *background: #32302f
 ! Black + DarkGrey
