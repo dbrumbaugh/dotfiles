@@ -26,7 +26,7 @@ mv $history_file.tmp $history_file
 rm $history_file.tmp
 
 if [[ $yt == 0 ]]; then
-    ytfzf "$text"
+    ytfzf -l --skip-thumb-download --pages=10 "$text"
 else
-    qutebrowser "https://duckduckgo.com/?q=$text" > /dev/null
+    vimb "https://duckduckgo.com/?q=$text" > /dev/null
 fi

@@ -5,6 +5,11 @@
 case "$1" in
     *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*|*player.odycdn.com*)
         nohup mpv -quiet $1 2>&1 > /dev/null ;;
-    *) qutebrowser "$1"
+    *.png|*.jpeg|*.jpg) 
+        nohup feh $1 2>&1 > /dev/null ;; 
+    http://*|https://*)
+        nohup vimb "$1" 2>&1 > /dev/null ;;
+    *.pdf)
+        nohup zathura "$1" 2>&1 > /dev/null ;;
 esac
 

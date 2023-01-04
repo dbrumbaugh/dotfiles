@@ -1,7 +1,7 @@
 #!/usr/local/bin/ksh93
 if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
     read PID < "$XDG_STATE_HOME/screencasting"
-    if [[ -d "/proc/${PID:=x}" ]]; then
+    if ps $PID; then
         # There is already a screencast in process--so we want to end it.
 
         # The recording stops a little before the command is sent, so
@@ -29,6 +29,9 @@ fi
 RESOLUTION="${DISPLAY_INFO%%+*}"
 OFFSET="+${DISPLAY_INFO#*+}"
 
-ffmpeg -f x11grab -r 30 -s "$RESOLUTION" -i "$DISPLAY".0"$OFFSET" -f sndio -r 30 -i default "$FNAME"
+ffmpeg -f x11grab -r 30 -s "$RESOLUTION" -i "$DISPLAY".0"$OFFSET" -f sndio -r 30 -i default \
+      -codec:v libx264rgb -crf 0 -preset ultrafast \
+      -codec:a copy \
+      "$FNAME"
 
 echo $! > "$XDG_STATE_HOME"/screencasting
