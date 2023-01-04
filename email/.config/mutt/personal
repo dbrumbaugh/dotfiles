@@ -12,7 +12,7 @@ mailboxes "+Inbox/other" "+Inbox/webcontact" "+Inbox/webservices"
 mailboxes "+Inbox/webmaster" "+Sent" "+Drafts" "+Trash"
 
 
-set from = `get-pass -c email/personal email`
+set from = `get-pass email/personal email`
 set use_from=yes
 set sendmail = "msmtp -a personal"
 

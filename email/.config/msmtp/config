@@ -6,7 +6,7 @@ auth on
 user doug@douglasrumbaugh.com 
 from doug@douglasrumbaugh.com
 
-passwordeval "get-pass -c email/personal"
+passwordeval "get-pass email/personal"
 tls on
 tls_starttls on
 
@@ -18,4 +18,4 @@ auth plain
 tls off
 user dbr4@psu.edu
 from dbr4@psu.edu
-passwordeval "get-pass -c email/psu"
+passwordeval "get-pass email/psu"
