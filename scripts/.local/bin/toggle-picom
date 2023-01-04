@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 if pidof picom > /dev/null 2>&1; then
     kill $(pidof picom) > /dev/null 2>&1

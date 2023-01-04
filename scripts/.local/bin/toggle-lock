@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 if pidof xss-lock > /dev/null 2>&1; then
     kill $(pidof xss-lock) > /dev/null 2>&1
