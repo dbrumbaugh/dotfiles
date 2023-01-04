@@ -13,6 +13,7 @@ export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH"
 export GPG_TTY=$(tty)
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export PASSWORD_STORE_DIR="$HOME/.local/share/passwords"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 if command -v hostname > /dev/null 2>&1; then
     export HOST=$(hostname -s)
