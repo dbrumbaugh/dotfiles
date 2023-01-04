@@ -19,4 +19,8 @@ sort $history_file | uniq > $history_file.tmp
 mv $history_file.tmp $history_file
 rm $history_file.tmp
 
-qutebrowser "https://duckduckgo.com/?q=$text" > /dev/null
+if [[ $yt == 0 ]]; then
+    ytfzf -l --skip-thumb-download --pages=10 "$text"
+else
+    vimb "https://duckduckgo.com/?q=$text" > /dev/null
+fi

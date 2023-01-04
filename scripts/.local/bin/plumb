@@ -1,10 +1,15 @@
-#!/usr/local/bin/ksh
+#!/usr/local/bin/ksh93
 
 [[ -z "${1-""}" ]] && exit 1
 
 case "$1" in
     *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*|*player.odycdn.com*)
         nohup mpv -quiet $1 2>&1 > /dev/null ;;
-    *) vimb "$1"
+    *.png|*.jpeg|*.jpg) 
+        nohup feh $1 2>&1 > /dev/null ;; 
+    http://*|https://*)
+        nohup vimb "$1" 2>&1 > /dev/null ;;
+    *.pdf)
+        nohup zathura "$1" 2>&1 > /dev/null ;;
 esac
 

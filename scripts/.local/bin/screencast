@@ -1,7 +1,7 @@
 #!/usr/local/bin/ksh
 if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
     read PID < "$XDG_STATE_HOME/screencasting"
-    if [[ -d "/proc/${PID:=x}" ]]; then
+    if ps $PID; then
         # There is already a screencast in process--so we want to end it.
 
         # The recording stops a little before the command is sent, so
