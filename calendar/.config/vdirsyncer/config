@@ -6,6 +6,7 @@ a = "fastmail_calendar_far"
 b = "fastmail_calendar_near"
 collections = ["from a", "from b"]
 metadata = ["displayname"]
+conflict_resolution = "a wins"
 
 [storage fastmail_calendar_near]
 type = "filesystem"
