@@ -1,8 +1,12 @@
+[view]
+bold_for_light_color = false
+
 [calendars]
 
 [[personal]]
 path = ~/.local/share/vdirsyncer/calendars/e83156d4-5d5b-4c61-bf21-00598818ffbd/
 type = calendar
+color = dark green
 
 
 [locale]
