@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
     read PID < "$XDG_STATE_HOME/screencasting"
     if ps $PID; then

@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 maildir=$1
 inbox="${maildir}/Inbox"

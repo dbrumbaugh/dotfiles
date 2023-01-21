@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 # Displays todays precipication chance (☔) and daily low ) and hig ().
 # Usually intended for the statusbar.

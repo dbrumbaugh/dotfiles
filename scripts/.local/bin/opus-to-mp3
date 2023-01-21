@@ -1,3 +1,3 @@
-#/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 find . -iname '*.opus' -exec bash -c 'D=$(dirname "{}"); B=$(basename "{}"); mkdir "$D/mp3/"; ffmpeg -i "{}" -ab 320k -map_metadata 0:s:a:0 -id3v2_version 3 "$D/mp3/${B%.*}.mp3"' \;

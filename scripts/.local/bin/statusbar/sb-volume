@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 volume=$(sndioctl -n output.level)
 volume=$((volume*100))
 

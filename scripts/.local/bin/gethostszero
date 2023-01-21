@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ksh93
 #
 # Filter list for various ad servers. Makes your webbrowser open less
 # connections.

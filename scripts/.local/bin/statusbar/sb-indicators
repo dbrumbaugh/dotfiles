@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 line=""
 if pgrep xidle > /dev/null 2>&1; then

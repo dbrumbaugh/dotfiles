@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 confirm() {
     conf=$(dmenu -p "Are you sure you want to shut down? " -l 5 -c -bw 3 <<-EOF

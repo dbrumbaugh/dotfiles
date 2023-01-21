@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh93
+#!/usr/bin/env ksh93
 
 history_file=$HOME/.local/share/search_history
 if [[ ! -f $history_file ]]; then
