@@ -15,3 +15,4 @@ set smtp_url = "smtp://dbr4@psu.edu:$my_smtp_pass@127.0.0.1:1025"
 set ssl_force_tls="no"
 
 set signature = "~/.config/mutt/sigs/psu.signature"
+macro index <tab> '<shell-escape> mbsync -c ~/.config/isync/mbsyncrc university<enter>'
