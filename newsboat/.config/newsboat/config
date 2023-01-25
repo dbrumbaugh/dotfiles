@@ -29,7 +29,7 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-bind-key tab reload-all
+bind-key TAB reload-all
 unbind-key R
 unbind-key Q
 bind-key q hard-quit
