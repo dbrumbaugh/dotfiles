@@ -80,4 +80,4 @@ set media-playback-requires-user-gesture=on
 set notification=never
 set site-specific-quirks=on
 
-set x-hint-command=:sh! mpv <C-R>;
+set x-hint-command=:sh! mpv <C-R>; <CR>
