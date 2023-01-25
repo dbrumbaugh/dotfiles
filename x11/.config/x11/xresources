@@ -6,7 +6,7 @@
 *.selfgcolor: #ebdbb2
 *.borderpx: 3
 
-*.background: #282828
+*.background: #1d2021
 *.foreground: #a89984
 *.selbackground: #458588
 *.selforeground: #ebdbb2
