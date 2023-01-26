@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/bin/env ksh
 
 if [[ -d "/sys/class/power_supply/BAT0" ]]; then
     b_charging=""

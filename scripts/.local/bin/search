@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env ksh
 
 history_file=${XDG_DATA_HOME}/search_history
 if [[ ! -f $history_file ]]; then

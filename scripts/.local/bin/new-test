@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/bin/env ksh
 
 if [[ $# < 1 ]]; then
     echo "Usage: check-test <testname>" 1>&2

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env ksh
 
 # Example locker script -- demonstrates how to use the --transfer-sleep-lock
 # option with a fixed delay to give simple lockers a little bit of time to lock

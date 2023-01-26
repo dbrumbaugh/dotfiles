@@ -1,4 +1,4 @@
-#!/usr/bin/ksh93
+#!/usr/bin/env ksh
 
 prefix="$HOME/.local/share/passwords"
 password_files=( "$prefix"/**/*.gpg )

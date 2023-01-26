@@ -1,11 +1,11 @@
-#!/usr/bin/ksh
+#!/usr/bin/env ksh
 
 if [[ -f "$HOME/.local/state/vpn" ]]; then
-    sudo pkill openconnect
+    doas pkill openconnect
     rm "$HOME/.local/state/vpn"
     notify-send "VPN disconnecting"
 else
-    if cat "$HOME/.local/state/vpn_pass" | sudo -n openconnect --protocol=gp --server secure-connect.psu.edu --user=dbr4 --authgroup=Faculty --non-inter --passwd-on-stdin --background 2>&1 >> "$HOME/.local/var/vpn.log"; then
+    if get-pass "misc/psu-vpn" | doas -n openconnect --protocol=gp --server secure-connect.psu.edu --user=dbr4 --authgroup=Faculty --non-inter --passwd-on-stdin --background 2>&1 >> "$HOME/.local/var/vpn.log"; then
         touch "$HOME/.local/state/vpn"
         notify-send "VPN connected"
     else

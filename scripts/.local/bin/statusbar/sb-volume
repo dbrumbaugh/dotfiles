@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/bin/env ksh
 volume=$(pamixer --get-volume)
 
 if [ $(pamixer --get-mute) = "true" ]; then

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ksh
 if ! slock > /dev/null 2>&1; then
     xhost +
     slock

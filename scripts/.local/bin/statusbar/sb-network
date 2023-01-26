@@ -1,4 +1,4 @@
-#!/usr/local/bin/ksh
+#!/usr/bin/env ksh
 
 #TODO: A better approach to identifying the active network device could be
 #      useful. This is a bit better than just hardcoding, but not by a ton.

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ksh
 
 # Requires ffmpeg (audio splitting) and my `tag` wrapper script.
 
