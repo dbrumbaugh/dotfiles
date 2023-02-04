@@ -1,0 +1,38 @@
+set header_cache = ~/.cache/mutt/header_cache
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+#set date_format = "%m/%d/%y %I:%M%p"
+set date_format = "%m/%d/%y"
+set mailcap_path = "~/.config/mutt/mailcap"
+
+set wait_key = 0
+set sleep_time = 0
+set markers = no 
+set mark_old = no 
+set mime_forward = yes
+set fast_reply
+set fcc_attach
+set forward_format = "Fwd: %s"
+set forward_quote
+set reverse_name
+set include
+
+set editor = "nvim +':set textwidth=0'"
+
+set index_format = "%Z %D %-15.15F %s"
+set query_command= "khard email --parsable --search-in-source-files '%s'"
+
+unset sig_dashes
+unset mark_old
+unset help
+
+# Encryption Setup
+set crypt_autosign = "yes"
+
+unset crypt_autoencrypt
+set crypt_replyencrypt = "yes"
+set pgp_verify_sig = "yes"
+set pgp_strict_enc = "yes"
+set pgp_use_gpg_agent = "yes"
+set pgp_timeout = 3600
