@@ -18,7 +18,7 @@ Channel university
 Far :university-remote:
 Near :university-local:
 SyncState *
-Patterns *
+Patterns * !Trash !Archive !Junk !"Social Activity Notifications" !"Conversation History" !"Unsent Messages" !"Sync Issues*"
 Create Both
 Sync All
 Expunge Near
