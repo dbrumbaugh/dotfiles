@@ -1,0 +1,44 @@
+color hdrdefault cyan default
+color attachment yellow default
+color header bold color11 default "From: "
+color header bold color11 default "Subject: "
+color header bold color11 default "Date: "
+color header bold color10 default "To: "
+color quoted green default
+color quoted1 cyan default
+color quoted2 green default
+color quoted3 cyan default
+color error     red         default
+color message   white       default
+color indicator bold bold   default blue
+color status    bold default  default 
+color tree      red         default
+color search    yellow      default
+color markers   red         default
+color normal    default     default
+color body      default     default .*
+
+color signature cyan default
+color tilde default default
+
+# index colors
+color index default default '.*'
+color index_author yellow default '.*'
+color index_number blue default
+color index_subject green default '.*'
+color index_date magenta default
+color index_flags red default '.*'
+
+# Index color overrides based on message status
+color index     bold default default  '~N'
+
+color index     bold red       default '~F'    # Flagged Messages are important!
+color index_subject bold red default '~F'
+color index_author bold red default '~F'
+color index_flags bold red default '~F'
+
+color index     white default    '~D'
+color index_author white default '~D'
+color index_subject white default '~D'
+color index_flags white default '~D'
+

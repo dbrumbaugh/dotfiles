@@ -1,0 +1,20 @@
+unmailboxes *
+
+set folder = "~/.local/share/mail/university"
+set mbox_type = Maildir
+set spoolfile = "+Inbox"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+
+mailboxes "+Inbox"
+mailboxes "+Sent" "+Drafts" "+Trash"
+
+set from = `get-pass -c email/psu email`
+set sendmail = "msmtp -a university"
+
+set signature = "~/.config/mutt/sigs/psu.signature"
+
+set pgp_default_key = `get-pass -c email/psu email`
+
+macro index <tab> '<shell-escape> ~/.local/bin/email-sync university <enter>'
