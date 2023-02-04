@@ -1,0 +1,21 @@
+account personal
+host smtp.fastmail.com
+port 587
+protocol smtp
+auth on
+eval "echo user `get-pass email/personal email`"
+eval "echo from `get-pass email/personal email`"
+
+passwordeval "get-pass email/personal"
+tls on
+tls_starttls on
+
+account university
+host 127.0.0.1
+port 1025
+protocol smtp
+auth plain
+tls off
+eval "echo user `get-pass email/psu email`"
+eval "echo from `get-pass email/psu email`"
+passwordeval "get-pass email/psu"
