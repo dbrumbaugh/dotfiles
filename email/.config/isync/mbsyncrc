@@ -18,10 +18,10 @@ Channel university
 Far :university-remote:
 Near :university-local:
 SyncState *
-Patterns * !Trash !Archive !Junk !"Social Activity Notifications" !"Conversation History" !"Unsent Messages" !"Sync Issues*"
+Patterns * !Archive !Junk !"Social Activity Notifications" !"Conversation History" !"Unsent Messages" !"Sync Issues*"
 Create Both
 Sync All
-Expunge Near
+Expunge Both
 
 
 IMAPAccount personal

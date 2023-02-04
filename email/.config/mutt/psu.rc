@@ -5,9 +5,9 @@ set mbox_type = Maildir
 set spoolfile = "+Inbox"
 set record = "+Sent"
 set postponed = "+Drafts"
+set trash = "+Trash"
 
-mailboxes "+Inbox"
-mailboxes "+Sent" "+Drafts" 
+mailboxes "+Inbox" "+Sent" "+Drafts" "+Trash"
 
 set from = `get-pass -c email/psu email`
 set sendmail = "msmtp -a university"
