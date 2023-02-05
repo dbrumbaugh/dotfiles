@@ -9,7 +9,7 @@ set download-path=~/downloads
 # Command with placeholder '%s' called if form field is opened with $EDITOR to
 # spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
 # editor, it's necessary to call it with `-f' to run it in the foreground.
-set editor-command=st -e "vise %s"
+set editor-command=st -e "vis %s"
 
 # If enabled the inputbox will be hidden whenever it contains no text.
 set input-autohide=true
