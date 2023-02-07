@@ -3,7 +3,7 @@
 [[ -z "${1-""}" ]] && exit 1
 
 case "$1" in
-    *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*|*player.odycdn.com*)
+    *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*|*player.odycdn.com*|*.mp4|*.mpeg|*.mkv)
         nohup mpv -quiet $1 2>&1 > /dev/null ;;
     *.png|*.jpeg|*.jpg) 
         nohup feh $1 2>&1 > /dev/null ;; 
