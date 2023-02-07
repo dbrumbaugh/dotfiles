@@ -1,4 +1,5 @@
-#!/usr/bin/env ksh
+#!/usr/bin/env ksh93
+
 CAMERA="$(ls /dev/video* | dmenu -p "Select a Video Device:" -l 5 -c -bw 3)"
 
-mpv --profile=low-latency --untimed --hwdec=auto "$CAMERA"
+mpv --no-audio av://v4l2:/dev/video0 --profile=low-latency --untimed &
