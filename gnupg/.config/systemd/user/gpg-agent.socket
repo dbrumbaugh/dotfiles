@@ -4,7 +4,7 @@ Documentation=man:gpg-agent(1)
 
 [Socket]
 ListenStream=%t/gnupg/S.gpg-agent
-Environment="GNUPGHOME=~/.local/share/gnupg"
+Environment="GNUPGHOME=/export/home/dbr4/.local/share/gnupg"
 FileDescriptorName=std
 SocketMode=0600
 DirectoryMode=0700

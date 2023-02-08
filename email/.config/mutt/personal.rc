@@ -1,7 +1,7 @@
 unmailboxes *
 
 set mbox_type = Maildir
-set folder = "~/.local/share/mail/personal"
+set folder = "/export/home/dbr4/.local/share/mail/personal"
 
 set spoolfile = "+Inbox"
 set record = "+Sent"
@@ -16,8 +16,6 @@ set from = `get-pass email/personal email`
 set use_from=yes
 set sendmail = "msmtp -a personal"
 
-set signature = "~/.config/mutt/sigs/personal.signature"
+set signature = "/export/home/dbr4/.config/mutt/sigs/personal.signature"
 
 set pgp_default_key = `get-pass email/personal email`
-
-macro index <tab> '<shell-escape> ~/.local/bin/email-sync personal <enter>'

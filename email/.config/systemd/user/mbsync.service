@@ -3,8 +3,8 @@ Description=Mailbox Synchronization Service
 
 [Service]
 Type=oneshot
-Environment="PASSWORD_STORE_DIR=%h/.local/share/passwords"
-Environment="GNUPGHOME=%h/.local/share/gnupg"
-Environment="PATH=%h/.local/bin:/usr/bin"
+Environment="PASSWORD_STORE_DIR=/export/home/dbr4/.local/share/passwords"
+Environment="GNUPGHOME=/export/home/dbr4/.local/share/gnupg"
+Environment="PATH=/export/home/dbr4/.local/bin:/usr/bin"
 Environment="DISPLAY=:0"
-ExecStart=/usr/bin/mbsync -Va -c %h/.config/isync/mbsyncrc
+ExecStart=/usr/bin/mbsync -Va -c /export/home/dbr4/.config/isync/mbsyncrc

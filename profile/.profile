@@ -17,3 +17,7 @@ if command -v hostname > /dev/null 2>&1; then
 else
     export HOST=$(cat /etc/hostname)
 fi
+
+if [[ $(tty) == /dev/tty1 ]]; then
+    startx "/export/home/dbr4/.config/x11/xinitrc"
+fi

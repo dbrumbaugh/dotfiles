@@ -1,3 +1,3 @@
 #!/usr/bin/env ksh93
 
-mbsync -c "/home/douglas/.config/isync/mbsyncrc" $1
+mbsync -c "/export/home/dbr4/.config/isync/mbsyncrc" $1

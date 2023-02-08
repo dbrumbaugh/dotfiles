@@ -1,6 +1,6 @@
 #!/usr/bin/env ksh
 
-prefix="$HOME/.local/share/passwords"
+prefix="/export/home/dbr4/.local/share/passwords"
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
