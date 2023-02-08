@@ -15,5 +15,3 @@ set sendmail = "msmtp -a university"
 set signature = "~/.config/mutt/sigs/psu.signature"
 
 set pgp_default_key = `get-pass -c email/psu email`
-
-macro index <tab> '<shell-escape> ~/.local/bin/email-sync university <enter>'

@@ -19,5 +19,3 @@ set sendmail = "msmtp -a personal"
 set signature = "~/.config/mutt/sigs/personal.signature"
 
 set pgp_default_key = `get-pass email/personal email`
-
-macro index <tab> '<shell-escape> ~/.local/bin/email-sync personal <enter>'

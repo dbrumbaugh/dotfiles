@@ -16,6 +16,8 @@ bind pager k previous-line
 bind pager gg top
 bind pager G bottom
 bind index j next-entry
+bind index \Ce next-entry
+bind index \Cy previous-entry
 bind index k previous-entry
 
 bind index l display-message
@@ -42,3 +44,5 @@ bind attach l view-mailcap
 
 #bind editor <space> noop
 bind editor <Tab> complete-query
+
+macro index <tab> '<shell-escape> ~/.local/bin/email-sync -a <enter>'
