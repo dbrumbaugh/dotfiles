@@ -3,7 +3,7 @@ Description=Davmail Exchange Gateway
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/davmail /export/home/dbr4/.config/davmail/davmail.properties
+ExecStart=/usr/bin/davmail %h/.config/davmail/davmail.properties
 Restart=always
 RestartSec=60
 
