@@ -11,9 +11,14 @@ reload-threads 10
 goto-next-feed no
 
 bind-key j down
+bind-key ^E down
 bind-key k up
+bind-key ^Y up
 bind-key j next articlelist
+bind-key ^E next articlelist
+
 bind-key k prev articlelist
+bind-key ^Y prev articlelist
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key G end

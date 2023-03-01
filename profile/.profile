@@ -12,6 +12,8 @@ export GPG_TTY=$(tty)
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export PASSWORD_STORE_DIR="$HOME/.local/share/passwords"
 
+export PATH="/usr/local/sbin:/usr/sbin:$PATH"
+
 if command -v hostname > /dev/null 2>&1; then
     export HOST=$(hostname -s)
 else
