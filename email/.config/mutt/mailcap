@@ -5,6 +5,7 @@ text/calendar; khal import --batch %s;
 application/ics; khal import --batch %s; 
 
 application/pdf; zathura %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; abiword %s;
 image/png; feh %s;
 image/jpeg; feh %s;
 image/svg; inkview %s;
