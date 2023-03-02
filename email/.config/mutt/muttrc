@@ -20,4 +20,4 @@ macro index,pager,browser <f2> '<change-folder>~/.local/share/mail/university/In
 
 folder-hook '~/.local/share/mail/personal/Inbox' 'source ~/.config/mutt/personal.rc'
 folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu.rc'
-source '~/.config/mutt/psu.rc'
+source '~/.config/mutt/personal.rc'
