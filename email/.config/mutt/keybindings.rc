@@ -12,7 +12,9 @@ bind index,pager,browser G last-entry
 bind index,pager,browser \Cd half-down
 bind index,pager,browser \Cu half-up
 bind pager j next-line
+bind pager \Ce next-line
 bind pager k previous-line
+bind pager \Cy previous-line
 bind pager gg top
 bind pager G bottom
 bind index j next-entry

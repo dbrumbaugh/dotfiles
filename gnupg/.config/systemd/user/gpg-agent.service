@@ -6,7 +6,7 @@ IgnoreOnIsolate=true
 
 [Service]
 Type=forking
-Environment="GNUPGHOME=/export/home/dbr4/.local/share/gnupg"
+Environment="GNUPGHOME=/home/douglas/.local/share/gnupg"
 ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support 
 Restart=on-abort
 

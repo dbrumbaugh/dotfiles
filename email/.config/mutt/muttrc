@@ -1,8 +1,8 @@
-source /export/home/dbr4/.config/mutt/settings.rc
-source /export/home/dbr4/.config/mutt/colors.rc    
-source /export/home/dbr4/.config/mutt/keybindings.rc 
-source /export/home/dbr4/.config/mutt/sidebar.rc
-source /export/home/dbr4/.config/mutt/gpg.rc
+source ~/.config/mutt/settings.rc
+source ~/.config/mutt/colors.rc    
+source ~/.config/mutt/keybindings.rc 
+source ~/.config/mutt/sidebar.rc
+source ~/.config/mutt/gpg.rc
 
 ignore *
 unignore from date subject to cc
@@ -15,9 +15,9 @@ alternative_order text/plain text/enriched text/html
 set realname = "Douglas B. Rumbaugh"
 set use_from = yes
 
-macro index,pager,browser <f1> '<change-folder>/export/home/dbr4/.local/share/mail/personal/Inbox<enter><redraw-screen>'
-macro index,pager,browser <f2> '<change-folder>/export/home/dbr4/.local/share/mail/university/Inbox<enter><redraw-screen>'
+macro index,pager,browser <f1> '<change-folder>~/.local/share/mail/personal/Inbox<enter><redraw-screen>'
+macro index,pager,browser <f2> '<change-folder>~/.local/share/mail/university/Inbox<enter><redraw-screen>'
 
-folder-hook '/export/home/dbr4/.local/share/mail/personal/Inbox' 'source /export/home/dbr4/.config/mutt/personal.rc'
-folder-hook '/export/home/dbr4/.local/share/mail/university/Inbox' 'source /export/home/dbr4/.config/mutt/psu.rc'
-source '/export/home/dbr4/.config/mutt/psu.rc'
+folder-hook '~/.local/share/mail/personal/Inbox' 'source ~/.config/mutt/personal.rc'
+folder-hook '~/.local/share/mail/university/Inbox' 'source ~/.config/mutt/psu.rc'
+source '~/.config/mutt/personal.rc'
