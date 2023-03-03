@@ -46,7 +46,7 @@ color title magenta default bold
 color info yellow default bold
 color hint-description yellow default
 
-browser openlink
+browser plumb
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
