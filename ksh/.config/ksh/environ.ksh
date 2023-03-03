@@ -125,3 +125,5 @@ export dir_stack
 
 # Percentage in man pager
 export MANPAGER='less -s -M +Gg'
+
+export GPG_TTY=$TTY
