@@ -10,7 +10,6 @@ export ENV="$SH_CONF_DIR/kshrc.ksh"
 
 export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH"
 
-export GPG_TTY=$(tty)
 export GNUPGHOME="$HOME/.local/share/gnupg"
 export PASSWORD_STORE_DIR="$HOME/.local/share/passwords"
 export XDG_STATE_HOME="$HOME/.local/state"
