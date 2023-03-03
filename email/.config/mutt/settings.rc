@@ -18,7 +18,7 @@ set forward_quote
 set reverse_name
 set include
 
-set editor = "nvim +':set textwidth=0'"
+set editor = "vise"
 
 set index_format = "%Z %D %-15.15F %s"
 set query_command= "khard email --parsable --search-in-source-files '%s'"
@@ -35,4 +35,4 @@ set crypt_replyencrypt = "yes"
 set pgp_verify_sig = "yes"
 set pgp_strict_enc = "yes"
 set pgp_use_gpg_agent = "yes"
-set pgp_timeout = 3600
+#set pgp_timeout = 3600

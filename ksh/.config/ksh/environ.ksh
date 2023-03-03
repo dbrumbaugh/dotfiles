@@ -8,10 +8,8 @@ else
 fi
 
 # Default text editor
-if command -v nvim > /dev/null 2>&1; then
-    export EDITOR=nvim
-elif command -v vim > /dev/null 2>&1; then
-    export EDITOR=vim
+if command -v vise > /dev/null 2>&1; then
+    export EDITOR=vise
 else
     export EDITOR=vi
 fi
