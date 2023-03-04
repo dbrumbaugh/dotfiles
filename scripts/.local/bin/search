@@ -5,6 +5,12 @@ if [[ ! -f $history_file ]]; then
     touch $history_file 
 fi
 
+yt=1
+if [[ "$1" == "-y" ]]; then
+    yt=0
+    shift
+fi
+
 if [[ $# > 0 ]]; then
     text=$(xclip -o)
 else
