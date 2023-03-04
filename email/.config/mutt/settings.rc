@@ -16,7 +16,7 @@ set forward_quote
 set reverse_name
 set include
 
-set editor = "nvim +':set textwidth=0'"
+set editor = "vis"
 
 set index_format = "%Z %D %-15.15F %s"
 set query_command= "khard email --parsable --search-in-source-files '%s'"
