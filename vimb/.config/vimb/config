@@ -1,14 +1,16 @@
 # Homepage that vimb opens if started without a URI.
 set home-page=https://duckduckgo.com
 
-# Path to the default download directory. If no download directory is set,
-# download will be written into current directory. The following pattern will
-# be expanded if the download is started '~/', '~user', '$VAR' and '${VAR}'.
-set download-path=/home/douglas/downloads
+# Path to the default download directory. If no download directory is
+# set, download will be written into current directory. The following
+# pattern will be expanded if the download is started '~/', '~user',
+# '$VAR' and '${VAR}'.
+set download-path=${CHOME}/downloads
 
-# Command with placeholder '%s' called if form field is opened with $EDITOR to
-# spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
-# editor, it's necessary to call it with `-f' to run it in the foreground.
+# Command with placeholder '%s' called if form field is opened with
+# $EDITOR to spawn the editor-like `x-terminal-emulator -e vim %s'. To
+# use Gvim as the editor, it's necessary to call it with `-f' to run it
+# in the foreground.
 set editor-command=st -e "vis %s"
 
 # If enabled the inputbox will be hidden whenever it contains no text.
@@ -24,11 +26,12 @@ set spell-checking-languages=en
 # Enable or disable support for WebGL on pages.
 set webgl=true
 
-# While typing a search command, show where the pattern typed so far matches.
+# While typing a search command, show where the pattern typed so far
+# matches.
 set incsearch=true
 
-# The font family to use as the default for content that does not specify a
-# font.
+# The font family to use as the default for content that does not specify
+# a font.
 set default-font=FiraCode Nerd Font
 
 # The font family used as the default for content using monospace font.
@@ -49,8 +52,9 @@ set monospace-font=FiraCode Nerd Font
 # Default Full-Content zoom level in percent. Default is 100.
 set default-zoom=100
 
-# Shortcuts allow the opening of an URI built up from a named template with
-# additional parameters.
+# Shortcuts allow the opening of an URI built up from a named template
+# with additional parameters.
+
 shortcut-add duck=https://duckduckgo.com/?q=$0
 shortcut-add d=http://dict.cc/?s=$0
 shortcut-add g=https://encrypted.google.com/search?q=$0
