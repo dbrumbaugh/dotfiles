@@ -1,6 +1,6 @@
 xrdb $XDG_CONFIG_HOME/x11/xresources
 picom -b --vsync --backend glx
-~/.fehbg
+$CHOME/.fehbg
 redshift -l 40:-77 &
 xss-lock --transfer-sleep-lock autolock &
 mpd
