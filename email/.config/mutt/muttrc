@@ -18,6 +18,6 @@ set use_from = yes
 macro index,pager,browser <f1> "<change-folder>$XDG_DATA_HOME/mail/personal/Inbox<enter><redraw-screen>"
 macro index,pager,browser <f2> "<change-folder>$XDG_DATA_HOME/mail/university/Inbox<enter><redraw-screen>"
 
-folder-hook "$XDG_DATA_HOME/mail/personal/Inbox' "source $XDG_CONFIG_HOME/mutt/personal.rc"
-folder-hook "$XDG_DATA_HOME/mail/university/Inbox' "source $XDG_CONFIG_HOME/mutt/psu.rc"
+folder-hook "$XDG_DATA_HOME/mail/personal/Inbox" "source $XDG_CONFIG_HOME/mutt/personal.rc"
+folder-hook "$XDG_DATA_HOME/mail/university/Inbox" "source $XDG_CONFIG_HOME/mutt/psu.rc"
 source "$XDG_CONFIG_HOME/mutt/personal.rc"
