@@ -46,4 +46,4 @@ bind attach l view-mailcap
 
 bind editor <Tab> complete-query
 
-macro index <tab> '<shell-escape> ~/.local/bin/email-sync -a <enter>'
+macro index <tab> "<shell-escape> email-sync -a <enter>"
