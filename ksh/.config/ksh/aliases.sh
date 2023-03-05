@@ -5,7 +5,7 @@ alias alert='notify-send --urgency=critical -i "$([ $? = 0 ] && echo terminal ||
 # Convenience aliases
 alias qemu=qemu-system-x86_64
 alias cls=clear
-alias stowh="stow -t $HOME"
+alias stowh="stow -t $CHOME"
 alias sctlu="systemctl --user"
 alias sctl="systemctl"
 alias jctlu="journalctl --user"

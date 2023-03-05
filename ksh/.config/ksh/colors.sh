@@ -1,48 +1,45 @@
 # store color codes as variables
-if [[ $PDKSH == 1 ]]; then
-    SIG='\033['
-else
-    SIG='\E['
-fi
+export SIG="\033["
+export END=""
 
-blk="${SIG}30m"
-red="${SIG}31m"
-grn="${SIG}32m"
-ylw="${SIG}33m"
-blu="${SIG}34m"
-mag="${SIG}35m"
-cyn="${SIG}36m"
-wht="${SIG}37m"
+blk="${SIG}30m${END}"
+red="${SIG}31m${END}"
+grn="${SIG}32m${END}"
+ylw="${SIG}33m${END}"
+blu="${SIG}34m${END}"
+mag="${SIG}35m${END}"
+cyn="${SIG}36m${END}"
+wht="${SIG}37m${END}"
 
 
-blk2="${SIG}90m"
-red2="${SIG}91m"
-grn2="${SIG}92m"
-ylw2="${SIG}93m"
-blu2="${SIG}94m"
-mag2="${SIG}95m"
-cyn2="${SIG}96m"
-wht2="${SIG}97m"
+blk2="${SIG}90m${END}"
+red2="${SIG}91m${END}"
+grn2="${SIG}92m${END}"
+ylw2="${SIG}93m${END}"
+blu2="${SIG}94m${END}"
+mag2="${SIG}95m${END}"
+cyn2="${SIG}96m${END}"
+wht2="${SIG}97m${END}"
 
-blk_b="${SIG}1;30m"
-red_b="${SIG}1;31m"
-grn_b="${SIG}1;32m"
-ylw_b="${SIG}1;33m"
-blu_b="${SIG}1;34m"
-mag_b="${SIG}1;35m"
-cyn_b="${SIG}1;36m"
-wht_b="${SIG}1;37m"
+blk_b="${SIG}1;30m${END}"
+red_b="${SIG}1;31m${END}"
+grn_b="${SIG}1;32m${END}"
+ylw_b="${SIG}1;33m${END}"
+blu_b="${SIG}1;34m${END}"
+mag_b="${SIG}1;35m${END}"
+cyn_b="${SIG}1;36m${END}"
+wht_b="${SIG}1;37m${END}"
 
-blk2_b="${SIG}1;90m"
-red2_b="${SIG}1;91m"
-grn2_b="${SIG}1;92m"
-ylw2_b="${SIG}1;93m"
-blu2_b="${SIG}1;94m"
-mag2_b="${SIG}1;95m"
-cyn2_b="${SIG}1;96m"
-wht2_b="${SIG}1;97m"
+blk2_b="${SIG}1;90m${END}"
+red2_b="${SIG}1;91m${END}"
+grn2_b="${SIG}1;92m${END}"
+ylw2_b="${SIG}1;93m${END}"
+blu2_b="${SIG}1;94m${END}"
+mag2_b="${SIG}1;95m${END}"
+cyn2_b="${SIG}1;96m${END}"
+wht2_b="${SIG}1;97m${END}"
 
-rst="${SIG}0m"
+rst="${SIG}0m${END}"
 
 
 

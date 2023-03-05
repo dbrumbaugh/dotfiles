@@ -1,36 +1,23 @@
 pwda() {
     if [[ $PWD = $HOME ]]; then
-        print "${blu_b}~"
+        printf "\001${blu_b}\002~"
     elif [[ $PWD == "/" ]]; then
-        print "${blu_b}/"
+        printf "\001${blu_b}\002/"
     else
-        print "${blu_b}${PWD##*/}"
+        printf "\001${blu_b}\002${PWD##*/}"
     fi
-}
-
-stat() {
-        cc=$?
-
-        if [[ $cc == 0 ]]; then
-            print "$cyn2_b[!] "
-        elif [[ $cc == 127 && "$PDKSH" == "0" ]]; then
-            print "$(cnf ${pc%% *})"
-            print "$red_b[!] "
-        else
-            print "$red_b$cc->[!] "
-        fi
 }
 
 gbranch() {
     if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
-        print -n "${ylw_b}${clr}"
+        printf "\001${ylw_b}\002\001${clr}\002"
     else
-        print -n ""
+        printf ""
     fi
 
     branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
     [[ -z $branch ]] && branch="<empty>"
-    print -n " $branch"
+    printf " $branch"
 }
 
 gremotestat() {
@@ -38,16 +25,15 @@ gremotestat() {
     ahead=$(echo "$remote_stat" | cut -d " " -f 3 | tr -d "+")
     behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
 
-    [[ $ahead != "0" && ! -z $ahead ]] && print -n "${grn} "
-    [[ $behind != "0" && ! -z $behind ]] && print -n "${red} "
+    [[ $ahead != "0" && ! -z $ahead ]] && printf "\001${grn}\002 "
+    [[ $behind != "0" && ! -z $behind ]] && printf "\001${red}\002 "
 }
 
 glocalstat() {
     local_stat=$(git status --porcelain)
-    echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1 && print -n "${ylw} "
-    echo "$local_stat" | grep "?" > /dev/null 2>&1 && print -n "${red} "
+    echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1 && printf "\001${ylw}\002 "
+    echo "$local_stat" | grep "?" > /dev/null 2>&1 && printf "\001${red}\002 "
 }
-
 
 gprompt() {
     # check if we are in a git repository
@@ -65,9 +51,9 @@ gprompt() {
 
         syms="$rem$loc"
         if [[ -z "$syms" ]]; then
-            printf "$clr(%s)" "$branch"
+            printf "\001$clr\002(%s)" "$branch"
         else
-            printf "$clr(%s %s$clr)" "$branch" "$syms"
+            printf "\001$clr\002(%s %s\001$clr\002)" "$branch" "$syms"
         fi
     fi
 }
@@ -76,15 +62,15 @@ conda_env() {
     if [[ -z ${CONDA_DEFAULT_ENV+x} ]]; then
         : #pass
     else
-        print "${blu2_b}( $CONDA_DEFAULT_ENV) "
+        printf "\001${blu2_b}\002( $CONDA_DEFAULT_ENV) "
     fi
 }
 
 prompt_char() {
     if [[ $LOGNAME == "root" ]]; then
-        print "${red_b}# ${rst}${red}"
+        printf "\001${red_b}\002# \001${rst}\002\001${red}\002"
     else
-        print "${wht_b}\$ ${rst}"
+        printf "\001${wht_b}\002\$ \001${rst}\002"
     fi
 }
 
@@ -96,10 +82,25 @@ user_host() {
         clr1=$grn_b
         clr2=$ylw_b
     fi
-    print "${clr1}$LOGNAME${clr2}@${clr1}$HOST"
+    printf "\001${clr1}\002$LOGNAME\001${clr2}\002@\001${clr1}\002$HOST"
 }
 
-# Add in a title (seems to need to be between ^[ and ^G)
-TITLE=']0;${LOGNAME}@${HOST} [${TTY}]'
+stat() {
+    cc=$1
 
-PS1=${TITLE}'$(stat)$(conda_env)$(user_host):$(pwda)$(gprompt)$(prompt_char)'
+    if [[ $# < 2 || $2 == "0" ]]; then
+        hist="-"
+    else
+        hist="$2"
+    fi
+
+    if [[ $cc == 127 && ! -z ${pc+x} ]]; then
+        print "$(cnf ${pc%% *})"
+    fi
+
+    if [[ $cc == 0 ]]; then
+        printf "\001${cyn2_b}\002[$hist]"
+    else
+        printf "\001${red_b}\002[$hist]->${cc}"
+    fi
+}

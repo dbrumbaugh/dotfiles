@@ -1,4 +1,4 @@
-# Determine if the login shell is PDKSH or KSH93. This is used for
+# Determine if the shell is PDKSH or KSH93. This is used for
 # configuring the prompt, among other things. Mostly here so I can use
 # the same config on my computers and my OpenBSD servers.
 if [[ $KSH_VERSION == *PD* ]]; then
@@ -8,10 +8,8 @@ else
 fi
 
 # Default text editor
-if command -v nvim > /dev/null 2>&1; then
-    export EDITOR=nvim
-elif command -v vim > /dev/null 2>&1; then
-    export EDITOR=vim
+if command -v vis > /dev/null 2>&1; then
+    export EDITOR=vis
 else
     export EDITOR=vi
 fi
@@ -21,27 +19,7 @@ export FCEDIT=$EDITOR
 
 # Other default applications
 export TERMINAL="st"
-export BROWSER="surf"
-
-# XDG/User-level configuration setup
-if [[ -d "/export/home/$USER" ]]; then
-    export USER_LOCAL="/export/home/$USER/.local"
-    export XDG_CACHE_HOME="/export/home/$USER/.cache"
-    export XDG_CONFIG_HOME="/export/home/$USER/.config"
-else
-    export USER_LOCAL="$HOME/.local"
-    export XDG_CACHE_HOME="$HOME/.cache"
-    export XDG_CONFIG_HOME="$HOME/.config"
-fi
-
-export XDG_DATA_HOME="$USER_LOCAL/share"
-export XDG_STATE_HOME="$USER_LOCAL/state"
-
-# X11 configuration variables
-export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/passwords"
+export BROWSER="vimb"
 
 export CDPATH=":$HOME:$HOME/current-classes:$HOME/current-projects"
 
@@ -49,19 +27,6 @@ export CDPATH=":$HOME:$HOME/current-classes:$HOME/current-projects"
 if [[ -d "$USER_LOCAL/bin" ]] && [[ ":$PATH:" != *":$USER_LOCAL/bin:"* ]]; then
     PATH="$PATH:$USER_LOCAL/bin"
     PATH="$PATH:$USER_LOCAL/bin/statusbar"
-fi
-
-# Shell Configuration
-export TTY=$(tty)
-export HISTDIR="$XDG_DATA_HOME/ksh_history"
-
-# Separate ksh93 and PDKSH history files
-if [[ "$PDKSH" == 0 ]]; then
-    export HISTFILE="$HISTDIR/history_${TTY##*/}"
-    export HISTMASTER="$HISTDIR/history"
-else
-    export HISTFILE="$HISTDIR/pdksh_history_${TTY##*/}"
-    export HISTMASTER="$HISTDIR/pdksh_history"
 fi
 
 # Set up NVM (node version manager) if applicable
