@@ -10,7 +10,7 @@ conflict_resolution = "a wins"
 
 [storage fastmail_calendar_near]
 type = "filesystem"
-path = "~/.local/share/vdirsyncer/calendars/"
+path.fetch = ["shell", "echo ${XDG_DATA_HOME}/vdirsyncer/calendars/"]
 fileext = ".ics"
 
 [storage fastmail_calendar_far]
@@ -29,7 +29,7 @@ metadata = ["displayname"]
 
 [storage fastmail_contacts_near]
 type = "filesystem"
-path = "~/.local/share/vdirsyncer/contacts/"
+path.fetch = ["shell", "echo ${XDG_DATA_HOME}/vdirsyncer/contacts/"]
 fileext = ".vcf"
 
 
