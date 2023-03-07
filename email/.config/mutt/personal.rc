@@ -7,6 +7,8 @@ set spoolfile = "+Inbox"
 set record = "+Sent"
 set postponed = "+Drafts"
 
+set fcc_attach
+
 mailboxes "+Inbox" "+Inbox/amazon" "+Inbox/finances" "+Inbox/health"
 mailboxes "+Inbox/other" "+Inbox/webcontact" "+Inbox/webservices" 
 mailboxes "+Inbox/webmaster" "+Sent" "+Drafts" "+Trash"

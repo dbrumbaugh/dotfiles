@@ -3,9 +3,11 @@ unmailboxes *
 set folder = "$XDG_DATA_HOME/mail/university"
 set mbox_type = Maildir
 set spoolfile = "+Inbox"
-set record = "+Sent"
 set postponed = "+Drafts"
 set trash = "+Trash"
+
+unset record
+unset fcc_attach
 
 mailboxes "+Inbox" "+Sent" "+Drafts" "+Trash"
 

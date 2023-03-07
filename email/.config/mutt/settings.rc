@@ -10,7 +10,6 @@ set markers = no
 set mark_old = no 
 set mime_forward = yes
 set fast_reply
-set fcc_attach
 set forward_format = "Fwd: %s"
 set forward_quote
 set reverse_name
