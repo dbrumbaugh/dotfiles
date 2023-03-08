@@ -1,6 +1,6 @@
 # store color codes as variables
-export SIG="\033["
-export END=""
+export SIG="\a\033["
+export END="\a"
 
 blk="${SIG}30m${END}"
 red="${SIG}31m${END}"

@@ -7,4 +7,4 @@
 # Add in a title (seems to need to be between ^[ and ^G)
 TITLE=']0;${LOGNAME}@${HOST} [${TTY}]:${SHELL}'
 
-PS1=${TITLE}'$(stat $? $((HISTCMD-1))) $(conda_env)$(user_host):$(pwda)$(gprompt)$(prompt_char)'
+PS1=$'\a\r'${TITLE}'$(stat $? $((HISTCMD-1))) $(conda_env)$(user_host):$(pwda)$(gprompt)$(prompt_char)'
