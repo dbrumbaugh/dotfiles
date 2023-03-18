@@ -10,9 +10,9 @@ if [ "$0" != "sh" ]; then
     . $SH_CONF_DIR/plan9.sh
 
     export SHELL="${0##*/}"
-    if [[ "$SHELL" == "bash" ]]; then 
+    if [[ $SHELL == "bash" ]]; then 
         . $SH_CONF_DIR/bash_prompt.sh
-    elif [[ "$SHELL" == "ksh93" ]]; then
+    elif [[ $SHELL == "ksh93" || $SHELL == "-ksh93" ]]; then
         . $SH_CONF_DIR/ksh_prompt.sh
         trap 'pc=${.sh.command}' DEBUG
         set -o multiline
