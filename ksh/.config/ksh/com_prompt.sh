@@ -1,16 +1,16 @@
 pwda() {
     if [[ $PWD = $HOME ]]; then
-        printf "\001${blu_b}\002~"
+        printf "${blu_b}~"
     elif [[ $PWD == "/" ]]; then
-        printf "\001${blu_b}\002/"
+        printf "${blu_b}/"
     else
-        printf "\001${blu_b}\002${PWD##*/}"
+        printf "${blu_b}${PWD##*/}"
     fi
 }
 
 gbranch() {
     if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
-        printf "\001${ylw_b}\002\001${clr}\002"
+        printf "${ylw_b}${clr}"
     else
         printf ""
     fi
@@ -25,14 +25,14 @@ gremotestat() {
     ahead=$(echo "$remote_stat" | cut -d " " -f 3 | tr -d "+")
     behind=$(echo "$remote_stat" | cut -d " " -f 4 | tr -d "-")
 
-    [[ $ahead != "0" && ! -z $ahead ]] && printf "\001${grn}\002 "
-    [[ $behind != "0" && ! -z $behind ]] && printf "\001${red}\002 "
+    [[ $ahead != "0" && ! -z $ahead ]] && printf "${grn} "
+    [[ $behind != "0" && ! -z $behind ]] && printf "${red} "
 }
 
 glocalstat() {
     local_stat=$(git status --porcelain)
-    echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1 && printf "\001${ylw}\002 "
-    echo "$local_stat" | grep "?" > /dev/null 2>&1 && printf "\001${red}\002 "
+    echo "$local_stat" | grep "[MADRCU]" > /dev/null 2>&1 && printf "${ylw} "
+    echo "$local_stat" | grep "?" > /dev/null 2>&1 && printf "${red} "
 }
 
 gprompt() {
@@ -51,9 +51,9 @@ gprompt() {
 
         syms="$rem$loc"
         if [[ -z "$syms" ]]; then
-            printf "\001$clr\002(%s)" "$branch"
+            printf "$clr(%s)" "$branch"
         else
-            printf "\001$clr\002(%s %s\001$clr\002)" "$branch" "$syms"
+            printf "$clr(%s %s$clr)" "$branch" "$syms"
         fi
     fi
 }
@@ -62,15 +62,15 @@ conda_env() {
     if [[ -z ${CONDA_DEFAULT_ENV+x} ]]; then
         : #pass
     else
-        printf "\001${blu2_b}\002( $CONDA_DEFAULT_ENV) "
+        printf "${blu2_b}( $CONDA_DEFAULT_ENV) "
     fi
 }
 
 prompt_char() {
     if [[ $LOGNAME == "root" ]]; then
-        printf "\001${red_b}\002# \001${rst}\002\001${red}\002"
+        printf "${red_b}# ${rst}${red}"
     else
-        printf "\001${wht_b}\002\$ \001${rst}\002"
+        printf "${wht_b}\$ ${rst}"
     fi
 }
 
@@ -82,7 +82,7 @@ user_host() {
         clr1=$grn_b
         clr2=$ylw_b
     fi
-    printf "\001${clr1}\002$LOGNAME\001${clr2}\002@\001${clr1}\002$HOST"
+    printf "${clr1}$LOGNAME${clr2}@${clr1}$HOST"
 }
 
 stat() {
@@ -99,8 +99,8 @@ stat() {
     fi
 
     if [[ $cc == 0 ]]; then
-        printf "\001${cyn2_b}\002[$hist]"
+        printf "${cyn2_b}[$hist]"
     else
-        printf "\001${red_b}\002[$hist]->${cc}"
+        printf "${red_b}[$hist]->${cc}"
     fi
 }
