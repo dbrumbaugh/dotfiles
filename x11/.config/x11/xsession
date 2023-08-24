@@ -20,4 +20,6 @@ fi
 ulimit -Sc 0
 xset -b off
 
+setxkbmap -option grp:alt_shift_toggle us,gr
+
 exec dwm
