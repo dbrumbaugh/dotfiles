@@ -1,0 +1,3 @@
+[submodule "vis/.config/vis/plugins/vis-plug"]
+	path = vis/.config/vis/plugins/vis-plug
+	url = git@github.com:erf/vis-plug.git
