@@ -16,11 +16,11 @@ if [ "$0" != "sh" ]; then
         . $SH_CONF_DIR/ksh_prompt.sh
         trap 'pc=${.sh.command}' DEBUG
         set -o multiline
-        export HISTFILE="${XDG_DATA_HOME}/ksh93_history"
+        export HISTFILE="${XDG_DATA_HOME}/ksh93_history_${TTY##/*/}"
     elif [[ "$SHELL" == "ksh" ]]; then
         # OpenBSD ksh
         . $SH_CONF_DIR/ksh_prompt.sh
-        export HISTFILE="${XDG_DATA_HOME}/pdksh_history"
+        export HISTFILE="${XDG_DATA_HOME}/pdksh_history_${TTY##/*/}"
     fi
 
     set -o emacs
