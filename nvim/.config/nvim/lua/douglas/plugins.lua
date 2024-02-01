@@ -62,7 +62,9 @@ return packer.startup({ function(use)
 
     -- LSP plugins
     use "neovim/nvim-lspconfig"
-    use "williamboman/nvim-lsp-installer"
+    --use "williamboman/nvim-lsp-installer"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"
@@ -84,8 +86,8 @@ return packer.startup({ function(use)
 
     use "lewis6991/gitsigns.nvim"
 
-    use "vim-pandoc/vim-pandoc"
-    use "vim-pandoc/vim-pandoc-syntax"
+--    use "vim-pandoc/vim-pandoc"
+    --use "vim-pandoc/vim-pandoc-syntax"
 
     use "scalameta/nvim-metals"
 
