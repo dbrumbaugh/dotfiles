@@ -17,7 +17,7 @@ set include
 
 set editor = "vis"
 
-set index_format = "%Z %D %-15.15F %s"
+set index_format = "%Z %<[d?%-10.10[%I:%M %p]&%[%m/%d/%Y]> %-20.20F %s"
 set query_command= "khard email --parsable --search-in-source-files '%s'"
 
 unset sig_dashes
@@ -33,3 +33,7 @@ set pgp_verify_sig = "yes"
 set pgp_strict_enc = "yes"
 set pgp_use_gpg_agent = "yes"
 set pgp_timeout = 3600
+
+set pgp_self_encrypt = "yes"
+
+set print_command="lp"

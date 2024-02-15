@@ -12,12 +12,8 @@ unignore x-spam-report
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
-set realname = "Douglas B. Rumbaugh"
 set use_from = yes
 
-macro index,pager,browser <f1> "<change-folder>$XDG_DATA_HOME/mail/personal/Inbox<enter><redraw-screen>"
-macro index,pager,browser <f2> "<change-folder>$XDG_DATA_HOME/mail/university/Inbox<enter><redraw-screen>"
+set new_mail_command="notify-send -i /usr/share/icons/gnome/32x32/status/mail-unread.png -c email 'New Email' '%n new, %u unread.' &"
 
-folder-hook "$XDG_DATA_HOME/mail/personal/Inbox" "source $XDG_CONFIG_HOME/mutt/personal.rc"
-folder-hook "$XDG_DATA_HOME/mail/university/Inbox" "source $XDG_CONFIG_HOME/mutt/psu.rc"
-source "$XDG_CONFIG_HOME/mutt/personal.rc"
+source "$XDG_CONFIG_HOME/mutt/mailboxes.rc"
