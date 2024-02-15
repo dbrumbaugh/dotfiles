@@ -1,0 +1,18 @@
+#!/usr/bin/env ksh93
+
+if [[ ! -d $CHOME/phone ]]; then
+    mkdir $CHOME/phone
+fi
+
+# this command will not return any special status codes,
+# so checking if a phone is attached cannot be done here
+# without piping the output into grep or something similar...
+# We'll just blindly run this, and then check the status code
+# for mount instead.
+mtp-detect
+
+if jmtpfs $CHOME/phone; then
+    notify-send -u normal "Android device mounted at $CHOME/phone."
+else
+    notify-send -u normal "Android device mount failed. Ensure phone is connected and has USB file sharing enabled."
+fi
