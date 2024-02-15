@@ -12,7 +12,7 @@ gbranch() {
     if [[ -e $(git rev-parse --git-dir 2>/dev/null)/MERGE_HEAD ]]; then
         printf "${ylw_b}${clr}"
     else
-        printf ""
+        printf ""
     fi
 
     branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
