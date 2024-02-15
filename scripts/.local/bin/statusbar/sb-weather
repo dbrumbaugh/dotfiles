@@ -1,0 +1,42 @@
+#!/usr/bin/env ksh
+
+high='--'
+low='--'
+rain='--%'
+
+report="${XDG_DATA_HOME}"/forecast-stripped.txt
+
+# if the report file doesn't exist, then print default symbols
+if [[ ! -f $report ]]; then
+    printf "^C9^ $high ^C12^ $low ^C4\^ $rain"
+    exit
+fi
+
+# determine whether to pull the numbers for morning, noon, evening, or
+# night
+#
+# Display morning time up to 11, noon up to 16, evening up to 20, and
+# night up to 24
+time=$(date +%H)
+if [[ $time -lt 11 ]]; then
+    # morning
+    temps=($( sed '1q' $report ))
+    rain=$( sed '1,4d;5q' $report )
+elif [[ $time -lt 17 ]]; then
+    # afternoon
+    temps=($( sed '1d;2q' $report ))
+    rain=$( sed '1,5d;6q' $report )
+elif [[ $time -lt 20 ]]; then
+    # evening
+    temps=($( sed '1,2d;3q' $report ))
+    rain=$( sed '1,6d;7q' $report )
+else
+    # night
+    temps=($( sed '1,3d;4q' $report ))
+    rain=$( sed '1,7d;8q' $report )
+fi
+
+low=${temps[1]}
+high=${temps[0]}
+
+printf "^C9^ $high ^C12^ $low ^C4\^ $rain"
