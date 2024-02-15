@@ -5,7 +5,7 @@ if [[ -f "$HOME/.local/state/vpn" ]]; then
     rm "$HOME/.local/state/vpn"
     notify-send "VPN disconnecting"
 else
-    if get-pass "misc/psu-vpn" | doas -n openconnect --protocol=gp --server secure-connect.psu.edu --user=dbr4 --authgroup=Faculty --non-inter --passwd-on-stdin --background 2>&1 >> "$HOME/.local/var/vpn.log"; then
+    if get-pass "psu/psu-vpn" | doas -n openconnect --protocol=gp --server secure-connect.psu.edu --user=dbr4 --authgroup="Faculty/Staff (Unmanaged Host)" --non-inter --passwd-on-stdin --background 2>&1 >> "$HOME/.local/var/vpn.log"; then
         touch "$HOME/.local/state/vpn"
         notify-send "VPN connected"
     else

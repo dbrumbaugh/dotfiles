@@ -11,7 +11,7 @@ if [[ -f $root/CMakeLists.txt ]]; then # CMake project
     test -d "$root/build" || mkdir -p "$root/build"
     cd "$root/build"
     cmake ..
-    make
+    make -j
     cd -
     exit 0
 elif [[ -f $root/Makefile ]]; then # Regular makefile
