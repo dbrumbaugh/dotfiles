@@ -1,9 +1,46 @@
-#! /usr/local/bin/env ksh
+#!/usr/bin/env bash
 
-if curl 'wttr.in/~State+College?T&d&u' 2> /dev/null > "${XDG_DATA_HOME}"/forecast; then
-    sed '1,12d;14,15d;16q' "${XDG_DATA_HOME}/forecast" | tr '│' '\n' | sed -r '/^[[:blank:]]*$/d; s/^.{15}//;s/^[[:digit:]]*\.[[:digit:]]* in \| //' | tr -d '°F+' | tr '()' ' ' > "${XDG_DATA_HOME}/forecast-stripped.txt"
-else
+forecast=$(curl https://wttr.in?format="%t+%c+%m" 2> /dev/null)
+
+if [[ $forecast == "" ]]; then
     rm "${XDG_DATA_HOME}"/forecast 2> /dev/null
-    rm "${XDG_DATA_HOME}"/forecast-stripped 2> /dev/null
     notify-send "Weather forecast download failed."
 fi
+
+forecast=($forecast)
+
+temp=${forecast[0]//F}
+temp=${temp//+}
+temp=${temp//°}
+
+status=${forecast[1]}
+moon=${forecast[2]}
+
+case $moon in
+  "🌑")
+      moon="🌕";;
+  "🌒")
+      moon="🌖";;
+  "🌓")
+      moon="🌗";;
+  "🌔")
+      moon="🌘";;
+  "🌕")
+      moon="🌑";;
+  "🌖")
+      moon="🌒";;
+  "🌗")
+      moon-"🌓";;
+  "🌘")
+      moon="🌔";;
+esac 
+
+if (( temp < 50 )); then
+  temp_pre="^C12^"
+elif (( temp < 70 )); then
+  temp_pre="^C3^"
+else
+  temp_pre="^C9^ "
+fi
+  
+printf "%s %s ^C4^%s ^C12^%s" $temp_pre $temp $status $moon > "${XDG_DATA_HOME}"/forecast.txt
