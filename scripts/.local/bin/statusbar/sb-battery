@@ -1,20 +1,20 @@
 #!/usr/bin/env ksh
 
 if [[ -d "/sys/class/power_supply/BAT0" ]]; then
-    b_charging=""
-    b_alert=""
-    b_100=""
-    b_90=""
-    b_80=""
-    b_70=""
-    b_60=""
-    b_50=""
-    b_40=""
-    b_30=""
-    b_20=""
-    b_10=""
+    b_charging="󰂄"
+    b_alert="󰂃"
+    b_100="󰁹"
+    b_90="󰂂"
+    b_80="󰂁"
+    b_70="󰂀"
+    b_60="󰁿"
+    b_50="󰁾"
+    b_40="󰁽"
+    b_30="󰁼"
+    b_20="󰁻"
+    b_10="󰁺"
 
-    b_unk=""
+    b_unk="󰂑"
 
     battery="/sys/class/power_supply/BAT0"
     status="$(cat "$battery/status" 2>&1)"

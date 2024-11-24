@@ -2,13 +2,13 @@
 volume=$(pamixer --get-volume)
 
 if [ $(pamixer --get-mute) = "true" ]; then
-    symbol="^C1^ﱝ"
+    symbol="^C1^󰝟"
 elif [ "$volume" -ge "70" ]; then
-    symbol="^C10^墳"
+    symbol="^C10^󰕿"
 elif [ "$volume" -gt "0" ]; then
-    symbol="^C10^奔"
+    symbol="^C10^󰖀"
 else
-    symbol="^C3^婢"
+    symbol="^C3^󰕾"
 fi
 
 

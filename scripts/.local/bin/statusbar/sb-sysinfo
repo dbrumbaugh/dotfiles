@@ -34,11 +34,11 @@ fi
 cpu="$(sar 1 1 | awk '/Average:/ {print 100-$8}')"
 
 if (( cpu <= 40 )); then
-    cpu_icon="^C2^ "
+    cpu_icon="^C2^󰡵 "
 elif (( cpu <= 80 )); then
-    cpu_icon="^C3^ "
+    cpu_icon="^C3^󰊚 "
 else
-    cpu_icon="^C1^ "
+    cpu_icon="^C1^󰡴 "
 fi
 
 printf "%s %.1f %s %.1f %s %d\n" $cpu_icon $cpu $color $perc $tcolor $temp

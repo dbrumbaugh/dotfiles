@@ -2,21 +2,27 @@
 
 line=""
 if pidof xss-lock > /dev/null 2>&1; then
-    line="^C2^ "
+    line="^C2^ "
 else
-    line="^C3^ "
+    line="^C3^ "
+fi
+
+if pidof dunst > /dev/null 2>&1 && [[ $(dunstctl is-paused) == "false" ]]; then
+    line="$line ^C2^󰅺 "
+else
+    line="$line ^C1^󱗡 "
 fi
 
 if pidof picom > /dev/null 2>&1; then
-    line="$line ^C2^ "
+    line="$line ^C2^󰂵 "
 else
-    line="$line ^C1^ "
+    line="$line ^C1^󰂷 "
 fi
 
 if [[ -f "$XDG_STATE_HOME/screencasting" ]]; then
-    line="$line ^C1^壘"
+    line="$line ^C1^󰑋"
 else
-    line="$line ^C7^壘"
+    line="$line ^C7^󰑋"
 fi
 
 printf "%s " $line
