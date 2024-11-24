@@ -5,6 +5,6 @@
 case "$1" in
     *youtube.com/watch*|*youtu.be*|*odysee.com*|*utreon.com/embed/*|*youtube-nocookie.com/embed/*|*youtube.com/embed/*|*player.odycdn.com*)
         nohup mpv -quiet $1 2>&1 > /dev/null ;;
-    *) vimb "$1"
+    *) firefox "$1"
 esac
 
